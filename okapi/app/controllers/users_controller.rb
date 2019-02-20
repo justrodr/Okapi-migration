@@ -7,5 +7,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     debugger
   end
+  
+  def create
+    # ***Implement
+  end
 
 end
