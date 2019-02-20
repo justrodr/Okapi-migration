@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-  get 'sessions/new'
-=======
   root 'users#new'
   
->>>>>>> b18ce74e40b3be03a7f45d9fa64f38821969f35d
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
