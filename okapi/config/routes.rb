@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root 'users#new'
+<<<<<<< HEAD
   resources :users
+=======
+  resources:users
+>>>>>>> 81a8356ddde253b7ae13e4c64ff18797ab1c9e1a
   
 
   # The priority is based upon order of creation: first created -> highest priority.

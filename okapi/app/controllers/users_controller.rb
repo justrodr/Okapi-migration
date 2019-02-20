@@ -5,11 +5,22 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    debugger
+    #debugger
   end
   
   def create
-    # ***Implement
+    @user = User.new(user_params)
+    if @user.save
+      log_in @user
+      flash[:success] = "Welcome to Okapi!"
+      redirect_to @user
+    else
+      render 'new'
+    end
   end
 
+    private 
+      def user_params
+        params.require(:user).permit(:first_name, :last_name, :email, :password, :password_conformation)
+      end
 end
