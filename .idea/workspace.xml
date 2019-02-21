@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc16397c-0cca-4037-bdf0-34d85a45ab9e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/okapi/README.rdoc" beforeDir="false" afterPath="$PROJECT_DIR$/okapi/README.rdoc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/okapi/app/assets/stylesheets/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/okapi/app/assets/stylesheets/application.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/okapi/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/okapi/app/controllers/application_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/okapi/app/controllers/sessions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/okapi/app/controllers/sessions_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/okapi/app/controllers/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/okapi/app/controllers/users_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/okapi/app/helpers/sessions_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/okapi/app/helpers/sessions_helper.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/okapi/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/okapi/app/models/user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/okapi/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/okapi/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/okapi/app/views/sessions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/okapi/app/views/sessions/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/okapi/app/views/users/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/okapi/app/views/users/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/okapi/app/views/users/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/okapi/app/views/users/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/okapi/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/okapi/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/okapi/test/controllers/sessions_controller_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/okapi/test/controllers/sessions_controller_test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/okapi/test/fixtures/users.yml" beforeDir="false" afterPath="$PROJECT_DIR$/okapi/test/fixtures/users.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/okapi/test/models/user_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/okapi/test/models/user_test.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/okapi/test/test_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/okapi/test/test_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,10 +15,24 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/okapi/config/routes.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+            <state relative-caret-position="105">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/okapi/app/views/sessions/new.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/okapi/app/views/users/new.html.erb">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -44,6 +43,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/okapi/app/views/sessions/new.html.erb" />
         <option value="$PROJECT_DIR$/okapi/config/routes.rb" />
       </list>
     </option>
@@ -70,6 +70,54 @@
               <item name="okapi" type="b2602c69:ProjectViewProjectNode" />
               <item name="okapi" type="462c0819:PsiDirectoryNode" />
               <item name="okapi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="okapi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="okapi" type="462c0819:PsiDirectoryNode" />
+              <item name="okapi" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="okapi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="okapi" type="462c0819:PsiDirectoryNode" />
+              <item name="okapi" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="okapi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="okapi" type="462c0819:PsiDirectoryNode" />
+              <item name="okapi" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="okapi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="okapi" type="462c0819:PsiDirectoryNode" />
+              <item name="okapi" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="sessions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="okapi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="okapi" type="462c0819:PsiDirectoryNode" />
+              <item name="okapi" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="okapi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="okapi" type="462c0819:PsiDirectoryNode" />
+              <item name="okapi" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="okapi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="okapi" type="462c0819:PsiDirectoryNode" />
+              <item name="okapi" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -107,15 +155,16 @@
       <option name="presentableId" value="Default" />
       <updated>1550598361714</updated>
       <workItem from="1550598365082" duration="890000" />
-      <workItem from="1550769408003" duration="53000" />
+      <workItem from="1550769408003" duration="613000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="943000" />
+    <option name="totallyTimeSpent" value="1503000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1280" height="719" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18739903" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -142,10 +191,20 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/okapi/app/views/sessions/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/okapi/app/views/users/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/okapi/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
