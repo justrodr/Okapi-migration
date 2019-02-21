@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       redirect_to user
     else 
       #flash[:danger] = 'Invalid email/password'
-      #render 'new'  
+      #render 'new'  test
       redirect_to login_path, danger: "Invalid email or password"
     end
 
