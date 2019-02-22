@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     end
     if user
       log_in user 
-      redirect_to user
+      redirect_to dash_path
     else 
       #flash[:danger] = 'Invalid email/password'
       #render 'new'  test

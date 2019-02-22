@@ -1,5 +1,10 @@
 <% provide(:title, "Splash Screen") %>
 <h1>Splash Screen</h1>
  
-<%= button_to "Create Account", { :controller => "users", :action => "new"} %>
-<%= button_to "Login", { :controller => "sessions", :action => "new"} %>
+<%= form_for(:anything, url: 'users/new', method: :get ) do |f| %>
+  <%= f.submit "Create Account" %>
+<% end %>
+
+<%= form_for(:anything, url: '/login', method: :get ) do |f| %>
+  <%= f.submit "Login" %>
+<% end %>
