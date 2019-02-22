@@ -1,14 +1,14 @@
 class UsersController < ApplicationController
-  def new
+  def new #this is the html
     @user = User.new
   end
   
-  def show
+  def show #this is the html
     @user = User.find(params[:id])
-    debugger
+    #debugger
   end
   
-  def create
+  def create #create is linked to POST HTTP Request
     @user = User.new(user_params)
     if @user.save
       log_in @user
@@ -21,6 +21,8 @@ class UsersController < ApplicationController
 
     private 
       def user_params
+        if @user
         params.require(:user).permit(:first_name, :last_name, :email, :password, :password_conformation)
+        end
       end
 end
