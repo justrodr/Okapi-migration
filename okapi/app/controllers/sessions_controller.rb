@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       #Login and redirect to dashboard here
     #else
       #The user login failed
-      #render 'new'
+      #redirect_to login_path, danger: "Invalid email or password"
     #end
     #render 'new'
 
