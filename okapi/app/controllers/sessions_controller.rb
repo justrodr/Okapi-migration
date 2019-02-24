@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     if !(params[:session].nil?)
       user = User.find_by(email: params[:session][:email].downcase) 
     end
-    if user
+    if user && user.authenticate(params[:session][:password])
       log_in user 
       redirect_to dash_path
     else 
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
       #Login and redirect to dashboard here
     #else
       #The user login failed
-      #render 'new'
+      #redirect_to login_path, danger: "Invalid email or password"
     #end
     #render 'new'
 
