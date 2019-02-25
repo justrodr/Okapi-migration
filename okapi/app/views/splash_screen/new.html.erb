@@ -1,10 +1,13 @@
+
+<body id="splashscreen_body">
+
 <% provide(:title, "Splash Screen") %>
-<h1>Splash Screen</h1>
+<h1>HomeManager Splash Screen</h1>
  
 <%= form_for(:anything, url: 'users/new', method: :get ) do |f| %>
-  <%= f.submit "Create Account" %>
+  <%= f.submit "Create Account", class: "btn btn-secondary" %>
 <% end %>
 
 <%= form_for(:anything, url: '/login', method: :get ) do |f| %>
-  <%= f.submit "Login" %>
+  <%= f.submit "Login", class: "btn btn-secondary" %>
 <% end %>
