@@ -38,18 +38,18 @@
     visit 'users/new'
   end
   
-  When("I enter information that already exists") do
-    pending # Write code here that turns the phrase above into concrete actions
-  end
+  #When("I enter information that already exists") do
+    #pending # Write code here that turns the phrase above into concrete actions
+  #end
   
   Then("I should not be able to create an account") do
     assert page.current_path, 'users/new'
     assert page.has_css? "Account already exists for this email"
   end
 
-  When("I enter valid login information") do
-    pending # Write code here that turns the phrase above into concrete actions
-  end
+  #When("I enter valid login information") do
+  #  pending # Write code here that turns the phrase above into concrete actions
+  #end
   
   Then("I should be on my dashboard") do
     assert page.current_path, '/dash'
