@@ -1,67 +1,30 @@
-<link href="https://fonts.googleapis.com/css?family=Bitter|Bree+Serif|Roboto+Condensed|Source+Serif+Pro" rel="stylesheet">
+<% provide(:title, 'Sign up') %>
 
-<% provide(:title, 'Sign Up') %>
-<div id="signUp_div">
-  <h1>Sign up</h1>
+<div class="create_box">
+  <h1>Sign up</h1>  
 
   <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@user) do |f| %>
-
-      <%# <%= f.label :first_name %>
-      <%= f.text_field :first_name,
-      class: 'form-control', 
-      placeholder: "FIRSTNAME",
-      onfocus:"this.placeholder = ''",
-      onblur:"this.placeholder = 'FIRSTNAME'" %>
-    
-      <br />
-      <br />
-
-      <%# <%= f.label :last_name %> 
-      <%= f.text_field :last_name,
-      class: 'form-control', 
-      placeholder: "LASTNAME",
-      onfocus:"this.placeholder = ''",
-      onblur:"this.placeholder = 'LASTNAME'"%>
-      
-      <br />
-      <br />
-
-      <%# <%= f.label :email %> 
-      <%= f.email_field :email, 
-      class: 'form-control', 
-      placeholder: "EMAIL",
-      onfocus:"this.placeholder = ''",
-      onblur:"this.placeholder = 'EMAIL'"%>
-
-      <br />
-      <br />
-
-      <%# <%= f.label :password %> 
-      <%= f.password_field :password, 
-      class: 'form-control', 
-      placeholder: "PASSWORD",
-      onfocus:"this.placeholder = ''",
-      onblur:"this.placeholder = 'PASSWORD'"%>
-
-      <br />
-      <br />
-
-      <%# <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, 
-      class: 'form-control', 
-      placeholder: "CONFIRM PASSWORD",
-      onfocus:"this.placeholder = ''",
-      onblur:"this.placeholder = 'CONFIRM PASSWORD'"%>
-
-      <br />
-      <br />
-
-      <%= f.submit "Sign Up", class: "btn btn-primary" %>
-    <% end %>
-
-  </div>
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for(@user) do |f| %>
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+        
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+        
+  
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+  
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+  
+        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.password_field :password_confirmation %>
+  
+        <%= f.submit "Create my account", class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
 </div>
 
