@@ -1,3 +1,23 @@
 // Place all the styles related to the SplashScreen controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#splashscreen_body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: 'Bree Serif', serif;
+    font-size: 25px;
+    background: #A7BED3;
+}
+
+.btn-secondary{
+    border: 50px;
+    background: white;
+    width: 20%;
+    padding:10px 10px;
+    border-radius:5px; //corners
+    text-align: center;
+    font-family: 'Bree Serif', serif; 
+    color: #30343F;
+}
