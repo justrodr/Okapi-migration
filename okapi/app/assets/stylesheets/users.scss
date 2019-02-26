@@ -1,39 +1,3 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-body{
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    font-family: Sans-Serif;
-    background-color: #E0E0E0;
-}
-
-.create_box{
-    width: 500px;
-    height: 600px;
-    border-style: solid;
-    margin: auto;
-    transform: translateY(100px);
-    border-radius: 35px;
-}
-
-h1{
-    text-align: center;
-}
-
-input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  width: 80%;
-  background: none;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-input {
-  height: auto !important;
-}
-
-
-
