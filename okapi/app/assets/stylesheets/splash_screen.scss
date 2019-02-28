@@ -82,12 +82,13 @@
     font-weight: 600;
     padding-top: 10%;
     padding-left: 10%;
+    padding-right: 10%;
 }
 
 .main .main_about{
     width: 50%;
     float: left;
-    font-size: 24pt;
+    font-size: 20pt;
 }
 
 .btn-secondary{
@@ -106,6 +107,14 @@
 
 .btn-secondary:hover{
     opacity: .8;
+}
+
+.main .main_pic {
+    width: 50%;
+    height: 100px;
+    background-color: white;
+    float: right;
+    transform: translateY(-100px);
 }
 
 
