@@ -2,36 +2,39 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// IN CHARGE OF LOG IN PAGE
-body{
+// colors:
+
+// navy: #333240
+// red-orange: #F17050
+// white: #F5F0E9
+// grey: #767573
+// light blue: #AAC7DC
+
+
+.new_account_body{
+    background-color: #F5F0E9;
     margin: 0;
     padding: 0;
     width: 100%;
+    height: 100%;
     font-family: 'Bree Serif', serif;
-    font-size: 25px;
-    background: linear-gradient(to right, #30343F 55%, #E2E2E2 0%);
 }
 
-
-.create_box{
-    width: 300px;
-    height: 600px;
-    border-style: solid;
-    margin: auto;
-    transform: translateY(100px);
-    border-radius: 35px;
+.new_account_body .input_half{
+    width: 55%;
+    background-color: #333240;
+    height: 100%;
 }
-
-h1{
-    //text-align: center;
-    color: #F7F9F9;
-    margin-left: 15%;
-    margin-top: 12%;
+ 
+ 
+.new_account_body .input_half .form_box{
+    padding: 10%;
+    background-color: #333240;
 }
 
 input,textarea,select{
   height: auto !important;
-  width: 25%;
+  width: 50%;
   border: none; //border of text box
   border-bottom: 3px solid rgb(136, 136, 136);
   background: none;
@@ -44,16 +47,10 @@ input,textarea,select{
   color: #F7F9F9;
 }
 
-.form-control{
-    font-size: 20px;
-    font-family: 'Source Serif Pro', serif;
-    -webkit-text-fill-color: none;
-}
-
 .btn-primary{ //button styling
     border: 30px;
     background: white;
-    width: 10%;
+    width: 100px;
     padding:10px 10px;
     border-radius:5px; //corners
     text-align: center;
@@ -70,12 +67,81 @@ input,textarea,select{
     margin-left: 15%;
 }
 
-#houseImg{ //HOW TO PREVENT OVERFLOW??
-    float: right;
-    margin-top: -200px;  
-    margin-right: 50px;
+
+// IN CHARGE OF LOG IN PAGE
+// body{
+//     margin: 0;
+//     padding: 0;
+//     width: 100%;
+//     font-family: 'Bree Serif', serif;
+//     font-size: 25px;
+//     background: linear-gradient(to right, #30343F 55%, #E2E2E2 0%);
+// }
+
+
+// .create_box{
+//     width: 300px;
+//     height: 600px;
+//     border-style: solid;
+//     margin: auto;
+//     transform: translateY(100px);
+//     border-radius: 35px;
+// }
+
+// h1{
+//     //text-align: center;
+//     color: #F7F9F9;
+//     margin-left: 15%;
+//     margin-top: 12%;
+// }
+
+// input,textarea,select{
+//   height: auto !important;
+//   width: 25%;
+//   border: none; //border of text box
+//   border-bottom: 3px solid rgb(136, 136, 136);
+//   background: none;
+//   margin-bottom: 15px;
+//   padding-right: 40px;
+//   text-align: justify;
+//   font-size: 20px;
+//   margin-left: 15%;
+//   outline: none;
+//   color: #F7F9F9;
+// }
+
+// .form-control{
+//     font-size: 20px;
+//     font-family: 'Source Serif Pro', serif;
+//     -webkit-text-fill-color: none;
+// }
+
+// .btn-primary{ //button styling
+//     border: 30px;
+//     background: white;
+//     width: 10%;
+//     padding:10px 10px;
+//     border-radius:5px; //corners
+//     text-align: center;
+//     font-family: 'Bree Serif', serif; 
+//     color: #30343F;
+// }
+
+// .btn-primary:active{
+//     background:grey;
+// }
+
+// .alert-danger{
+//     color:rgb(231, 63, 63);
+//     margin-left: 15%;
+// }
+
+// #houseImg{ //HOW TO PREVENT OVERFLOW??
+//     float: right;
+//     margin-top: -200px;  
+//     margin-right: 50px;
       
-}
+// }
 
 
 
