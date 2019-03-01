@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   def new #this is the html
-    puts "In New***********&(*&)(****(&()))))))*&"
     @user = User.new
+  end
+  
+  def index
   end
   
   def show #this is the html
@@ -18,8 +20,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to Okapi!"
       redirect_to dash_path
     else
-      flash.now[:notice] = "Account already exists for this email"
-      render 'new'
+      redirect_to users_path, danger: "Invalid email or password"
     end
   end
 
