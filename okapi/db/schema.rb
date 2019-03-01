@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190228174736) do
+ActiveRecord::Schema.define(version: 20190301031227) do
 
-  create_table "table_properties", force: :cascade do |t|
-    t.string "user"
-    t.string "property_name"
-    t.string "tenant_name"
-    t.string "tenant_email"
-    t.string "tenant_number"
-    t.string "address"
-    t.string "frequency"
-    t.string "last_change_date"
-    t.string "next_change_date"
+  create_table "properties", force: :cascade do |t|
+    t.string   "user"
+    t.string   "prop_name"
+    t.string   "tenant_name"
+    t.string   "tenant_email"
+    t.string   "tenant_phone"
+    t.string   "address"
+    t.string   "frequency"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20190228174736) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "hashed_password"
+    t.integer  "prop_index"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
