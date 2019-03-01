@@ -1,13 +1,34 @@
 
 <body id="splashscreen_body">
-
-<% provide(:title, "Splash Screen") %>
-<h1>HomeManager Splash Screen</h1>
- 
-<%= form_for(:anything, url: 'users/new', method: :get ) do |f| %>
-  <%= f.submit "Create Account", class: "btn btn-secondary" %>
-<% end %>
-
-<%= form_for(:anything, url: '/login', method: :get ) do |f| %>
-  <%= f.submit "Login", class: "btn btn-secondary" %>
-<% end %>
+  
+  <header class="splashscreen_header">
+    <div class="title">
+      <% provide(:title, "Splash Screen") %>
+      <h1>okapi home management</h1>
+    </div>
+    <ul class="menu">
+      <li>
+        <%= form_for(:anything, url: '/login', method: :get ) do |f| %>
+          <%= f.submit "Login", class: "btn btn-secondary_h" %>
+        <% end %>
+      </li>
+      <li class="blank_link">About</li>
+      <li class="blank_link">Contact</li>
+    </div>
+  </header>
+  
+  <div class="main">
+    <div class="main_about">
+      <p>We help people maintain their rental homes</p>
+      <p>Automatatic airfilter delivery for all of your rental homes</p>
+      <div class="main_button">
+        <%= form_for(:anything, url: 'users/new', method: :get ) do |f| %>
+          <%= f.submit "Create Account", class: "btn btn-secondary" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="main_pic">
+      <%= image_tag("peace.jpg",:width=>"100%", :class=>"img")%>
+    </div>
+  </div>
+</body>
