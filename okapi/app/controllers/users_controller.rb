@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   def new #this is the html
-    puts "In New***********&(*&)(****(&()))))))*&"
     @user = User.new
   end
   
