@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'property/new'
+
   root 'splash_screen#new'
   get 'users/new' => 'users#new'
   post 'users' => 'users#create'

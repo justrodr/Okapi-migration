@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: MyString
+  prop_name: MyString
+  tenant_name: MyString
+  tenant_email: MyString
+  tenant_phone: MyString
+  address: MyString
+  frequency: MyString
+
+two:
+  user: MyString
+  prop_name: MyString
+  tenant_name: MyString
+  tenant_email: MyString
+  tenant_phone: MyString
+  address: MyString
+  frequency: MyString

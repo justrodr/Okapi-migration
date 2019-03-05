@@ -1,0 +1,17 @@
+{
+  "MiniTest": {
+    "coverage": {
+      "/Users/briannawitte/Desktop/CSCE431/okapi/okapi/app/models/user.rb": [
+        1,
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1551806931
+  }
+}
