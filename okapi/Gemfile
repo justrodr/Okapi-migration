@@ -32,6 +32,10 @@ end
 #use capybara
 gem 'capybara'
 
+#use SimpleCov
+gem 'simplecov'
+gem 'simplecov-console'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
