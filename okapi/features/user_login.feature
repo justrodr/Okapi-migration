@@ -22,4 +22,8 @@ Feature: User login/Create new user
         Given I am on the create account page
         When I enter valid create account information
         Then I should be on my dashboard
-
+    
+    Scenario: Valid Login information
+        Given I am on the login page
+        When I enter valid login information
+        Then I should be on my dashboard
