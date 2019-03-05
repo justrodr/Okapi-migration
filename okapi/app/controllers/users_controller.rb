@@ -20,7 +20,8 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to Okapi!"
       redirect_to dash_path
     else
-      redirect_to users_path, danger: "Invalid email or password"
+      flash[:notice] = "Account already exists for this email"
+      redirect_to users_new_path
     end
   end
 
