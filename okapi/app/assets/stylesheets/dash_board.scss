@@ -16,44 +16,111 @@
 //lighter: #6987c9
 //lighter: #6bbaec
 
+
 .dashboard_body{
     background-color: #F5F0E9;
-    // height: 100vh;
+    //height: 100vh;
     width: 100%;
     margin: 0;
     padding: 0;
 }
 
+
 .dashboard_body .side_nav_bar{
-    width: 300px;
+    position: fixed;
+    width: 240px;
     height: 100vh;
     background-color: #242038;
-    margin-top: -18px;
+
+    .menu{
+        padding-top: 50px;
+        color:white;
+    }
+     
 }
 
-.dashboard_body .side_nav_bar .menu{
-    padding-top: 100px;
-    color: white;
-}
 
 .dashboard_body .side_nav_bar .menu .account_thumbnail{
-    background-color: #cac4ce;
+    //background-color: #bea6ce;
     width: 100%;
-    height: 140px;
+    text-align: center;
+
+    .thumbnail_image{
+        padding: 0.1em;
+        img{
+            width: 100px;
+            border-radius: 50%;
+            padding: 10px;
+        }
+    }
+
+    h2{
+        font-family: 'Bree Serif', sans-serif;
+        font-size: 25px;
+        margin: 0;
+        margin-bottom:5px;
+    }
+    
+    h3{
+        font-family: sans-serif;
+        font-size: 15px;
+        margin: 0;
+        margin-top: -0.1em;
+    }
+    
 }
 
-.dashboard_body .side_nav_bar .menu .account_thumbnail .thumbnail_image{
-    width: 40%;
-    float: left;
-}
-
-.dashboard_body .side_nav_bar .menu .account_thumbnail .name_block{
-    // width: 60%;
-}
 
 .dashboard_body .side_nav_bar .menu .menu_options{
-    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding:0.8em 0.4em;
+    font-family: sans-serif;
+
+    li{
+        padding:0.95em 1em 0.95em 3em; //top right bottom left
+		font-size:0.95em;
+		font-weight:regular;
+		background-repeat:no-repeat;
+		background-position:left 15px center;
+		background-size:auto 20px;
+		transition:all 0.15s linear;
+        cursor:pointer;
+        
+        &.icon-dashboard{
+            background-image:url(http://www.entypo.com/images/gauge.svg);
+        }
+        &.icon-contacts{
+            background-image:url(http://www.entypo.com/images/v-card.svg);
+        }
+        &.icon-payment{
+            background-image:url(http://www.entypo.com/images/credit-card.svg);
+        }
+        &.icon-orders{
+            background-image:url(http://www.entypo.com/images/shopping-cart.svg);
+        }
+        &.icon-profile{
+            background-image:url(http://www.entypo.com/images/user.svg);
+        }
+
+        &:hover{
+            background-color:#7880b5;
+        }
+        
+        &:focus{
+            outline:none;
+        }
+
+    }
 }
+
+// @media screen and (max-width:900px) and (min-width:400px){
+
+//maybe implement for resizing
+
+
+
+// }
 
 
 
