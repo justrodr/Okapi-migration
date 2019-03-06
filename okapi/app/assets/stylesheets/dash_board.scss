@@ -50,7 +50,9 @@
         img{
             width: 100px;
             border-radius: 50%;
-            padding: 10px;
+            //padding: 10px;
+            border: 4px solid #7880B5;
+            box-shadow:0 0 0 4px rgba(255,255,255,0.2);
         }
     }
 
@@ -109,7 +111,12 @@
         
         &:focus{
             outline:none;
+            background-color: #7880b5;
         }
+
+        // &:active{
+        //     background-color: #CAC4CE;
+        // }
 
     }
 }
