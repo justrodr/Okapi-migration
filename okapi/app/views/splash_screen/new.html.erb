@@ -12,8 +12,16 @@
           <%= f.submit "Login", class: "btn btn-secondary_h" %>
         <% end %>
       </li>
-      <li class="blank_link">About</li>
-      <li class="blank_link">Contact</li>
+      <li>
+        <%= form_for(:anything, url: '/home_page', method: :get ) do |f| %>
+          <%= f.submit "About", class: "btn btn-secondary_h" %>
+        <% end %>
+      </li>
+      <li>
+        <%= form_for(:anything, url: '/contact', method: :get ) do |f| %>
+          <%= f.submit "Contact", class: "btn btn-secondary_h" %>
+        <% end %>
+      </li>
     </div>
   </header>
   
