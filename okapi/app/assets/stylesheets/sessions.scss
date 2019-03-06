@@ -2,67 +2,184 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// IN CHARGE OF SIGN UP PAGE
-#signUp_div{
-    margin-top: -70px;
-}
+//@import 'users.scss';
 
-body{
+.login_body{
+    //@extend .new_account_body;
+    background-color: #FFFBF0;
+    //background-color: red;
     margin: 0;
     padding: 0;
     width: 100%;
+    height: 100%;
     font-family: 'Bree Serif', serif;
-    font-size: 25px;
-    background: linear-gradient(to right, #30343F 55%, #E2E2E2 0%);
+
+    .blank_half{
+        background-color: #FFFBF0;
+        width: 39%;
+        float: right;
+        min-height: 100vh;
+
+        img{
+            float: center;
+            width: 600px;
+            height: auto;
+            margin-top: 120px;
+        }
+
+    }
+   
 }
 
-.create_box{
-    width: 300px;
-    height: 600px;
-    border-style: solid;
-    margin: auto;
-    transform: translateY(100px);
-    border-radius: 35px;
+.login_body.login_half{
+    width: 55%;
+    background-color: #DFE2EC;
+    min-height: 100vh;
 }
 
-h1{
-    //text-align: center;
-    color: #F7F9F9;
-    margin-left: 15%;
-    margin-top: 12%;
+
+.login_body .login_half .form_box{
+    width: 50%;
+    background-color: #DFE2EC;
+    height: 100%;
+    padding-top: 120px;
+    padding-left: 100px;
+    min-height: 100vh;
+
+    .login_div{
+        -webkit-animation: fadein 2s;
+        animation: fadein 0.6s;
+    }
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.login_body .login_half .form_box h1{
+    color: #30343F;
+    font-size: 30pt;
+    text-align: center;
+    margin-top: 0; //fixes gap at top of page
 }
 
 input,textarea,select{
-  height: auto !important;
-  width: 25%;
-  border: none; //border of text box
-  border-bottom: 3px solid rgb(136, 136, 136);
-  background: none;
-  margin-bottom: 15px;
-  padding-right: 40px;
-  text-align: justify;
-  font-size: 20px;
-  margin-left: 15%;
-  outline: none;
-  color: #F7F9F9;
-}
-
-.form-control{
+    height: auto !important;
+    width: 60%;
+    border: none; //border of text box
+    border-bottom: 3px solid rgb(136, 136, 136);
+    background: none;
+    margin-bottom: 15px;
+    padding-right: 40px;
+    text-align: justify;
     font-size: 20px;
-    font-family: 'Source Serif Pro', serif;
-    -webkit-text-fill-color: none;
-}
+    margin-left: 15%;
+    outline: none;
+    color: #30343F;
+  }
 
-.btn-primary{ //button styling
+  .btn-primary{ //button styling
     border: 30px;
     background: white;
-    width: 10%;
+    width: 100px;
     padding:10px 10px;
     border-radius:5px; //corners
     text-align: center;
     font-family: 'Bree Serif', serif; 
-    color: #30343F; 
+    color: #30343F;
 }
+
+.btn-primary:hover{
+    opacity: .7;
+}
+
+.btn-primary:active{
+    background:grey;
+}
+
+.alert-danger{
+    font-size: 20px;
+    color:rgb(231, 63, 63);
+    margin-left: 15%;
+    margin-top: -270px;
+}
+
+
+
+
+// navy: #333240
+// red-orange: #F17050
+// white: #F5F0E9
+// grey: #767573
+// light blue: #AAC7DC
+
+// // IN CHARGE OF SIGN UP PAGE
+// #signUp_div{
+//     margin-top: -70px;
+// }
+
+// body{
+//     margin: 0;
+//     padding: 0;
+//     width: 100%;
+//     font-family: 'Bree Serif', serif;
+//     font-size: 25px;
+//     background: linear-gradient(to right, #30343F 55%, #E2E2E2 0%);
+// }
+
+// .create_box{
+//     width: 300px;
+//     height: 600px;
+//     border-style: solid;
+//     margin: auto;
+//     transform: translateY(100px);
+//     border-radius: 35px;
+// }
+
+// h1{
+//     //text-align: center;
+//     color: #F7F9F9;
+//     margin-left: 15%;
+//     margin-top: 12%;
+// }
+
+// input,textarea,select{
+//   height: auto !important;
+//   width: 25%;
+//   border: none; //border of text box
+//   border-bottom: 3px solid rgb(136, 136, 136);
+//   background: none;
+//   margin-bottom: 15px;
+//   padding-right: 40px;
+//   text-align: justify;
+//   font-size: 20px;
+//   margin-left: 15%;
+//   outline: none;
+//   color: #F7F9F9;
+// }
+
+// .form-control{
+//     font-size: 20px;
+//     font-family: 'Source Serif Pro', serif;
+//     -webkit-text-fill-color: none;
+// }
+
+// .btn-primary{ //button styling
+//     border: 30px;
+//     background: white;
+//     width: 10%;
+//     padding:10px 10px;
+//     border-radius:5px; //corners
+//     text-align: center;
+//     font-family: 'Bree Serif', serif; 
+//     color: #30343F; 
+// }
 
 
 
