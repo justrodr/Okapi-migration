@@ -10,6 +10,7 @@
 // grey: #767573
 // light blue: #AAC7DC
 
+
 //********HEADER**************
 
 #splashscreen_body{
@@ -31,6 +32,7 @@
 .splashscreen_header .title{
     width: 50%;
     float: left;
+    padding-left: 30px;
 }
 
 .splashscreen_header .menu{
@@ -59,6 +61,7 @@
 
 .splashscreen_header .menu li:hover{
     opacity: .6;
+    
 }
 
 .btn-secondary_h{
