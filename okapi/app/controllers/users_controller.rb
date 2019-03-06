@@ -3,6 +3,9 @@ class UsersController < ApplicationController
     @user = User.new
   end
   
+  def index
+  end
+  
   def show #this is the html
     @user = User.find(params[:id])
     #debugger
