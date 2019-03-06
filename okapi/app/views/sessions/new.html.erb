@@ -1,41 +1,47 @@
 <link href="https://fonts.googleapis.com/css?family=Bitter|Bree+Serif|Roboto+Condensed|Source+Serif+Pro" rel="stylesheet">
 
-<% provide(:title, "Log in") %>
-<h1>Log In</h1>
-<br />
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
-
-    <div id ="houseImg">
-        <%= image_tag("https://unixtitan.net/images/mansion-vector-isometric-1.png") %>
-    </div>
-
-      <%# <%= f.label :email%>
-      <%= f.email_field :email, 
-      class: 'form-control',
-      placeholder: "EMAIL",
-      onfocus:"this.placeholder = ''",
-      onblur:"this.placeholder = 'EMAIL'"%>
-
-      <br />
-      <br />
-
-      <%# <%= f.label :password %>
-      <%= f.password_field :password, 
-      class: 'form-control',
-      placeholder: "PASSWORD",
-      onfocus:"this.placeholder = ''",
-      onblur:"this.placeholder = 'PASSWORD'" %>
-
-      <br />
-      <br />
-
-      <%= f.submit "Log In", class: "btn btn-primary" %>
-    <% end %>
-
-    <%# <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+<body class="login_body">
+  <div class="blank_half">
+      <%# <img src=https://cdn.dribbble.com/users/252645/screenshots/3814913/house.gif> %>
   </div>
-</div>
+  <div class="login_half">
+    <div class="form_box" >
+        <% provide(:title, "Log in") %>
+        <div class="login_div">
+          <h1>Log In</h1>
+          <br />
 
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+              <%= form_for(:session, url: login_path) do |f| %>
+
+                <%# <%= f.label :email%>
+                <%= f.email_field :email, 
+                class: 'form-control',
+                placeholder: "EMAIL",
+                onfocus:"this.placeholder = ''",
+                onblur:"this.placeholder = 'EMAIL'"%>
+
+                <br />
+                <br />
+
+                <%# <%= f.label :password %>
+                <%= f.password_field :password, 
+                class: 'form-control',
+                placeholder: "PASSWORD",
+                onfocus:"this.placeholder = ''",
+                onblur:"this.placeholder = 'PASSWORD'" %>
+
+                <br />
+                <br />
+
+                <%= f.submit "Log In", class: "btn btn-primary" %>
+              <% end %>
+
+              <%# <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</body>
