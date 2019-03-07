@@ -16,33 +16,33 @@
                 <h3> Homeowner </h3>
             </div>
             <ul class="menu_options">
-                <li><span>
+                <li class="icon-dashboard"><span>
                 <%= form_for(:anything, url: '/dash', method: :get) do |f| %>
-                    <%= f.submit "Dashboard", class: "btn btn-secondary_h" %>
+                    <%= f.submit "Dashboard",class: "btn btn-dash"%>
                 <% end %>
                 </span></li>
 
-                <li><span>
+                <li tabindex="0" class="icon-contacts"><span>
                 <%= form_for(:anything, url: '/contacts_page', method: :get) do |f| %>
-                    <%= f.submit "Contact", class: "btn btn-secondary_h" %>
+                    <%= f.submit "Contact",class: "btn btn-dash" %>
                 <% end %>
                 </span></li>
 
-                <li><span>
+                <li class="icon-payment"><span>
                 <%= form_for(:anything, url: '/payment_page', method: :get) do |f| %>
-                    <%= f.submit "Payment", class: "btn btn-secondary_h" %>
+                    <%= f.submit "Payment",class: "btn btn-dash" %>
                 <% end %>
                 </span></li>
 
-                <li><span>
+                <li class="icon-orders"><span>
                 <%= form_for(:anything, url: '/orders_page', method: :get) do |f| %>
-                    <%= f.submit "Order", class: "btn btn-secondary_h" %>
+                    <%= f.submit "Order", class: "btn btn-dash" %>
                 <% end %>
                 </span></li>
 
-                <li><span>
+                <li class="icon-profile"><span>
                 <%= form_for(:anything, url: '/profile_page', method: :get) do |f| %>
-                    <%= f.submit "Profile", class: "btn btn-secondary_h" %>
+                    <%= f.submit "Profile", class: "btn btn-dash" %>
                 <% end %>
                 </span></li>
             </ul>

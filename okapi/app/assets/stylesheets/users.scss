@@ -112,7 +112,15 @@ input,textarea,select{
 .alert-danger{
     font-size: 20px;
     color:rgb(231, 63, 63);
-    margin-top: -270px;
+    margin-top: -70px;
+    text-align: left;
+}
+
+.alert-notice{
+    font-size: 20px;
+    color:rgb(231, 63, 63);
+    margin-top: -70px;
+    text-align: center;
 }
 
 // .image_half .image{

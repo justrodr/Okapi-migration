@@ -69,7 +69,7 @@
     margin-top: 0; //fixes gap at top of page
 }
 
-input,textarea,select{
+.row textarea,select{
     height: auto !important;
     width: 60%;
     border: none; //border of text box
@@ -84,7 +84,7 @@ input,textarea,select{
     color: #30343F;
   }
 
-  .btn-primary{ //button styling
+.btn-primary{ //button styling
     border: 30px;
     background: white;
     width: 100px;
@@ -103,11 +103,12 @@ input,textarea,select{
     background:grey;
 }
 
-.alert-danger{
+.login_body .alert-danger{
     font-size: 20px;
-    color:rgb(231, 63, 63);
+    //color:rgb(231, 63, 63);
+    color: red;
     margin-left: 15%;
-    margin-top: -270px;
+    margin-top: -400px;
 }
 
 
