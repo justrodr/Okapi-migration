@@ -30,7 +30,6 @@
   
   Then("I should see a login error message") do
     assert page.current_path, 'session_path'
-    #assert page.has_css?(".alert-danger", wait: 3)
   end
 
   Given("I am on the create account page") do
@@ -39,11 +38,20 @@
   
   Then("I should not be able to create an account") do
     assert page.current_path, 'users/new'
-    #assert page.has_css?("Account already exists for this email", wait: 3)
   end
 
   When("I enter valid login information") do
-    pending # Write code here that turns the phrase above into concrete actions
+    visit "users/new"
+    fill_in 'FIRSTNAME', with: 'Good'
+    fill_in 'LASTNAME', with: 'Example'
+    fill_in 'EMAIL', with: 'goodexample@gmail.com'
+    fill_in 'PASSWORD', with: 'success'
+    fill_in 'CONFIRM PASSWORD', with: 'success'
+    click_on("Sign Up")
+    visit "/login"
+    fill_in 'EMAIL', with: 'goodexample@gmail.com'
+    fill_in 'PASSWORD', with: 'success'
+    click_on("Log In")  
   end
   
   Then("I should be on my dashboard") do
@@ -62,7 +70,6 @@
   When("I enter invalid create account information") do
     fill_in 'FIRSTNAME', with: 'Bad'
     fill_in 'LASTNAME', with: 'Example'
-    #fill_in 'EMAIL', with: 'badexample@gmail.com'
     fill_in 'PASSWORD', with: 'password'
     fill_in 'CONFIRM PASSWORD', with: 'confirmpassword'
     click_on("Sign Up")
