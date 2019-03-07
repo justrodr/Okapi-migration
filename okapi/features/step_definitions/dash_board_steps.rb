@@ -2,8 +2,8 @@ Given("I am on the Dashboard page") do
     visit "/dash"
   end
   
-  Then("I should see all of my properties") do
-    pending # Write code here that turns the phrase above into concrete actions
+  Then("I should see a table of my properties") do
+    assert page.has_css?('table')
   end
   
   When("I click on Contacts on the sidebar") do

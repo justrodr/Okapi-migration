@@ -5,7 +5,7 @@ Feature: View Dashboard
 
     Scenario: Seeing my Properties
         Given I am on the Dashboard page
-        Then I should see all of my properties
+        Then I should see a table of my properties
 
     Scenario: Accessing Contacts 
         Given I am on the Dashboard page
