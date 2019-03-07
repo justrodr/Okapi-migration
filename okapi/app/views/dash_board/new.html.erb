@@ -39,33 +39,16 @@
         <table class="table">
             <tr class="table_head">
               <th>Address</th>
-              <th>Filter Timer</th>
-              <th>Status</th>
+              <th>Tenant</th>
+              <th>Frequency</th>
             </tr>
-            <tr class="table_row">
-                <td>0000 Main St. USA</td>
-                <td>0</td>
-                <td>Sent</td>
-                <!--<td><div class="edit">Edit</div></td>-->
-            </tr>
-            <tr class="table_row">
-                <td>0001 Main St. USA</td>
-                <td>1</td>
-                <td>Waiting</td>
-                <!--<td><div class="edit">Edit</div></td>-->
-            </tr>
-            <tr class="table_row">
-                <td>0002 Main St. USA</td>
-                <td>2</td>
-                <td>Waiting</td>
-                <!--<td><div class="edit">Edit</div></td>-->
-            </tr>
-            <tr class="table_row">
-                <td>0003 Main St. USA</td>
-                <td>3</td>
-                <td>Waiting</td>
-                <!--<td><div class="edit">Edit</div></td>-->
-            </tr>
+            <% @property.each do |property| %>
+                <tr class="table_row">
+                    <td><%= property.address %></td>
+                    <td><%= property.tenant_name %></td>
+                    <td><%= property.frequency %></td>
+                </tr>
+            <% end %>
         </table>
     </div>
 
