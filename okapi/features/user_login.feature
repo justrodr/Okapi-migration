@@ -23,7 +23,22 @@ Feature: User login/Create new user
         When I enter valid create account information
         Then I should be on my dashboard
     
+    Scenario: Invalid Create Account information
+        Given I am on the create account page
+        When I enter invalid create account information
+        Then I should not be able to create an account 
+    
     Scenario: Valid Login information
         Given I am on the login page
         When I enter valid login information
         Then I should be on my dashboard
+
+    Scenario: Visit About page
+        Given I am on the home page
+        When I click on About
+        Then I want to be taken to the About information page
+
+    Scenario: Visit Contact page
+        Given I am on the home page
+        When I click on Contact
+        Then I want to be taken to the Contact information page

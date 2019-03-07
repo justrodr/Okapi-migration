@@ -27,7 +27,3 @@ Feature: View Dashboard
         When I click on Profile on the sidebar
         Then I should be on my Profile page
 
-    Scenario: Add property
-        Given I am on the Dashboard page
-        When I click on Add Property 
-        Then a window should pop up to add a property
