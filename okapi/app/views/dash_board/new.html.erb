@@ -16,20 +16,35 @@
                 <h3> Homeowner </h3>
             </div>
             <ul class="menu_options">
-                <li tabindex="0" class="icon-dashboard">
-                <span>Dashboard</span></li>
+                <li><span>
+                <%= form_for(:anything, url: '/dash', method: :get) do |f| %>
+                    <%= f.submit "Dashboard", class: "btn btn-secondary_h" %>
+                <% end %>
+                </span></li>
 
-                <li tabindex="0" class="icon-contacts">
-                <span>Contacts</span></li>
+                <li><span>
+                <%= form_for(:anything, url: '/contacts_page', method: :get) do |f| %>
+                    <%= f.submit "Contact", class: "btn btn-secondary_h" %>
+                <% end %>
+                </span></li>
 
-                <li tabindex="0" class="icon-payment">
-                <span>Payment</span></li>
+                <li><span>
+                <%= form_for(:anything, url: '/payment_page', method: :get) do |f| %>
+                    <%= f.submit "Payment", class: "btn btn-secondary_h" %>
+                <% end %>
+                </span></li>
 
-                <li tabindex="0" class="icon-orders">
-                <span>Orders</span></li>
+                <li><span>
+                <%= form_for(:anything, url: '/orders_page', method: :get) do |f| %>
+                    <%= f.submit "Order", class: "btn btn-secondary_h" %>
+                <% end %>
+                </span></li>
 
-                <li tabindex="0" class="icon-profile">
-                <span>Profile</span></li>
+                <li><span>
+                <%= form_for(:anything, url: '/profile_page', method: :get) do |f| %>
+                    <%= f.submit "Profile", class: "btn btn-secondary_h" %>
+                <% end %>
+                </span></li>
             </ul>
         </div>
     </div>

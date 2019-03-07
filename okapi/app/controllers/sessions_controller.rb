@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     else 
       #flash[:danger] = 'Invalid email/password'
       #render 'new'  test
-      redirect_to login_path, danger: "Invalid email or password"
+      redirect_to sessions_path, danger: "Invalid email or password"
     end
 
     #if user && user.authenticate(params[:session][:password])
