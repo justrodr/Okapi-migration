@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
   def new
   end
-
   def create
     if !(params[:session].nil?)
       user = User.find_by(email: params[:session][:email].downcase) 
@@ -12,7 +11,7 @@ class SessionsController < ApplicationController
     else 
       #flash[:danger] = 'Invalid email/password'
       #render 'new'  test
-      redirect_to sessions_path, danger: "Invalid email or password"
+      redirect_to '/login', danger: "Invalid email or password"
     end
 
     #if user && user.authenticate(params[:session][:password])
