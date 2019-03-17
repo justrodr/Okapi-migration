@@ -6,4 +6,9 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  # test "should create new user" do 
+  #   get :create
+  #   assert_response :success
+  # end
+
 end
