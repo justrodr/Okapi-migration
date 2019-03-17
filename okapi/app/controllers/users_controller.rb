@@ -13,14 +13,14 @@ class UsersController < ApplicationController
   
   def create #create is linked to POST HTTP Request
     @user = User.new(user_params)
-    puts(@user.valid?)
-    puts(@user.errors.messages)
+    #puts(@user.valid?)
+    #puts(@user.errors.full_messages.to_sentence)
     if @user.save
       log_in @user
       flash[:success] = "Welcome to Okapi!"
       redirect_to dash_path
     else
-      flash[:notice] = "Incorrect fields entered. Try again."
+      flash[:notice] = @user.errors.full_messages.to_sentence
       redirect_to users_new_path
     end
   end
