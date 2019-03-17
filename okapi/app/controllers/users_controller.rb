@@ -8,13 +8,10 @@ class UsersController < ApplicationController
   
   def show #this is the html
     @user = User.find(params[:id])
-    #debugger
   end
   
   def create #create is linked to POST HTTP Request
     @user = User.new(user_params)
-    #puts(@user.valid?)
-    #puts(@user.errors.full_messages.to_sentence)
     if @user.save
       log_in @user
       flash[:success] = "Welcome to Okapi!"
