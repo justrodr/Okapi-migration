@@ -14,6 +14,11 @@ class UserTest < ActiveSupport::TestCase
     @user.password = "   "
     assert_not @user.valid?
   end
+
+  test "password should be at least 7 characters long" do
+    @user.password = "pass"
+    assert_not @user.valid?
+  end
   
   test "first name should be present" do
     @user.first_name = "    "
