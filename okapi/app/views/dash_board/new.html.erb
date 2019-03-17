@@ -10,9 +10,11 @@
                 </div>
                 <%# need to replace with actual user name %>
                 <%# <h2> Your Name </h2>  %>
-                
-                <h2> <%= @user.first_name %> <%= @user.last_name %> </h2>
-
+                <h2>
+                <% if(!@user.nil?) %>
+                 <%= @user.first_name %> <%= @user.last_name %> 
+                <% end%>
+                </h2>
                 <%# <%= link_to user. %>
                 <h3> Homeowner </h3>
             </div>

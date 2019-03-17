@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PropertyControllerTest < ActionController::TestCase
   test "should get new" do
-    get property_path
+    get :new
     assert_response :success
   end
 end

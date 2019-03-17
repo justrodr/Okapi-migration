@@ -3,18 +3,19 @@ require 'test_helper'
 class SessionsControllerTest < ActionController::TestCase
   test "should get new" do
     #get :new
-    get login_path
+    get :new
     assert_response :success
   end
 
   test "login is invalid" do
-    get login_path
-    assert_template 'session/new'
-    post login_path, params: {session: {email: "", password: ""}}
-    assert_template 'sessions/new'
+    get :new
+    assert_template :new
+    post :create, params: {session: {email: "", password: ""}}
+    assert_redirected_to '/login'
     assert_not flash.empty?
-    get root_path
-    assert flash.empty?
+    #get root_path
+    #assert flash.empty?
   end
+
 
 end
