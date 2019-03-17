@@ -1,47 +1,29 @@
-<link href="https://fonts.googleapis.com/css?family=Bitter|Bree+Serif|Roboto+Condensed|Source+Serif+Pro" rel="stylesheet">
 
-<body class="login_body">
-  <div class="blank_half">
-      <%# <img src=https://cdn.dribbble.com/users/252645/screenshots/3814913/house.gif> %>
-  </div>
-  <div class="login_half">
-    <div class="form_box" >
-        <% provide(:title, "Log in") %>
-        <div class="login_div">
-          <h1>Log In</h1>
-          <br />
+<body class="text-left">
+    <%= form_for(:session, url: login_path) do |f| %>
+      <div class="login col-xs-12 col-xs-offset-0 col-sm-6 col-sm-offset-3">
+        <h1 class="h3 mb-3 font-weight-normal">Log in</h1>
 
-          <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-              <%= form_for(:session, url: login_path) do |f| %>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <%= f.email_field :email,
+              class: "form-control", 
+              placeholder: "EMAIL",
+              onfocus:"this.placeholder = ''",
+              onblur:"this.placeholder = 'EMAIL'"%> 
+        </div> 
 
-                <%# <%= f.label :email%>
-                <%= f.email_field :email, 
-                class: 'form-control',
-                placeholder: "EMAIL",
-                onfocus:"this.placeholder = ''",
-                onblur:"this.placeholder = 'EMAIL'"%>
-
-                <br />
-                <br />
-
-                <%# <%= f.label :password %>
-                <%= f.password_field :password, 
+        <div class="form-group">
+          <label for="email">Password</label>
+          <%= f.password_field :password, 
                 class: 'form-control',
                 placeholder: "PASSWORD",
                 onfocus:"this.placeholder = ''",
-                onblur:"this.placeholder = 'PASSWORD'" %>
-
-                <br />
-                <br />
-
-                <%= f.submit "Log In", class: "btn btn-primary" %>
-              <% end %>
-
-              <%# <p>New user? <%= link_to "Sign up now!", signup_path %></p>
-            </div>
-          </div>
+                onblur:"this.placeholder = 'PASSWORD'" %> 
+        </div>       
+      <%= f.submit "Log In", class: "btn btn-primary" %>
       </div>
-    </div>
-  </div>
-</body>
+    <%end%>
+
+  </body>
+</html>
