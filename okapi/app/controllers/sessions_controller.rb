@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
   def new
   end
-  
   def create
     if !(params[:session].nil?)
       user = User.find_by(email: params[:session][:email].downcase) 
