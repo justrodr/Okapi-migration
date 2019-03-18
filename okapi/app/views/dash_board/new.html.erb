@@ -1,3 +1,5 @@
+
+
 <link href="https://fonts.googleapis.com/css?family=Bitter|Bree+Serif|Roboto+Condensed|Source+Serif+Pro" rel="stylesheet">
 
 <body class="dashboard_body">
@@ -10,6 +12,7 @@
                 </div>
                 <%# need to replace with actual user name %>
                 <%# <h2> Your Name </h2>  %>
+                
                 <h2>
                 <% if(!@user.nil?) %>
                  <%= @user.first_name %> <%= @user.last_name %> 
@@ -19,35 +22,20 @@
                 <h3> Homeowner </h3>
             </div>
             <ul class="menu_options">
-                <li class="icon-dashboard"><span>
-                <%= form_for(:anything, url: '/dash', method: :get) do |f| %>
-                    <%= f.submit "Dashboard",class: "btn btn-dash"%>
-                <% end %>
-                </span></li>
+                <li tabindex="0" class="icon-dashboard">
+                <span>Dashboard</span></li>
 
-                <li tabindex="0" class="icon-contacts"><span>
-                <%= form_for(:anything, url: '/contacts_page', method: :get) do |f| %>
-                    <%= f.submit "Contact",class: "btn btn-dash" %>
-                <% end %>
-                </span></li>
+                <li tabindex="0" class="icon-contacts">
+                <span>Contacts</span></li>
 
-                <li class="icon-payment"><span>
-                <%= form_for(:anything, url: '/payment_page', method: :get) do |f| %>
-                    <%= f.submit "Payment",class: "btn btn-dash" %>
-                <% end %>
-                </span></li>
+                <li tabindex="0" class="icon-payment">
+                <span>Payment</span></li>
 
-                <li class="icon-orders"><span>
-                <%= form_for(:anything, url: '/orders_page', method: :get) do |f| %>
-                    <%= f.submit "Order", class: "btn btn-dash" %>
-                <% end %>
-                </span></li>
+                <li tabindex="0" class="icon-orders">
+                <span>Orders</span></li>
 
-                <li class="icon-profile"><span>
-                <%= form_for(:anything, url: '/profile_page', method: :get) do |f| %>
-                    <%= f.submit "Profile", class: "btn btn-dash" %>
-                <% end %>
-                </span></li>
+                <li tabindex="0" class="icon-profile">
+                <span>Profile</span></li>
             </ul>
         </div>
     </div> 
@@ -70,3 +58,5 @@
     </div>
 
 </body>
+
+
