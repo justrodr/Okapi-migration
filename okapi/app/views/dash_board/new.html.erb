@@ -1,7 +1,6 @@
 <link href="https://fonts.googleapis.com/css?family=Bitter|Bree+Serif|Roboto+Condensed|Source+Serif+Pro" rel="stylesheet">
 
 <body class="dashboard_body">
-    
     <div class="side_nav_bar">
         <div class="menu">
             <div class="account_thumbnail">
@@ -10,11 +9,9 @@
                 </div>
                 <%# need to replace with actual user name %>
                 <%# <h2> Your Name </h2>  %>
-                <h2>
-                <% if(!@user.nil?) %>
-                 <%= @user.first_name %> <%= @user.last_name %> 
-                <% end%>
-                </h2>
+                
+                <h2> <%= @user.first_name %> <%= @user.last_name %> </h2>
+
                 <%# <%= link_to user. %>
                 <h3> Homeowner </h3>
             </div>
@@ -50,23 +47,5 @@
                 </span></li>
             </ul>
         </div>
-    </div> 
-    <!--End Sidebar-->
-    <div class="main_dashboard">
-        <table class="table">
-            <tr class="table_head">
-              <th>Address</th>
-              <th>Tenant</th>
-              <th>Frequency</th>
-            </tr>
-            <% @property.each do |property| %>
-                <tr class="table_row">
-                    <td><%= property.address %></td>
-                    <td><%= property.tenant_name %></td>
-                    <td><%= property.frequency %></td>
-                </tr>
-            <% end %>
-        </table>
     </div>
-
 </body>
