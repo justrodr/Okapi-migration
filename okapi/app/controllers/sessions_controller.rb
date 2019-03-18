@@ -12,6 +12,8 @@ class SessionsController < ApplicationController
     else 
       #flash[:danger] = 'Invalid email/password'
       #render 'new'  test
+      # flash[:alert] = "Error occurred"
+      # redirect_to sessions_path
       redirect_to sessions_path, danger: "Invalid email or password"
     end
 
