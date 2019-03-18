@@ -22,25 +22,17 @@
         1,
         null
       ],
-      "/home/ec2-user/environment/okapi/okapi/app/controllers/property_controller.rb": [
+      "/home/ec2-user/environment/okapi/okapi/app/controllers/home_page_controller.rb": [
         1,
         1,
-        1,
         null,
         null,
         1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
         null,
         null,
         null,
         1,
-        1,
-        0,
+        null,
         null,
         null
       ],
@@ -153,12 +145,102 @@
         null,
         null
       ],
+      "/home/ec2-user/environment/okapi/okapi/app/controllers/profile_page_controller.rb": [
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/ec2-user/environment/okapi/okapi/app/controllers/property_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null,
+        1,
+        1,
+        0,
+        null,
+        null
+      ],
+      "/home/ec2-user/environment/okapi/okapi/app/controllers/contact_controller.rb": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/home/ec2-user/environment/okapi/okapi/app/controllers/orders_page_controller.rb": [
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/ec2-user/environment/okapi/okapi/app/controllers/payment_page_controller.rb": [
+        1,
+        1,
+        null,
+        null
+      ],
       "/home/ec2-user/environment/okapi/okapi/app/controllers/dash_board_controller.rb": [
         1,
         1,
         1,
         1,
         null,
+        null,
+        null
+      ],
+      "/home/ec2-user/environment/okapi/okapi/app/controllers/contacts_page_controller.rb": [
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/ec2-user/environment/okapi/okapi/app/controllers/users_controller.rb": [
+        1,
+        1,
+        2,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
         null,
         null
       ],
@@ -177,91 +259,9 @@
         null,
         null,
         null
-      ],
-      "/home/ec2-user/environment/okapi/okapi/app/controllers/payment_page_controller.rb": [
-        1,
-        1,
-        null,
-        null
-      ],
-      "/home/ec2-user/environment/okapi/okapi/app/controllers/contact_controller.rb": [
-        1,
-        1,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null
-      ],
-      "/home/ec2-user/environment/okapi/okapi/app/controllers/profile_page_controller.rb": [
-        1,
-        1,
-        null,
-        null
-      ],
-      "/home/ec2-user/environment/okapi/okapi/app/controllers/contacts_page_controller.rb": [
-        1,
-        1,
-        null,
-        null
-      ],
-      "/home/ec2-user/environment/okapi/okapi/app/controllers/home_page_controller.rb": [
-        1,
-        1,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null
-      ],
-      "/home/ec2-user/environment/okapi/okapi/app/controllers/orders_page_controller.rb": [
-        1,
-        1,
-        null,
-        null
-      ],
-      "/home/ec2-user/environment/okapi/okapi/app/controllers/users_controller.rb": [
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        null,
-        null,
-        1,
-        1,
-        0,
-        null,
-        null
       ]
     },
-    "timestamp": 1552866130
+    "timestamp": 1552865021
   },
   "Cucumber Features": {
     "coverage": {
@@ -509,13 +509,13 @@
         0,
         null,
         0,
+        0,
+        0,
+        0,
+        0,
         null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
+        0,
+        0,
         null,
         0,
         0,
@@ -525,7 +525,7 @@
         0
       ]
     },
-    "timestamp": 1552866138
+    "timestamp": 1552865025
   },
   "Unit Tests": {
     "coverage": {
