@@ -16,7 +16,7 @@
                 <h2>
                 <% if(!@user.nil?) %>
                     <%= @user.first_name %> <%= @user.last_name %> 
-                <% end%>
+                <% end %>
                 </h2>
                 <%# <%= link_to user. %>
              <h3> Homeowner </h3>
@@ -62,13 +62,14 @@
               <th>Tenant</th>
               <th>Frequency</th>
             </tr>
-            <% if @property.each do |property| %>
+            <% @property.each do |property| %>
                 <tr class="table_row">
                     <td><%= property.address %></td>
                     <td><%= property.tenant_name %></td>
                     <td><%= property.frequency %></td>
                 </tr>
             <% end %>
+        </table>
     </div>
 </body>
 
