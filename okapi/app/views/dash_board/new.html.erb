@@ -51,9 +51,7 @@
                     <%= f.submit "Profile", class: "btn btn-dash" %>
                 <% end %>
                 </span></li>
-              </ul>
-        </div>
-    </div> 
+
     <!--End Sidebar-->
     <div class="main_dashboard">
         <table class="table">
@@ -62,13 +60,15 @@
               <th>Tenant</th>
               <th>Frequency</th>
             </tr>
-            <% if @property.each do |property| %>
+            <% @property.each do |property| %>
                 <tr class="table_row">
                     <td><%= property.address %></td>
                     <td><%= property.tenant_name %></td>
                     <td><%= property.frequency %></td>
                 </tr>
-            <% end %>
-    </div>
+            <%end%>
+              </ul>
+            </div>
+        </div>
 </body>
 
