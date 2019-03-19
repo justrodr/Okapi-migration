@@ -24,7 +24,7 @@
             <ul class="menu_options">
                 <li class="icon-dashboard"><span>
                 <%= form_for(:anything, url: '/dash', method: :get) do |f| %>
-                    <%= f.submit "Dashboard",class: "icon-dashboard"%>
+                    <%= f.submit "Dashboard",class: "btn btn-dash"%>
                 <% end %>
                 </span></li>
 
@@ -62,14 +62,13 @@
               <th>Tenant</th>
               <th>Frequency</th>
             </tr>
-            <% @property.each do |property| %>
+            <% if @property.each do |property| %>
                 <tr class="table_row">
                     <td><%= property.address %></td>
                     <td><%= property.tenant_name %></td>
                     <td><%= property.frequency %></td>
                 </tr>
             <% end %>
-        </table>
     </div>
-
 </body>
+

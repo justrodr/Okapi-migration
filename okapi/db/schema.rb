@@ -24,19 +24,6 @@ ActiveRecord::Schema.define(version: 20190306023831) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.datetime "last_delivered"
-  #example dummy Property.new(user: "hunter", prop_name: "wisconsin", tenant_name: "john", tenant_email: "john@d.com", tenant_phone: "11111", address: "123 wis av", frequency: 1,last_delivered: "Sun, 01 Jan 2012 00:00:00 +0300")       
-  end
-
-  create_table "table_properties", force: :cascade do |t|
-    t.string "user"
-    t.string "property_name"
-    t.string "tenant_name"
-    t.string "tenant_email"
-    t.string "tenant_number"
-    t.string "address"
-    t.string "frequency"
-    t.string "last_change_date"
-    t.string "next_change_date"
   end
 
   create_table "users", force: :cascade do |t|

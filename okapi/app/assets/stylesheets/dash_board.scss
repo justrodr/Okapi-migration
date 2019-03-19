@@ -28,8 +28,7 @@
 
 .dashboard_body .side_nav_bar{
     position: fixed;
-    width: 15%;
-    // max-width: 240px;
+    width: 240px;
     height: 100vh;
     background-color: #242038;
 
@@ -122,46 +121,19 @@
     }
 }
 
-.main_dashboard{
-    // background-color: white;
-    padding-top: 150px;
-    padding-left: 5%;
-    padding-right: 5%;
-    float: right;
-    width: 85%;
+.menu_options input{
+    color: white;
     font-family: sans-serif;
+    border-bottom: none;
+    margin-bottom: 0px;
+    font-size:0.95em;
+	font-weight:regular;
+    // margin-left: none;
+    // font-weight: none;
 }
 
-.main_dashboard table{
-    width: 100%;
-    text-align: center;
-    
-}
-
-.main_dashboard table .table_row{
-    height: 50px;
-    // background-color: white;
-}
-
-.main_dashboard table .table_row:nth-child(even){
-    background-color: white;
-}
-
-.main_dashboard table .table_row:nth-child(even):hover{
-    background-color: #ddd;
-}
-
-table .table_row:hover {
-    background-color: #ddd;
-}
-
-// .main_dashboard table .edit{
-//     width: 100px;
-//     border-radius: 10px;
-//     height: 30px;
-//     border-style: solid;
-//     background-color: white;
-//     border-color: black;
+// .btn-dash{
+//     background: yellow;
 // }
 
 // @media screen and (max-width:900px) and (min-width:400px){
