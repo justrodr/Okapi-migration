@@ -70,7 +70,11 @@
             <% end %>
   
           <br>
-          <div class="text-center">Already have an account? <a href="#">Login here</a>.</div>
+          <%# <div class="text-center">Already have an account? <a href="#">Login here</a></div> %>
+          <div class="text-center">
+            <%="Already have an account?" %>
+            <%= link_to "Login here.", '/login'%> 
+          </div>
         <br>  
 </body>
 
