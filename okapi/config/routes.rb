@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'splash_screen#new'
   get  '/splash_screen', to: 'splash_screen#new'
   get 'users/new', to: 'users#new'
