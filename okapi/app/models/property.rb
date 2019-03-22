@@ -5,5 +5,4 @@ class Property < ActiveRecord::Base
     validates(:tenant_email, presence: true)
     validates(:address, presence: true)
     validates(:frequency, presence: true)
-    validates(:last_delivered, presence: true)
 end
