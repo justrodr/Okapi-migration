@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     #puts(@user.errors.full_messages.to_sentence)
     if @user.save
       log_in @user
-      flash[:success] = "Welcome to Okapi!"
+      # flash[:success] = "Welcome to Okapi!"
       redirect_to dash_path
     else
       flash[:danger] = @user.errors.full_messages.to_sentence
