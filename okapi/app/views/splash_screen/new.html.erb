@@ -8,9 +8,9 @@
 <!--    </div>-->
 <!--    <ul class="menu">-->
 <!--      <li>-->
-<!--        <%= form_for(:anything, url: '/login', method: :get ) do |f| %>-->
-<!--          <%= f.submit "Login", class: "btn btn-secondary_h" %>-->
-<!--        <% end %>-->
+        <!--<%= form_for(:anything, url: '/login', method: :get ) do |f| %>-->
+        <!--  <%= f.submit "Login", class: "btn btn-secondary_h" %>-->
+        <!--<% end %>-->
 <!--      </li>-->
 <!--      <li>-->
 <!--        <%= form_for(:anything, url: '/home_page', method: :get ) do |f| %>-->
@@ -178,6 +178,23 @@ h6 {
   padding: 20px 0;
   background: #fff;
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.3);
+}
+
+.header-form{
+  background: none;
+  border: none;
+  display: block;
+  position: relative;
+  color: #004289;
+  padding: 10px 15px;
+  transition: 0.3s;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+.header-form:hover{
+  color: #007bff;
 }
 
 #header.header-scrolled,
@@ -1512,7 +1529,14 @@ h6 {
 
       <nav class="main-nav float-right d-none d-lg-block">
         <ul>
-          <li><a href="#portfolio">Sign In</a></li>
+          <!--<li><a href="#portfolio">Sign In</a></li>-->
+          <li>
+            <a>
+            <%= form_for(:anything, url: '/login', method: :get ) do |f| %>
+              <%= f.submit "Login", class: "header-form"%>
+            <% end %>
+            </a>
+          </li>
           <li><a href="#about">About Us</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#team">Team</a></li>
