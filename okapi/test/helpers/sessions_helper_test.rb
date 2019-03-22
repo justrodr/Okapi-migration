@@ -8,7 +8,8 @@ class SessionsHelperTest < ActionController::TestCase
     end
     
     test "logged_in should be 1" do
-        log_in(users(:one))
-        #assert assigns(:logged_in) == 1
+        #@controller = SessionsController.new
+        num = log_in(users(:one))
+        assert num == 1
     end
 end
