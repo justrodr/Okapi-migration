@@ -8,8 +8,11 @@
 </head>
 <body>
 
-<%= render partial: "shared/navbar" if @user%> 
-<%= yield %>
+<%#not correct right now%>
+<%# if (!session[:id].nil?)%>
+  <%# <%= render partial: "shared/navbar"  %> 
+  <%# <%= yield %>
+<%# <% end %>
 
 </body>
 </html>
