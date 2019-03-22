@@ -30,9 +30,9 @@
 <!--      <p>We help people maintain their rental homes</p>-->
 <!--      <p>Automatic airfilter delivery for all of your rental homes</p>-->
 <!--      <div class="main_button">-->
-<!--        <%= form_for(:anything, url: 'users/new', method: :get ) do |f| %>-->
-<!--          <%= f.submit "Create Account", class: "btn btn-secondary" %>-->
-<!--        <% end %>-->
+        <!--<%= form_for(:anything, url: 'users/new', method: :get ) do |f| %>-->
+        <!--  <%= f.submit "Create Account", class: "btn btn-secondary" %>-->
+        <!--<% end %>-->
 <!--      </div>-->
 <!--    </div>-->
 <!--    <div class="main_pic">-->
@@ -259,6 +259,8 @@ h6 {
   transition: 0.5s;
   margin: 0 20px 20px 0;
   color: #fff;
+  text-align: center;
+  width: 50%;
 }
 
 #intro .intro-info .btn-get-started {
@@ -1546,14 +1548,18 @@ h6 {
 
       <div class="intro-img">
         <!--<img src="img/intro-img.svg" alt="" class="img-fluid">-->
-        <%= image_tag("peace.jpg", :class=>"img-fluid")%>
+        <!--<%= image_tag("peace.jpg", :class=>"img-fluid")%>-->
       </div>
 
       <div class="intro-info">
         <h2>Automate maintenance on your rental homes<br>Protect your assets</h2>
         <div>
-          <a href="#about" class="btn-get-started scrollto">Get Started</a>
-          <a href="#services" class="btn-services scrollto">Our Services</a>
+          <!--<a href="#" class="btn-get-started scrollto">-->
+            <%= form_for(:anything, url: 'users/new', method: :get ) do |f| %>
+              <%= f.submit "Create Account", class: "btn-get-started" %>
+            <% end %>
+          <!--</a>-->
+          <!--<a href="#services" class="btn-services scrollto">Our Services</a>-->
         </div>
       </div>
 
@@ -1604,17 +1610,17 @@ h6 {
 
           <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
             <!--<img src="img/about-img.svg" class="img-fluid" alt="">-->
-            <%= image_tag("peace.jpg", :class=>"img-fluid")%>
+            <%= image_tag("peace.png", :class=>"img-fluid")%>
           </div>
         </div>
 
         <div class="row about-extra">
           <div class="col-lg-6 wow fadeInUp">
             <!--<img src="img/about-extra-1.svg" class="img-fluid" alt="">-->
-            <%= image_tag("astronaut-edited.gif", :class=>"img-fluid")%>
+            <%= image_tag("astronaut.gif", :class=>"img-fluid")%>
           </div>
           <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
-            <h4>Customemr Centered Service</h4>
+            <h4>Customer Centered Service</h4>
             <p>
               We love our customers, and our goal is to help them as much as possible. Owning rental homes is tough, and we want to be there to help.
             </p>
