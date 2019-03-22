@@ -4,9 +4,17 @@ class PropertyController < ApplicationController
   end
 
   def create
-    @property = Property.new(prop_name)
-    @current_user = @current_user || User.find_by(id: session[:user_id])
-    @current_user.prop_index = @property.id #validate that user name matches property ID
+    @current_user =  User.find_by(email: session[:email])
+    @property = Property.new(prop_params)
+    if(@current_user)
+      @property.user = @current_user.id
+    end
+    if(@property.save)
+      redirect_to dash_path
+    else
+      puts @property.errors.messages
+      redirect_to contact_path ###FIXME
+    end
   end
   private 
       def prop_params

@@ -1,6 +1,8 @@
 module SessionsHelper
     def log_in(user)
         session[:id] = user.id
+        session[:email] = user.email
+        @logged_in = 1
     end
     def current_user
         if session[:id]
