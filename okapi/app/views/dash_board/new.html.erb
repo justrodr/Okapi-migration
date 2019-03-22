@@ -62,7 +62,7 @@
               <th>Tenant</th>
               <th>Frequency</th>
             </tr>
-            <% if @property.each do |property| %>
+            <% @property.each do |property| %>
                 <tr class="table_row">
                     <td><%= property.address %></td>
                     <td><%= property.tenant_name %></td>
