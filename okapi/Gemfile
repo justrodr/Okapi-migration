@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
 gem 'autoprefixer-rails'
+# Provides cross-browser animations
+gem 'animate.css-rails', '~> 3.2.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.10'
 # Use sqlite3 as the database for Active Record

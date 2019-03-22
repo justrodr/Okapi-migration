@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to Okapi!"
       redirect_to dash_path
     else
-      flash[:notice] = @user.errors.full_messages.to_sentence
+      flash[:danger] = @user.errors.full_messages.to_sentence
       redirect_to users_new_path
     end
   end
