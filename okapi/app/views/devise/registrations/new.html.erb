@@ -1,0 +1,71 @@
+<link href="https://fonts.googleapis.com/css?family=Bitter|Bree+Serif|Roboto+Condensed|Source+Serif+Pro" rel="stylesheet">
+<body class="new_account_body">
+  <div class="blank_half">
+      <img src="https://cdn.dribbble.com/users/252645/screenshots/3814913/house.gif">
+  </div>
+  <div class="input_half">
+    <div class="form_box">
+      <% provide(:title, 'Sign Up') %>
+      <div id="signUp_div">
+        <h1 id=signUp_text>Sign up</h1>
+      
+        <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <%= f.text_field :first_name,
+  class: 'form-control', 
+  placeholder: "FIRSTNAME",
+  onfocus:"this.placeholder = ''",
+  onblur:"this.placeholder = 'FIRSTNAME'" %>
+
+  <br />
+  <br />
+
+  <%= f.text_field :last_name,
+  class: 'form-control', 
+  placeholder: "LASTNAME",
+  onfocus:"this.placeholder = ''",
+  onblur:"this.placeholder = 'LASTNAME'"%>
+  
+  <br />
+  <br />
+
+  <%= f.email_field :email, 
+  class: 'form-control', 
+  placeholder: "EMAIL",
+  onfocus:"this.placeholder = ''",
+  onblur:"this.placeholder = 'EMAIL'"%>
+
+  <br />
+  <br />
+
+     <%= f.password_field :password, 
+            class: 'form-control', 
+            placeholder: "PASSWORD",
+            onfocus:"this.placeholder = ''",
+            onblur:"this.placeholder = 'PASSWORD'"%>
+      
+            <br />
+            <br />
+
+  <%= f.password_field :password_confirmation, 
+  class: 'form-control', 
+  placeholder: "CONFIRM PASSWORD",
+  onfocus:"this.placeholder = ''",
+  onblur:"this.placeholder = 'CONFIRM PASSWORD'"%>
+
+  <br />
+  <br />
+
+  <%= f.submit "Sign Up", class: "btn btn-primary" %>
+<% end %>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+<%= render "devise/shared/links" %>
