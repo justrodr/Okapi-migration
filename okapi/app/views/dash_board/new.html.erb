@@ -1,74 +1,57 @@
+<%# <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-
-
-<link href="https://fonts.googleapis.com/css?family=Bitter|Bree+Serif|Roboto+Condensed|Source+Serif+Pro" rel="stylesheet">
-
-<body class="dashboard_body">
-    
-    <div class="side_nav_bar">
-        <div class="menu">
-            <div class="account_thumbnail">
-                <div class="thumbnail_image">
-                    <%= image_tag("astronaut-edited.gif",:width=>"100%", :class=>"img")%>
-                </div>
-                <%# need to replace with actual user name %>
-                <%# <h2> Your Name </h2>  %>
-                <h2>
-                <% if(!@user.nil?) %>
-                    <%= @user.first_name %> <%= @user.last_name %> 
-                <% end%>
-                </h2>
-                <%# <%= link_to user. %>
-             <h3> Homeowner </h3>
-            </div>
-            <ul class="menu_options">
-                <li class="icon-dashboard"><span>
-                <%= form_for(:anything, url: '/dash', method: :get) do |f| %>
-                    <%= f.submit "Dashboard",class: "btn btn-dash"%>
-                <% end %>
-                </span></li>
-
-                <li tabindex="0" class="icon-contacts"><span>
-                <%= form_for(:anything, url: '/contacts_page', method: :get) do |f| %>
-                    <%= f.submit "Contact",class: "btn btn-dash" %>
-                <% end %>
-                </span></li>
-
-                <li class="icon-payment"><span>
-                <%= form_for(:anything, url: '/payment_page', method: :get) do |f| %>
-                    <%= f.submit "Payment",class: "btn btn-dash" %>
-                <% end %>
-                </span></li>
-
-                <li class="icon-orders"><span>
-                <%= form_for(:anything, url: '/orders_page', method: :get) do |f| %>
-                    <%= f.submit "Order", class: "btn btn-dash" %>
-                <% end %>
-                </span></li>
-
-                <li class="icon-profile"><span>
-                <%= form_for(:anything, url: '/profile_page', method: :get) do |f| %>
-                    <%= f.submit "Profile", class: "btn btn-dash" %>
-                <% end %>
-                </span></li>
-              </ul>
-        </div>
-    </div> 
-    <!--End Sidebar-->
-    <div class="main_dashboard">
-        <table class="table">
-            <tr class="table_head">
-              <th>Address</th>
-              <th>Tenant</th>
-              <th>Frequency</th>
-            </tr>
-            <% if @property.each do |property| %>
-                <tr class="table_row">
-                    <td><%= property.address %></td>
-                    <td><%= property.tenant_name %></td>
-                    <td><%= property.frequency %></td>
-                </tr>
-            <% end %>
+<div class="container">
+	<div class="row">
+		<div class="left ">
+        <ul>
+            <a href="#">
+                <li class="item-menu">
+                    <span class="glyphicon glyphicon-home"></span> 
+                    <span class="menu">Trang Chủ</span>
+                </li>
+            </a> 
+            <a href="#">
+                <li class="item-menu">
+                    <span class="glyphicon glyphicon-book"></span> 
+                    <span class="menu">Manga</span>
+                </li>
+            </a>
+            <a href="#">
+                <li class="item-menu">
+                    <span class="glyphicon glyphicon-pencil"></span> 
+                    <span class="menu">Light Novel</span>
+                </li>
+            </a>    
+            <a href="#">
+                <li class="item-menu">
+                    <span class="glyphicon glyphicon-list"></span> 
+                    <span class="menu">Danh Sách</span>
+                </li>
+            </a> 
+            <a href="#">
+                <li class="item-menu">
+                    <span class="glyphicon glyphicon-envelope"></span> 
+                    <span class="menu"> Liên Hệ</span>
+                </li>
+            </a>
+            <a href="#">
+                <li class="item-menu">  
+                    <span class="glyphicon glyphicon-credit-card"></span> 
+                    <span class="menu">Ủng Hộ</span>
+                </li>
+            </a> 
+            <li class="item-menu"> 
+                 <span class="glyphicon glyphicon-search"></span> 
+                 <input class="t_search" type="text" placeholder="Tìm Kiếm">
+            </li>
+        </ul>
+    </div> <!-- end left -->
+    <div class="right">
+        content
     </div>
-</body>
-
+    </div>
+	</div>
+</div> %>
