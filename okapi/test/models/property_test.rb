@@ -39,8 +39,9 @@ class PropertyTest < ActiveSupport::TestCase
     assert_not @property.valid?
   end
   
-  test "enforce that a last delivered date is present" do 
-    @property.last_delivered = nil
-    assert_not @property.valid?
-  end
+  
+  #test "enforce that a last delivered date is present" do 
+  #  @property.last_delivered = nil
+  #  assert_not @property.valid?
+  #end
 end
