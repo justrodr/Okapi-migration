@@ -1,151 +1,151 @@
-// Place all the styles related to the SplashScreen controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// // Place all the styles related to the SplashScreen controller here.
+// // They will automatically be included in application.css.
+// // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// colors:
+// // colors:
 
-// navy: #333240
-// red-orange: #F17050
-// white: #F5F0E9
-// grey: #767573
-// light blue: #AAC7DC
-
-
-//********HEADER**************
-
-#splashscreen_body{
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    // font-family: 'Bree Serif', sans-serif;
-    // font-size: 25px;
-    // background: #A7BED3;
-    background: #F5F0E9;
-}
-
-.splashscreen_header{
-    font-family: 'Bree Serif', sans-serif;
-    height: 100px;
-    // transform: translateY(-186px);
-}
-
-.splashscreen_header .title{
-    width: 50%;
-    float: left;
-    padding-left: 30px;
-}
-
-.splashscreen_header .menu{
-    width: 50%;
-    float: right;
-    margin-top: -46px;
-    text-align: left;
-    margin-right: 0;
-}
-
-.splashscreen_header .title h1{
-    color: #333240;
-    margin-top: 20px;
-    font-size: 22pt;
-}
-
-.splashscreen_header .menu li{
-    font-family: sans-serif;
-    color: #333240;
-    font-size: 14pt;
-    width: 100px;
-    float: left;
-    list-style-type: none;
-    font-weight: 600;
-}
-
-.splashscreen_header .menu li:hover{
-    opacity: .6;
-    
-}
-
-.btn-secondary_h{
-    font-family: sans-serif;
-    color: #333240;
-    font-size: 14pt;
-    font-weight: 600;
-    border: none;
-    width: 100px;
-    margin-left: 0;
-    margin-top: -1px;
-}
+// // navy: #333240
+// // red-orange: #F17050
+// // white: #F5F0E9
+// // grey: #767573
+// // light blue: #AAC7DC
 
 
-//**********MAIN*****************
+// //********HEADER**************
 
-.main{
-    text-align: left;
-    color: #333240;
-    font-family: sans-serif;
-    font-weight: 600;
-    padding-top: 10%;
-    padding-left: 10%;
-    padding-right: 10%;
-}
-
-.main .main_about{
-    width: 50%;
-    float: left;
-    font-size: 20pt;
-}
-
-.btn-secondary{
-    border-style: solid;
-    border-color: #F17050;
-    background: #F17050;
-    width: 200px;
-    padding:10px 10px;
-    border-radius:5px; //corners
-    text-align: center;
-    font-family: 'Bree Serif', sans-serif; 
-    color: #F5F0E9;
-    font-weight: 600;
-    margin-left: 0;
-}
-
-.btn-secondary:hover{
-    opacity: .8;
-}
-
-.main .main_pic {
-    width: 50%;
-    height: 100px;
-    background-color: white;
-    float: right;
-    transform: translateY(-100px);
-}
-
-
-// h1{
-//     font-family: 'Bree Serif', serif;
+// #splashscreen_body{
+//     margin: 0;
+//     padding: 0;
+//     width: 100%;
+//     // font-family: 'Bree Serif', sans-serif;
+//     // font-size: 25px;
+//     // background: #A7BED3;
+//     background: #F5F0E9;
 // }
 
-// header{
-//     background-color: pink;
-//     margin-top: 0;
-//     padding-top: 0;
+// .splashscreen_header{
+//     font-family: 'Bree Serif', sans-serif;
 //     height: 100px;
+//     // transform: translateY(-186px);
 // }
 
-// .title{
+// .splashscreen_header .title{
 //     width: 50%;
 //     float: left;
-//     // transform: translateY(-186px);
-//     height: 50px;
+//     padding-left: 30px;
+// }
+
+// .splashscreen_header .menu{
+//     width: 50%;
+//     float: right;
+//     margin-top: -46px;
+//     text-align: left;
+//     margin-right: 0;
+// }
+
+// .splashscreen_header .title h1{
+//     color: #333240;
+//     margin-top: 20px;
+//     font-size: 22pt;
+// }
+
+// .splashscreen_header .menu li{
+//     font-family: sans-serif;
+//     color: #333240;
+//     font-size: 14pt;
+//     width: 100px;
+//     float: left;
+//     list-style-type: none;
+//     font-weight: 600;
+// }
+
+// .splashscreen_header .menu li:hover{
+//     opacity: .6;
+    
+// }
+
+// .btn-secondary_h{
+//     font-family: sans-serif;
+//     color: #333240;
+//     font-size: 14pt;
+//     font-weight: 600;
+//     border: none;
+//     width: 100px;
+//     margin-left: 0;
+//     margin-top: -1px;
+// }
+
+
+// //**********MAIN*****************
+
+// .main{
+//     text-align: left;
+//     color: #333240;
+//     font-family: sans-serif;
+//     font-weight: 600;
+//     padding-top: 10%;
+//     padding-left: 10%;
+//     padding-right: 10%;
+// }
+
+// .main .main_about{
+//     width: 50%;
+//     float: left;
+//     font-size: 20pt;
 // }
 
 // .btn-secondary{
-//     border: 50px;
-//     background: white;
-//     width: 20%;
+//     border-style: solid;
+//     border-color: #F17050;
+//     background: #F17050;
+//     width: 200px;
 //     padding:10px 10px;
 //     border-radius:5px; //corners
 //     text-align: center;
 //     font-family: 'Bree Serif', sans-serif; 
-//     color: #30343F;
+//     color: #F5F0E9;
+//     font-weight: 600;
+//     margin-left: 0;
 // }
+
+// .btn-secondary:hover{
+//     opacity: .8;
+// }
+
+// .main .main_pic {
+//     width: 50%;
+//     height: 100px;
+//     background-color: white;
+//     float: right;
+//     transform: translateY(-100px);
+// }
+
+
+// // h1{
+// //     font-family: 'Bree Serif', serif;
+// // }
+
+// // header{
+// //     background-color: pink;
+// //     margin-top: 0;
+// //     padding-top: 0;
+// //     height: 100px;
+// // }
+
+// // .title{
+// //     width: 50%;
+// //     float: left;
+// //     // transform: translateY(-186px);
+// //     height: 50px;
+// // }
+
+// // .btn-secondary{
+// //     border: 50px;
+// //     background: white;
+// //     width: 20%;
+// //     padding:10px 10px;
+// //     border-radius:5px; //corners
+// //     text-align: center;
+// //     font-family: 'Bree Serif', sans-serif; 
+// //     color: #30343F;
+// // }

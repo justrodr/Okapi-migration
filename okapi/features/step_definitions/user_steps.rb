@@ -24,8 +24,8 @@
   end
   
   When("I enter invalid login information") do
-    fill_in 'EMAIL', with: 'badexample@gmail.com'
-    fill_in 'PASSWORD', with: 'failure'
+    fill_in 'Email', with: 'badexample@gmail.com'
+    fill_in 'Password', with: 'failure'
     click_on("Log In")
   end
   
@@ -38,29 +38,21 @@
     visit 'users/new'
   end
   
-  #When("I enter information that already exists") do
-    #pending # Write code here that turns the phrase above into concrete actions
-  #end
-  
   Then("I should not be able to create an account") do
     assert page.current_path, 'users/new'
     assert page.has_css? "Account already exists for this email"
   end
-
-  #When("I enter valid login information") do
-  #  pending # Write code here that turns the phrase above into concrete actions
-  #end
   
   Then("I should be on my dashboard") do
     assert page.current_path, '/dash'
   end
   
   When("I enter valid create account information") do
-    fill_in 'FIRSTNAME', with: 'Good'
-    fill_in 'LASTNAME', with: 'Example'
-    fill_in 'EMAIL', with: 'goodexample@gmail.com'
-    fill_in 'PASSWORD', with: 'success'
-    fill_in 'CONFIRM PASSWORD', with: 'success'
+    fill_in 'First Name', with: 'Good'
+    fill_in 'Last Name', with: 'Example'
+    fill_in 'Email Address', with: 'goodexample@gmail.com'
+    fill_in 'Password', with: 'success'
+    fill_in 'Confirm Password', with: 'success'
     click_on("Sign Up")
   end
 
