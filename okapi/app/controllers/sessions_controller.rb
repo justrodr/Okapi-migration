@@ -10,9 +10,9 @@ class SessionsController < ApplicationController
       log_in user
       redirect_to dash_path
     else 
-      #flash[:danger] = 'Invalid email/password'
+      flash[:danger] = 'Invalid email/password'
       #render 'new'  test
-      redirect_to '/login', danger: "Invalid email or password"
+      redirect_to '/login'
     end
 
     #if user && user.authenticate(params[:session][:password])
