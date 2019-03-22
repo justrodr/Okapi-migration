@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    @logged_in = 0
   end
   def create
     if !(params[:session].nil?)
