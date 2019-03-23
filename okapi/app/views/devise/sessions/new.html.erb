@@ -36,6 +36,10 @@
 
 			<div class="text-center">
             <%="Don't have an account?" %>
-            <%= link_to "Sign up here.", 'users/new', {:style=>'color:#007bff;'}%> 
+            <%= link_to "Sign up here.", '/users/sign_up', {:style=>'color:#007bff;'}%> 
           </div>
-<%= render "devise/shared/links" %>
+			<div class="text-center">
+            <%="Forgot your password?" %>
+            <%= link_to "Click here.", '/users/password/new', {:style=>'color:#007bff;'}%> 
+          </div>
+<%#= render "devise/shared/links" %>
