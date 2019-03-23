@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   get    '/dash',   to: 'dash_board#new'
+  
+  get    '/property', to: 'property#new'
+  post   '/property', to: 'property#create'
   delete '/logout',  to: 'sessions#destroy'
   resources:users
   #resources:session

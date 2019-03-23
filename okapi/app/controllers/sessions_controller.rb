@@ -1,19 +1,18 @@
 class SessionsController < ApplicationController
   def new
+    @logged_in = 0
   end
   def create
     if !(params[:session].nil?)
       user = User.find_by(email: params[:session][:email].downcase) 
     end
-    if user && user.valid_password?(params[:session][:password]) #user.authenticate(params[:session][:password])
-      log_in user #before refactor
-      #@current_user = user # maybe
-      #sign_in(user)
+    if user && user.authenticate(params[:session][:password])
+      log_in user
       redirect_to dash_path
     else 
-      #flash[:danger] = 'Invalid email/password'
+      flash[:danger] = 'Invalid email/password'
       #render 'new'  test
-      redirect_to '/login', danger: "Invalid email or password"
+      redirect_to '/login'
     end
 
     #if user && user.authenticate(params[:session][:password])
