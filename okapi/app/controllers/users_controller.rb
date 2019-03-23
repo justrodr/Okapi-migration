@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def new #this is the html
+    session[:log] = 0
     @user = User.new
   end
   

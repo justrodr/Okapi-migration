@@ -1,5 +1,6 @@
 class SplashScreenController < ApplicationController
     def new
+        session[:log] = 0
     end
     
     def show
