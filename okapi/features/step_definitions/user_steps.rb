@@ -3,7 +3,7 @@
   end
   
   When("I click on Create Account") do
-    click_on("Create Account")
+    ("Create Account")
   end
   
   Then("I want to be taken to the create account page") do

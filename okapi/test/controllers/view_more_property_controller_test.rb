@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class HomePageControllerTest < ActionController::TestCase
+class ViewMorePropertyControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

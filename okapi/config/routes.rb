@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  root 'splash_screen#new'
-  get  '/splash_screen', to: 'splash_screen#new'
-  get 'users/new', to: 'users#new'
-  post 'users', to: 'users#create'
-  get    '/home_page',   to: 'home_page#new'
-  get    '/contact',   to: 'contact#new'
+  root   'splash_screen#new'
+  get    '/splash_screen', to: 'splash_screen#new'
+  get    'users/new', to: 'users#new'
+  post   'users', to: 'users#create'
   get    '/contacts_page',   to: 'contacts_page#new'
   get    '/payment_page',   to: 'payment_page#new'
   get    '/orders_page',   to: 'orders_page#new'
@@ -15,6 +13,8 @@ Rails.application.routes.draw do
   
   get    '/property', to: 'property#new'
   post   '/property', to: 'property#create'
+  get    '/view_more', to: 'view_more_property#new'
+  get    '/edit_property', to: 'edit_property#new'
   delete '/logout',  to: 'sessions#destroy'
   resources:users
   resources:session

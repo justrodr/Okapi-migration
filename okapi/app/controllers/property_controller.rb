@@ -3,19 +3,22 @@ class PropertyController < ApplicationController
     @property = Property.new
   end
 
-  def create
+  def create(property = nil)
     @current_user =  User.find_by(email: session[:email])
-    @property = Property.new(prop_params)
+    @property = property || Property.new(prop_params)
     if(@current_user)
       @property.user = @current_user.id
+      #puts @property.user
     end
     if(@property.save)
+      session[:test] = @property.user
       redirect_to dash_path
     else
       puts @property.errors.messages
-      redirect_to contact_path ###FIXME
+      redirect_to contact_page_path ###FIXME
     end
   end
+  
   private 
       def prop_params
         params.require(:property).permit(:prop_name, :tenant_name, :tenant_email, :tenant_phone, :address, :frequency)

@@ -1,0 +1,2 @@
+module ViewMorePropertyHelper
+end
