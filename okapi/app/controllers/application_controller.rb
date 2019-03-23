@@ -18,6 +18,9 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource_or_scope)
     root_path
   end
+   def after_resetting_password_path_for(resource)
+     root_path
+   end
   include SessionsHelper
 
   add_flash_types :danger, :info, :warning, :success

@@ -25,6 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # for login authentication
 gem 'devise'
 
+gem 'dotenv-rails'
+
 #use cucumber
 group :test, :development do
   gem 'cucumber-rails', :require => false

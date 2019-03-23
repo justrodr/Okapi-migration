@@ -6,9 +6,9 @@ class SessionsController < ApplicationController
       user = User.find_by(email: params[:session][:email].downcase) 
     end
     if user && user.valid_password?(params[:session][:password]) #user.authenticate(params[:session][:password])
-      #log_in user #before refactor
+      log_in user #before refactor
       #@current_user = user # maybe
-      sign_in(user)
+      #sign_in(user)
       redirect_to dash_path
     else 
       #flash[:danger] = 'Invalid email/password'
