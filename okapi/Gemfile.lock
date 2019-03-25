@@ -92,7 +92,17 @@ GEM
     cucumber-wire (0.0.1)
     database_cleaner (1.7.0)
     debug_inspector (0.0.3)
+    devise (4.6.1)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 6.0)
+      responders
+      warden (~> 1.2.3)
     diff-lcs (1.3)
+    dotenv (2.7.1)
+    dotenv-rails (2.7.1)
+      dotenv (= 2.7.1)
+      railties (>= 3.2, < 6.1)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.10.0)
@@ -124,6 +134,7 @@ GEM
     multi_test (0.1.2)
     nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
+    orm_adapter (0.5.0)
     popper_js (1.14.5)
     public_suffix (3.0.3)
     rack (1.6.11)
@@ -159,6 +170,9 @@ GEM
       ffi (~> 1.0)
     rdoc (4.3.0)
     regexp_parser (1.3.0)
+    responders (2.4.1)
+      actionpack (>= 4.2.0, < 6.0)
+      railties (>= 4.2.0, < 6.0)
     sass (3.7.3)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -202,6 +216,8 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
+    warden (1.2.7)
+      rack (>= 1.0)
     web-console (2.3.0)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -223,6 +239,8 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   cucumber-rails
   database_cleaner
+  devise
+  dotenv-rails
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.2.10)
