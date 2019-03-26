@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -29,9 +28,14 @@ $(document).ready(function(){
 });
 </script>
 
-<!---- START OF TABLE ------>
+
 <body>
-    <div class="container">
+<!-- Page Content -->
+<div class="d-flex" id="wrapper">
+<%= render 'shared/navbar' if session[:log] == 1%>
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+        <div class="container">
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
@@ -105,14 +109,14 @@ $(document).ready(function(){
 
 
 			<div class="clearfix">
-                <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+                <%# <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div> %>
                 <ul class="pagination">
                     <li class="page-item disabled"><a href="#">Previous</a></li>
                     <li class="page-item"><a href="#" class="page-link">1</a></li>
                     <li class="page-item"><a href="#" class="page-link">2</a></li>
-                    <li class="page-item active"><a href="#" class="page-link">3</a></li>
+                    <%# <li class="page-item active"><a href="#" class="page-link">3</a></li>
                     <li class="page-item"><a href="#" class="page-link">4</a></li>
-                    <li class="page-item"><a href="#" class="page-link">5</a></li>
+                    <li class="page-item"><a href="#" class="page-link">5</a></li> %>
                     <li class="page-item"><a href="#" class="page-link">Next</a></li>
                 </ul>
             </div>
@@ -130,19 +134,19 @@ $(document).ready(function(){
 					</div>
 					<div class="modal-body">					
 						<div class="form-group">
-							<label>Name</label>
+							<label>Tenant Name</label>
 							<input type="text" class="form-control" required>
 						</div>
 						<div class="form-group">
-							<label>Email</label>
+							<label>Tenant Email</label>
 							<input type="email" class="form-control" required>
 						</div>
 						<div class="form-group">
-							<label>Address</label>
+							<label>Property Address</label>
 							<textarea class="form-control" required></textarea>
 						</div>
 						<div class="form-group">
-							<label>Phone</label>
+							<label>Phone Number</label>
 							<input type="text" class="form-control" required>
 						</div>					
 					</div>
@@ -237,7 +241,7 @@ $(document).ready(function(){
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">					
-						<p>Are you sure you want to delete these Records?</p>
+						<p>Are you sure you want to delete this property?</p>
 						<p class="text-warning"><small>This action cannot be undone.</small></p>
 					</div>
 					<div class="modal-footer">
@@ -248,5 +252,8 @@ $(document).ready(function(){
 			</div>
 		</div>
 	</div>
+      </div>
+    </div>
+</div>
 </body>
-                               		                            
+    <!-- /#page-content-wrapper -->
