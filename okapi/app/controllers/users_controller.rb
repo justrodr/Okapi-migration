@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def new #this is the html
+    session[:log] = 0
     @user = User.new
   end
   
@@ -16,7 +17,8 @@ class UsersController < ApplicationController
     #puts(@user.valid?)
     #puts(@user.errors.full_messages.to_sentence)
     if @user.save
-      log_in @user
+      log_in @user #before refactor
+      #sign_in(@user) # post refactor
       flash[:success] = "Welcome to Okapi!"
       redirect_to dash_path
     else
