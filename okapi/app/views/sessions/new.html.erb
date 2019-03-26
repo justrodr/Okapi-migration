@@ -1,41 +1,198 @@
+<style>
+	
+	* {
+		margin: 0px; 
+		padding: 0px; 
+		box-sizing: border-box;
+	}
+	
+	body, html {
+		height: 100%;
+		font-family: sans-serif;
+	}
+	.container{
+		width: 100%;
+		margin: 0 auto;
+	}
+	
+	.container-login100 {
+	  width: 100%;  
+	  min-height: 100vh;
+	  display: -webkit-box;
+	  display: -webkit-flex;
+	  display: -moz-box;
+	  display: -ms-flexbox;
+	  display: flex;
+	  flex-wrap: wrap;
+	  justify-content: center;
+	  align-items: center;
+	  padding: 15px;
+	  background-position: center;
+	  background-size: cover;
+	  background-repeat: no-repeat;
+	}
+	
+	.wrap-login100 {
+	  width: 390px;
+	  background: #fff;
+	  border-radius: 10px;
+	  position: relative;
+	}
+	
+	.wrap-input100 {
+	    width: 100%;
+	    position: relative;
+	    background-color: #e6e6e6;
+	    border: 1px solid transparent;
+	    border-radius: 3px;
+	}
+	
+	.p-t-50 {padding-top: 50px;}
+	.p-b-90 {padding-bottom: 90px;}
+	
+	.login100-form {
+  		width: 100%;
+	}
+	
+	.flex-sb {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: flex;
+		justify-content: space-between;
+	}
+	
+	.flex-w {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-flex-wrap: wrap;
+		-moz-flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
+		-o-flex-wrap: wrap;
+		flex-wrap: wrap;
+	}
+	
+	.login100-form-title {
+	  font-family: Ubuntu-Bold, sans-serif;
+	  font-size: 30px;
+	  color: #403866;
+	  line-height: 1.2;
+	  text-transform: uppercase;
+	  text-align: center;
+	  font-weight: 600;
+	  width: 100%;
+	  display: block;
+	}
+	
+	.p-b-51 {padding-bottom: 51px;}
+	
+	.wrap-input100 {
+	  width: 100%;
+	  position: relative;
+	  background-color: #e6e6e6;
+	  border: 1px solid transparent;
+	  border-radius: 3px;
+	}
+	
+	.validate-input {
+	  position: relative;
+	}
+	
+	.m-b-16 {margin-bottom: 16px;}
+	
+	.input100 {
+	  font-family: Ubuntu-Bold, sans-serif;
+	  color: #403866;
+	  line-height: 1.2;
+	  font-size: 18px;
+	  display: block;
+	  width: 100%;
+	  background: transparent;
+	  height: 62px;
+	  padding: 0 20px 0 38px;
+	  width: 100%;
+	  position: relative;
+	  background-color: #e6e6e6;
+	  border: 1px solid transparent;
+	  border-radius: 3px;
+	  font-weight: 600;
+	}
+	
+	.login100-form-btn {
+	  font-family: Ubuntu-Bold, sans-serif;
+	  font-size: 16px;
+	  color: #fff;
+	  line-height: 1.2;
+	  text-transform: uppercase;
+	  display: -webkit-box;
+	  display: -webkit-flex;
+	  display: -moz-box;
+	  display: -ms-flexbox;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  padding: 0 20px;
+	  width: 100%;
+	  height: 62px;
+	  background-color: #827ffe;
+	  border-radius: 3px;
+	  -webkit-transition: all 0.4s;
+	  -o-transition: all 0.4s;
+	  -moz-transition: all 0.4s;
+	  transition: all 0.4s;
+	  display: -webkit-box;
+	  display: -webkit-flex;
+	  display: -moz-box;
+	  display: -ms-flexbox;
+	  display: flex;
+	  flex-wrap: wrap;
+	  outline: none !important;
+	  border: none;
+	  background: #00000;
+	}
+	
+	.login100-form-btn:hover {
+	  background-color: #403866;
+	}
+	
+	.m-t-17 {margin-top: 17px;}
+	
+	
+</style>
+<html>
 <body>
-<div class="container">
-    <div class="row">
-      <div class="col-lg-10 col-xl-9 mx-auto">
-        <div class="card card-signin flex-row my-5 animated fadeInUp">
-          <div class="card-img-left d-none d-md-flex">
-             <!-- Background image for card set in CSS! -->
-          </div>
-          <div class="card-body">
-            <h5 class="card-title text-center">Login</h5>
+	<div class="container">
+		<div class="container-login100">
+			<div class="wrap-login100 p-t-50 p-b-90">
+				<%= form_for(:session, url: login_path, class: "login100-form flex-sb flex-w") do |f| %>
+					<h1 class="login100-form-title p-b-51">
+						Login
+					</h1>
+					<div class="wrap-input100 validate-input m-b-16">
+						<%= f.email_field :email,
+							class: "input100", 
+							placeholder: "Email",
+							required:"required"%> 
+					</div>
+		
+					<div class="wrap-input100 validate-input m-b-16">
+						<%= f.password_field :password, 
+							class: "input100",
+							placeholder: "Password",
+							required:"required"%> 
+					</div>
+					<div class="container-login100-form-btn m-t-17">
+						<%= f.submit "Log In", class: "login100-form-btn" %>
+					</div>
+				<%end%>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+	
 
-			<%= form_for(:session, url: login_path) do |f| %>
-				<div class="form-group">
-				<div class="input-group">
-					<span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-					<%= f.email_field :email,
-						class: "form-control", 
-						placeholder: "Email",
-						required:"required"%> 
-				</div>
-				</div> 
-
-				<div class="form-group">
-				<div class="input-group">
-					<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-				<%= f.password_field :password, 
-						class: 'form-control',
-						placeholder: "Password",
-						required:"required"%> 
-				</div>
-				</div>   
-
-			<%= f.submit "Log In", class: "btn btn-primary btn-block btn-lg" %>
-			<%end%>
-			<br>
-
-			<div class="text-center">
-            <%="Don't have an account?" %>
-            <%= link_to "Sign up here.", 'users/new', {:style=>'color:#007bff;'}%> 
-          </div>
-  </body>
