@@ -14,8 +14,9 @@ class PropertyController < ApplicationController
       session[:test] = @property.user
       redirect_to dash_path
     else
-      puts @property.errors.messages
-      redirect_to contact_page_path ###FIXME
+      #puts @property.errors.messages
+      flash[:warning] = "Please input a valid Property"
+      redirect_to dash_path ###FIXME
     end
   end
   

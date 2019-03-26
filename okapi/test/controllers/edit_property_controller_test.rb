@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class EditPropertyControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+   test "get new" do
+      get :new
+   end
 end

@@ -1,2 +1,0 @@
-class ViewMorePropertyController < ApplicationController
-end
