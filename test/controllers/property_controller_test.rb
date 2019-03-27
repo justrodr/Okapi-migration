@@ -13,19 +13,19 @@ class PropertyControllerTest < ActionController::TestCase
       #post :create, :user =>{"first_name"=>"a", "last_name"=>"a", "email"=>"john@tamu.edu", "password"=>"1234567", "password_confirmation"=>"1234567"}
       #@controller = old_controller
       controller.session[:email] = users(:one).email
-      get :new
+      #get :new
       post :create, :property =>{"prop_name"=>"house", "tenant_name"=>"Adam", "tenant_email"=>"adam@tamu.edu", "tenant_phone"=>"1234567", "address"=>"1234567", "frequency"=>"1"}
       assert_redirected_to dash_path
    end
    
    test "if user not created (user invalid), should still redirect" do 
-      get :new
+      #get :new
       post :create, :property =>{"prop_name"=>"   ", "tenant_name"=>"  ", "tenant_email"=>"adam@tamu.edu", "tenant_phone"=>"1234567", "address"=>"1234567", "frequency"=>"1"}
       assert_redirected_to dash_path
    end
    
    test "if user not created (user invalid), should flash to screen" do 
-      get :new
+      #get :new
       post :create, :property =>{"prop_name"=>"   ", "tenant_name"=>"  ", "tenant_email"=>"adam@tamu.edu", "tenant_phone"=>"1234567", "address"=>"1234567", "frequency"=>"1"}
       assert_not flash.empty?
    end
