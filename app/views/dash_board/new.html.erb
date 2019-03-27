@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-<%# <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<%# <%# <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
@@ -31,7 +31,7 @@ $(document).ready(function(){
 		}
 	});
 });
-</script>
+</script> %>
 
 
 <body>
@@ -77,7 +77,7 @@ $(document).ready(function(){
 
                 <tbody>
                     <tr>
-                        <% @property.each do |property| %>
+                        <% Property.where(user: User.find_by(email: session[:email])).each do |f| %>
                             <tr>
                                 <!---- Display checkboxes ------>
                                 <td>
@@ -89,14 +89,14 @@ $(document).ready(function(){
                                 <!---- End display checkboxes ------>
 
                                 <!---- Property Attributes ------>
-                                <td><%= property.prop_name %></td>
-                                <td><%= property.address %></td>
-                                <!--<td><%= property.tenant_name %></td>-->
+                                <td><%= f.prop_name %></td>
+                                <td><%= f.address %></td>
+                                
                                 <td>(last sent nil)</td> 
                                 <td>(last delivered nil)</td>
                                 <td>(days until nil)</td>
-                                <!--<td><%= property.frequency %></td>-->
-                                <td><%= property.last_delivered%></td>
+                               
+                                <td><%= f.last_delivered%></td>
                                 <!---- End property attributes ------>
 
                                 <!---- Display action buttons ------>
@@ -131,34 +131,32 @@ $(document).ready(function(){
 	<div id="addPropertyModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form>
+			
 					<div class="modal-header">						
 						<h4 class="modal-title">Add Property</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">					
-						<div class="form-group">
-							<label>Tenant Name</label>
-							<input type="text" class="form-control" required>
-						</div>
-						<div class="form-group">
-							<label>Tenant Email</label>
-							<input type="email" class="form-control" required>
-						</div>
-						<div class="form-group">
-							<label>Property Address</label>
-							<textarea class="form-control" required></textarea>
-						</div>
-						<div class="form-group">
-							<label>Phone Number</label>
-							<input type="text" class="form-control" required>
-						</div>					
-					</div>
-					<div class="modal-footer">
+						<%= form_for(@property, url: property_path) do |f| %>
+    					
+						<%= f.text_field :prop_name, class: "form-control", placeholder: "Property Name", required: true%> 
+						<%= f.text_field :tenant_name, class: "form-control", placeholder: "Tenant Name", required: true%> 
+						<%= f.text_field :tenant_email, class: "form-control", placeholder: "Tenant Email", required: true%> 
+						<%= f.text_field :address, class: "form-control", placeholder: "Property Address", required: true%> 
+						<%= f.text_field :frequency, class: "form-control", placeholder: "Order Frequency", required: true%> 
+
+						<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-						<input type="submit" class="btn btn-success" value="Add">
+						<%= f.submit "Add Property", class: "btn btn-primary btn-block btn-lg" %>
+						</div>
+
+						<% end %>
+
+
+
 					</div>
-				</form>
+					
+
 			</div>
 		</div>
 	</div>
@@ -261,5 +259,5 @@ $(document).ready(function(){
 </div>
 </body>
     <!-- /#page-content-wrapper -->
-</div> %>
+</div>
 <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
