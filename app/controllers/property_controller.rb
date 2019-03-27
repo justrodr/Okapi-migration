@@ -1,6 +1,10 @@
 class PropertyController < ApplicationController
   def new
     @property = Property.new
+    # respond_to do |format|
+    #   format.html
+    #   format.js
+    # end
   end
 
   def create(property = nil)
@@ -13,12 +17,12 @@ class PropertyController < ApplicationController
       puts session[:properties].length
       redirect_to dash_path
     else
-      #puts @property.errors.messages
-      flash[:warning] = "Please input a valid Property"
-      redirect_to dash_path ###FIXME
+      puts @property.errors.messages
+      puts "Property Not Saved"
+      redirect_to contact_path ###FIXME
     end
   end
-  
+
   private 
       def prop_params
         params.require(:property).permit(:prop_name, :tenant_name, :tenant_email, :tenant_phone, :address, :frequency)

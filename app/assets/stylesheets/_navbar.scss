@@ -1,9 +1,9 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
-.wrapper {
-    display: flex;
-    align-items: stretch;
-}
+// .wrapper {
+//     display: flex;
+//     align-items: stretch;
+// }
 
 #sidebar {
     min-width: 250px;
@@ -36,14 +36,14 @@ a, a:hover, a:focus {
 
 #sidebar {
     /* don't forget to add all the previously mentioned styles here too */
-    background: #7386D5;
-    color: #fff;
+    background:  #F3FAFF;
+    color:  #0A0B0B;
     transition: all 0.3s;
 }
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    // background: #6d7fcc;
 }
 
 #sidebar ul.components {
@@ -57,18 +57,18 @@ a, a:hover, a:focus {
 }
 
 #sidebar ul li a {
-    padding: 10px;
+    padding: 15px;
     font-size: 1.1em;
     display: block;
 }
 #sidebar ul li a:hover {
-    color: #7386D5;
+    color:  #00A4FF;
     background: #fff;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
     color: #fff;
-    background: #6d7fcc;
+    background: #BCC3C7;
 }
 ul ul a {
     font-size: 0.9em !important;
