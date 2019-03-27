@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  root 'splash_screen#new'
+  devise_for :users, controllers: { sessions: 'users/sessions', registration: 'users/registration' }
+  devise_scope :user do
+    get 'login', to: 'devise/sessions#new'
+    get 'users/new', to: 'devise/registrations#new'
+  end
+  root to: 'splash_screen#new'
   get  '/splash_screen', to: 'splash_screen#new'
   get 'users/new', to: 'users#new'
   post 'users', to: 'users#create'
@@ -12,9 +17,12 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   get    '/dash',   to: 'dash_board#new'
+  
+  get    '/property', to: 'property#new'
+  post   '/property', to: 'property#create'
   delete '/logout',  to: 'sessions#destroy'
   resources:users
-  resources:session
+  #resources:session
   
 
 end
