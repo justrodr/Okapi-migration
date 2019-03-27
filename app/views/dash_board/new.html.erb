@@ -1,3 +1,11 @@
+<%= form_for(@property, url: property_path) do |f| %>
+    <%= f.submit "Add Property", class: "btn btn-primary btn-block btn-lg" %>
+		<%= f.text_field :prop_name, class: "form-control", placeholder: "Property Name", required: true%> 
+		<%= f.text_field :tenant_name, class: "form-control", placeholder: "Property Name", required: true%> 
+		<%= f.text_field :tenant_email, class: "form-control", placeholder: "Property Name", required: true%> 
+		<%= f.text_field :address, class: "form-control", placeholder: "Property Name", required: true%> 
+		<%= f.text_field :frequency, class: "form-control", placeholder: "Property Name", required: true%> 
+<% end %>
 <%# <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
