@@ -17,12 +17,12 @@
 					<span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
 					<%= f.email_field :email,
 						class: "form-control", 
-						placeholder: "Email",
+						placeholder: "Account Email",
 						required:"required"%> 
 				</div>
 				</div> 
 
-  <%= f.submit "Send me reset password instructions", class: "btn btn-primary btn-block btn-lg" %>
+  <%= f.submit "Reset my Password", class: "btn btn-primary btn-block btn-lg" %>
 <% end %>
-
+ <br>
 <%= render "devise/shared/links" %>
