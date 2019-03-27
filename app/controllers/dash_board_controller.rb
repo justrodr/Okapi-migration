@@ -6,6 +6,6 @@ class DashBoardController < ApplicationController
             puts session[:email]
         end
         @property = Property.new
-        @properties = Property.all
+        session[:properties] = Property.where(id: User.find_by(email: session[:email]))
     end
 end
