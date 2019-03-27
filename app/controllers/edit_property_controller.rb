@@ -1,0 +1,2 @@
+class EditPropertyController < ApplicationController
+end
