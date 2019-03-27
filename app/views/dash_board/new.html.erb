@@ -1,0 +1,59 @@
+
+<%# <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+	<div class="row">
+		<div class="left ">
+        <ul>
+            <a href="#">
+                <li class="item-menu">
+                    <span class="glyphicon glyphicon-home"></span> 
+                    <span class="menu">Trang Chủ</span>
+                </li>
+            </a> 
+            <a href="#">
+                <li class="item-menu">
+                    <span class="glyphicon glyphicon-book"></span> 
+                    <span class="menu">Manga</span>
+                </li>
+            </a>
+            <a href="#">
+                <li class="item-menu">
+                    <span class="glyphicon glyphicon-pencil"></span> 
+                    <span class="menu">Light Novel</span>
+                </li>
+            </a>    
+            <a href="#">
+                <li class="item-menu">
+                    <span class="glyphicon glyphicon-list"></span> 
+                    <span class="menu">Danh Sách</span>
+                </li>
+            </a> 
+            <a href="#">
+                <li class="item-menu">
+                    <span class="glyphicon glyphicon-envelope"></span> 
+                    <span class="menu"> Liên Hệ</span>
+                </li>
+            </a>
+            <a href="#">
+                <li class="item-menu">  
+                    <span class="glyphicon glyphicon-credit-card"></span> 
+                    <span class="menu">Ủng Hộ</span>
+                </li>
+            </a> 
+            <li class="item-menu"> 
+                 <span class="glyphicon glyphicon-search"></span> 
+                 <input class="t_search" type="text" placeholder="Tìm Kiếm">
+            </li>
+        </ul>
+    </div> <!-- end left -->
+    <div class="right">
+        content
+    </div>
+    </div>
+	</div>
+</div> %>
+<%= link_to "Log Out", destroy_user_session_path, method: :delete %>
