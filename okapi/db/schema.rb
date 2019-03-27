@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190321141230) do
+ActiveRecord::Schema.define(version: 20190327003354) do
 
   create_table "properties", force: :cascade do |t|
     t.integer  "user"
