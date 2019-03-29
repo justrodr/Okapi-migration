@@ -151,8 +151,7 @@ $(document).ready(function(){
 						</div>
 
 						<% end %>
-
-
+	
 
 					</div>
 					
@@ -241,6 +240,11 @@ $(document).ready(function(){
 					<div class="modal-header">						
 						<h4 class="modal-title">Delete Property</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<% Property.where(user: User.find_by(email: session[:email])).each do |prop| %>
+							<%= form_for(prop, url: "property/delete/#{prop.id}", method: :delete) do |f| %>
+							<%= f.submit "Delete Property #{prop.prop_name}", class: "btn btn-primary btn-block btn-lg" %>
+							<% end %>
+						<% end %>
 					</div>
 					<div class="modal-body">					
 						<p>Are you sure you want to delete this property?</p>
@@ -257,6 +261,11 @@ $(document).ready(function(){
       </div>
     </div>
 </div>
+					<% Property.where(user: User.find_by(email: session[:email])).each do |prop| %>
+						<%= form_for(prop, url: "property/edit/#{prop.id}", method: :get) do |f| %>
+						<%= f.submit "Edit Property #{prop.prop_name}", class: "btn btn-primary btn-block btn-lg" %>
+						<% end %>
+					<% end %>
 </body>
     <!-- /#page-content-wrapper -->
 </div>
