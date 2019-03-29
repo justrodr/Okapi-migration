@@ -1,9 +1,11 @@
 Then("I should be on the Add property page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  assert page.current_path, 'users/new'
+  #fix
 end
 
 Given("I am on the Add property page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  visit root_path
+  #fix
 end
 
 When("I enter valid property information") do
@@ -15,11 +17,13 @@ Then("I should see the new property in my Dashboard") do
 end
 
 Then("I should be on the Edit property page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  assert page.current_path, 'users/new'
+  #fix
 end
 
 Given("I am on the Edit property page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  visit root_path
+  #fix
 end
 
 When("I change tentant information") do
