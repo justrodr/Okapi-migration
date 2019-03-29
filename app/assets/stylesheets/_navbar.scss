@@ -36,7 +36,7 @@ a, a:hover, a:focus {
 
 #sidebar {
     /* don't forget to add all the previously mentioned styles here too */
-    background:  #F3FAFF;
+    background: white;
     color:  #0A0B0B;
     transition: all 0.3s;
 }
@@ -44,6 +44,12 @@ a, a:hover, a:focus {
 #sidebar .sidebar-header {
     padding: 20px;
     // background: #6d7fcc;
+}
+
+.nav_image{
+    width: 40px;
+    margin-bottom: 100px;
+    margin-top: 20px;
 }
 
 #sidebar ul.components {
@@ -57,18 +63,23 @@ a, a:hover, a:focus {
 }
 
 #sidebar ul li a {
-    padding: 15px;
+    padding: 5px;
     font-size: 1.1em;
     display: block;
+    opacity: 0.6;
 }
 #sidebar ul li a:hover {
-    color:  #00A4FF;
-    background: #fff;
+    // color:  #4565FF;
+    opacity: 1;
+    // background: #fff;
+    // text-decoration: underline #00A4FF;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #fff;
-    background: #BCC3C7;
+    // color: #fff;
+    // background: #BCC3C7;
+    text-decoration: underline;
+    opacity: 1;
 }
 ul ul a {
     font-size: 0.9em !important;
