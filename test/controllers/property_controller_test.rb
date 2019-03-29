@@ -20,12 +20,14 @@ class PropertyControllerTest < ActionController::TestCase
    
    test "if user not created (user invalid), should still redirect" do 
       #get :new
+      @controller.session[:email] = users(:one).email
       post :create, :property =>{"prop_name"=>"   ", "tenant_name"=>"  ", "tenant_email"=>"adam@tamu.edu", "tenant_phone"=>"1234567", "address"=>"1234567", "frequency"=>"1"}
       assert_redirected_to dash_path
    end
    
    test "if user not created (user invalid), should flash to screen" do 
       #get :new
+      @controller.session[:email] = users(:one).email
       post :create, :property =>{"prop_name"=>"   ", "tenant_name"=>"  ", "tenant_email"=>"adam@tamu.edu", "tenant_phone"=>"1234567", "address"=>"1234567", "frequency"=>"1"}
       assert_not flash.empty?
    end
@@ -36,5 +38,14 @@ class PropertyControllerTest < ActionController::TestCase
       post :create, :property =>{"prop_name"=>"house", "tenant_name"=>"Adam", "tenant_email"=>"adam@tamu.edu", "tenant_phone"=>"1234567", "address"=>"1234567", "frequency"=>"1"}
       #Property.create({"user" => 0,"prop_name"=>"house", "tenant_name"=>"Adam", "tenant_email"=>"adam@tamu.edu", "tenant_phone"=>"1234567", "address"=>"1234567", "frequency"=>"1"})
       assert controller.session[:test] == users(:one).id
+   end
+   
+   test "put update should update property" do
+      put :update, :property => Property.first #,:id => Property.first.id 
+   end
+   
+   test "post edit should update property" do
+      #property = users(:one)
+      post :edit, :id => Property.first.id 
    end
 end
