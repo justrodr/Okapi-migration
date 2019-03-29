@@ -5,22 +5,24 @@ Feature: Add/Edit property info
 
         Scenario: Viewing add property
             Given I am on the Dashboard page
-            And I click on Add property
+            When I click on "Add"
             Then I should be on the Add property page
 
         Scenario: Add a property
             Given I am on the Add property page
-            When I submit in correct property information
+            When I enter valid property information
+            And I click on "Submit"
             Then I should see the new property in my Dashboard
 
         Scenario: Viewing edit property
-            Given I am on the Dashboard apge
-            When I click on Edit property
+            Given I am on the Dashboard page
+            When I click on "Edit"
             Then I should be on the Edit property page
 
         Scenario: Editing a property
             Given I am on the Edit property page
-            When I submit changes to tentant information
+            When I change tentant information
+            And I click on "Submit"
             Then I should see the edited property in my Dashboard
 
 

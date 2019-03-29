@@ -9,21 +9,21 @@ Feature: View Dashboard
 
     Scenario: Accessing Contacts 
         Given I am on the Dashboard page
-        When I click on Contacts on the sidebar
+        When I click on "Contact"
         Then I should be on my Contacts page
 
     Scenario: Accessing Payment 
         Given I am on the Dashboard page
-        When I click on Payment on the sidebar
+        When I click on "Payment"
         Then I should be on my Payment page
 
     Scenario: Accessing Orders 
         Given I am on the Dashboard page
-        When I click on Orders on the sidebar
+        When I click on "Order"
         Then I should be on my Orders page
 
     Scenario: Accessing Contacts 
         Given I am on the Dashboard page
-        When I click on Profile on the sidebar
+        When I click on "Profile"
         Then I should be on my Profile page
 
