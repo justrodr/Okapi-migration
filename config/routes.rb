@@ -28,13 +28,17 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   get    '/dash',   to: 'dash_board#new'
   
+  put '/property/update', to: 'property#update'
   get    '/property', to: 'property#new'
   post   '/property', to: 'property#create'
+  match '/property/delete/:id', to: 'property#destroy', :via => :delete, :as => :delete_property
+  match '/property/edit/:id', to: 'property#edit', :via => :get, :as => :edit_property
+  #match '/property/update/:id', to: 'property#update', :via => :put, :as => :update_property
+  #put    '/property', to: 'property#update'
   get    '/view_more', to: 'view_more_property#new'
-  get    '/edit_property', to: 'edit_property#new'
   delete '/logout',  to: 'sessions#destroy'
   resources:users
-  #resources:session
+  resources:property
   
 
 end
