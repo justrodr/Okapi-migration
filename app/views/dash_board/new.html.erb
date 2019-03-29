@@ -65,13 +65,24 @@ $(document).ready(function(){
 								<label for="selectAll"></label>
 							</span>
 						</th>
-                        <th>Property Name</th>
+                        <!--<th>Property Name</th>-->
                         <th>Address</th>
+                        <!-- Address and Nickname will go in this column-->
+                        <!--If there is no nickname, just display address-->
+                        <!--If there is nickname: Nickname -->
+                        <!--                      Address -->
 						<%# <th>Tenant Name</th> %>
-                        <th>Date last sent</th>
-                        <th>Date last delivered</th>
-                        <th>Days until next order<th>
+						<th>Tenant</th>
+						<!--Tenant info goes in here: Tenant Name and email address-->
+                        <th>Delivery Status</th>
+                        <!--Delivery status goes here: Semicircle timer counting down till next ship -->
+                        <!--If package has shipped & not delivered: Shipped: Date -->
+                        <!--If package has shipped and delivered:   Last Delivered: Date-->
+                        <!--Pause delivery button-->
+                        <!--<th>Date last delivered</th>-->
+                        <!--<th>Days until next order<th>-->
                         <th>Actions</th>
+                        <!--Edit and Details-->
                     </tr>
                 </thead>
 
@@ -139,11 +150,11 @@ $(document).ready(function(){
 					<div class="modal-body">					
 						<%= form_for(@property, url: property_path) do |f| %>
     					
-						<%= f.text_field :prop_name, class: "form-control", placeholder: "Property Name", required: true%> 
+    					<%= f.text_field :address, class: "form-control", placeholder: "Property Address", required: true%> 
 						<%= f.text_field :tenant_name, class: "form-control", placeholder: "Tenant Name", required: true%> 
 						<%= f.text_field :tenant_email, class: "form-control", placeholder: "Tenant Email", required: true%> 
-						<%= f.text_field :address, class: "form-control", placeholder: "Property Address", required: true%> 
-						<%= f.text_field :frequency, class: "form-control", placeholder: "Order Frequency", required: true%> 
+						<%= f.text_field :prop_name, class: "form-control", placeholder: "Property Name (Optional)", required: false%> 
+						<!--<%= f.text_field :frequency, class: "form-control", placeholder: "Air Filter Delivery Frequency (Months)(Optional)", required: false%> -->
 
 						<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
