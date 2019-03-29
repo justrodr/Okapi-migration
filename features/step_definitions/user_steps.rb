@@ -1,15 +1,7 @@
   Given("I am on the home page") do
     visit root_path
   end
-<<<<<<< HEAD:okapi/features/step_definitions/user_steps.rb
  
-=======
-  
-  When("I click on Create Account") do
-    ("Create Account")
-  end
-  
->>>>>>> 3e45bd35a70384a01233a58cca582540dae9ebfd:features/step_definitions/user_steps.rb
   Then("I want to be taken to the create account page") do
     assert page.current_path, 'users/new'
   end

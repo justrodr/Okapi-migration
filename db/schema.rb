@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD:okapi/db/schema.rb
 ActiveRecord::Schema.define(version: 20190327003354) do
-=======
-ActiveRecord::Schema.define(version: 20190327003725) do
->>>>>>> 3e45bd35a70384a01233a58cca582540dae9ebfd:db/schema.rb
 
   create_table "properties", force: :cascade do |t|
     t.integer  "user"
