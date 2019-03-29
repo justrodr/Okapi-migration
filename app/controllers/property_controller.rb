@@ -19,7 +19,7 @@ class PropertyController < ApplicationController
     else
       puts @property.errors.messages
       puts "Property Not Saved"
-      redirect_to contact_path ###FIXME
+      redirect_to dash_path
     end
   end
 
