@@ -1,4 +1,4 @@
-class PropertyController < ApplicationController
+class PropertiesController < ApplicationController
   def new
     @property = Property.new
     # respond_to do |format|
@@ -12,7 +12,6 @@ class PropertyController < ApplicationController
   end
   
   def destroy
-     #abort("destroy")
      @property = Property.find params[:id]
      @property.destroy
      flash[:notice] = "Property #{@property.prop_name} destroyed"

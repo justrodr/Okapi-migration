@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PropertyControllerTest < ActionController::TestCase
+class PropertiesControllerTest < ActionController::TestCase
    test "should get new" do
      get :new
      assert_response :success

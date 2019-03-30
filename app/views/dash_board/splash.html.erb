@@ -1491,7 +1491,7 @@ h6 {
           <!--<li><a href="#portfolio">Sign In</a></li>-->
           <li>
             <a>
-            <%= form_for(:anything, url: '/login', method: :get ) do |f| %>
+            <%= form_for(:anything, url: new_user_session_path, method: :get ) do |f| %>
               <%= f.submit "Login", class: "header-form"%>
             <% end %>
             </a>
@@ -1538,7 +1538,7 @@ h6 {
         <h2>Automate maintenance on your rental homes<br>Protect your assets</h2>
         <div>
           <!--<a href="#" class="btn-get-started scrollto">-->
-            <%= form_for(:anything, url: 'users/new', method: :get ) do |f| %>
+            <%= form_for(:anything, url: new_user_registration_path, method: :get) do |f| %>
               <%= f.submit "Create Account", class: "btn-get-started" %>
             <% end %>
           <!--</a>-->

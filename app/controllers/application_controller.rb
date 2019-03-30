@@ -21,7 +21,8 @@ class ApplicationController < ActionController::Base
    def after_resetting_password_path_for(resource)
      root_path
    end
-  include SessionsHelper
+  include DashBoardHelper
+  include PropertiesHelper
 
   add_flash_types :danger, :info, :warning, :success
 
