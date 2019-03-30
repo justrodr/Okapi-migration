@@ -8,7 +8,7 @@ class PropertyController < ApplicationController
   end
   
   def show
-    #redirect_to 
+    @property = Property.find params[:id]
   end
   
   def destroy
@@ -26,7 +26,7 @@ class PropertyController < ApplicationController
   def update
     @property = Property.find params[:property][:id]
     if(@property.update_attributes(prop_params))
-      flash[:notice] = "#{@property.prop_name} was successfully updated."
+      # flash[:notice] = "#{@property.prop_name} was successfully updated."
     else
       flash[:notice] = "Please enter a valid property"
     end
