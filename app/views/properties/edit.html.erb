@@ -1,4 +1,5 @@
-                        <%= form_for(Property.find_by(id: params[:id]), url: '/property/update', method: :put) do |f| %>
+                        <%@property = Property.find_by(id: params[:id])%>
+                        <%= form_for(@property, url: property_path(@property), method: :put) do |f| %>
     					<h1>Edit Property </h1>
 						<%= f.text_field :prop_name, class: "form-control", placeholder: "Property Name", required: true%> 
 						<%= f.text_field :tenant_name, class: "form-control", placeholder: "Tenant Name", required: true%> 
