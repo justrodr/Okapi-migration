@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   
   def create #create is linked to POST HTTP Request
     @user = User.new(user_params)
+   # abort("in our defined user controller")
     #puts(@user.valid?)
     #puts(@user.errors.full_messages.to_sentence)
     if @user.save

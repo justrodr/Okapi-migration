@@ -12,6 +12,7 @@ class PropertyController < ApplicationController
   end
   
   def destroy
+     #abort("destroy")
      @property = Property.find params[:id]
      @property.destroy
      flash[:notice] = "Property #{@property.prop_name} destroyed"
@@ -36,9 +37,9 @@ class PropertyController < ApplicationController
   def create(property = nil)
     @current_user =  User.find_by(email: session[:email])
     @property = property || Property.new(prop_params)
-   # if(@current_user)
+    if(@current_user)
      @property.user = @current_user.id
-    #end
+    end
     if(@property.save)
       session[:test] = @property.user
       session[:properties] = Property.where(user: User.find_by(email: session[:email]))
