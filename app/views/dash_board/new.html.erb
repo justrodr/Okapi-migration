@@ -32,12 +32,6 @@ $(document).ready(function(){
 	});
 });
 </script> %>
-<style>
-body{
-	background-color: #ecf5ff;
-}
-</style>
-
 <body onload="move()">
 <!-- Page Content -->
 <div class="d-flex" id="wrapper">
@@ -104,7 +98,7 @@ body{
                                 <!---- End display checkboxes ------>
 
                                 <!---- Property Attributes ------>
-                                <td><%= f.prop_name %><br><%= f.address %></td>
+                                <td><%= prop.prop_name %><br><%= prop.address %></td>
                                 
                                 <td>(Tenant info)</td>
                                 <td>
