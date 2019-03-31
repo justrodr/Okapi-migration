@@ -15,27 +15,27 @@
   end
   
   Then("I want to be taken to the login page") do
-    assert page.current_path, '/login'
+    assert page.current_path, new_user_session_path
   end
 
 
   Given("I am on the login page") do
-    visit "/login"
+    visit new_user_session_path
   end
   
   When("I enter invalid login information") do
-    fill_in 'EMAIL', with: 'badexample@gmail.com'
-    fill_in 'PASSWORD', with: 'failure'
+    fill_in 'Email Address', with: 'badexample@gmail.com'
+    fill_in 'Password', with: 'failure'
     click_on("Log In")
   end
   
   Then("I should see a login error message") do
-    assert page.current_path, '/login'
-    assert page.has_css?(".alert-danger", wait: 3)
+    assert page.current_path, new_user_session_path
+    assert page.has_content?("invalid")
   end
 
   Given("I am on the create account page") do
-    visit 'users/new'
+    visit new_user_registration_path
   end
   
   #When("I enter information that already exists") do
@@ -56,11 +56,11 @@
   end
   
   When("I enter valid create account information") do
-    fill_in 'FIRSTNAME', with: 'Good'
-    fill_in 'LASTNAME', with: 'Example'
-    fill_in 'EMAIL', with: 'goodexample@gmail.com'
-    fill_in 'PASSWORD', with: 'success'
-    fill_in 'CONFIRM PASSWORD', with: 'success'
+    fill_in 'First Name', with: 'Good'
+    fill_in 'Last Name', with: 'Example'
+    fill_in 'Email Address', with: 'goodexample@gmail.com'
+    fill_in 'Password', with: 'success'
+    fill_in 'Confirm Password', with: 'success'
     click_on("Sign Up")
   end
 
