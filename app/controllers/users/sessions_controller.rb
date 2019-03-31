@@ -12,9 +12,8 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
    def create
-    super
+    super; session[:email] = params[:user][:email]
     #abort("Sessions")
-    session[:email] = params[:user][:email]
    end
 
   # DELETE /resource/sign_out

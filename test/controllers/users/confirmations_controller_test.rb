@@ -1,20 +1,15 @@
 require 'test_helper'
 
-class Users::SessionsControllerTest < ActionController::TestCase
+class Users::ConfirmationsControllerTest < ActionController::TestCase
   include Devise::Test::ControllerHelpers
      
   def setup
     request.env['devise.mapping'] = Devise.mappings[:user]
+
     @user = users(:one)
   end
   
-  test "it should get new" do
-    get :new
+  test "should confirm" do
+
   end
-  
-  test "it should create new" do
-    post :create
-  end
-  
-  
 end
