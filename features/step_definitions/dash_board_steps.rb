@@ -1,5 +1,5 @@
 Given("I am on the Dashboard page") do
-    visit "/dash"
+    visit dash_path
   end
   
   Then("I should see a table of my properties") do

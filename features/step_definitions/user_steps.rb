@@ -15,7 +15,7 @@
   end
 
   Given("I am on the login page") do
-    visit "/login"
+    visit "/users/sign_in"
   end
   
   When("I enter invalid login information") do
@@ -28,7 +28,7 @@
   end
 
   Given("I am on the create account page") do
-    visit 'users/new'
+    visit 'users/sign_up'
   end
   
   Then("I should not be able to create an account") do

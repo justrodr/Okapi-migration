@@ -18,14 +18,15 @@ Background: properties in database
             Then I should be on the Add property page
 
         Scenario: Add a property
-            Given I am on the Add property page
-            When I enter valid property information
+            Given I am on the Dashboard page
+            When I click on "Add New Property"
+            And I enter valid property information
             And I click on "Add Property"
             Then I should see the new property in my Dashboard
 
         Scenario: Viewing edit property
             Given I am on the Dashboard page
-            When I click on "Edit Property Home"
+            When I click on "editbutton Lake"
             Then I should be on the Edit property page
 
         Scenario: Editing a property
@@ -33,3 +34,8 @@ Background: properties in database
             When I change tentant information
             And I click on "Save Changes"
             Then I should see the edited property in my Dashboard
+
+        Scenario: Deleting a property
+            Given I am on the Dashboard page
+            When I click on "deletebuttonLake"
+            Then the property should not be in my table 
