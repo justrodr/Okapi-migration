@@ -11,17 +11,18 @@ class Users::PasswordsControllerTest < ActionController::TestCase
   
     test "it should get new" do
       get :new
-   end
+    end
    
    test "it should sign in" do
-      post :create
+      post :create, :user =>{"first_name"=>"a", "last_name"=>"a", "email"=>"john@tamu.edu"}
    end
    
    test "it should edit" do
-      get :edit, "reset_password_token=abcdef"
+      get :edit,  :user =>{"first_name"=>"a", "last_name"=>"a", "email"=>"john@tamu.edu"}
+      @controller.edit
    end
    
    test "it should update" do
-      post :update
+      put :update
    end
 end
