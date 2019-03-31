@@ -30,6 +30,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 
 gem 'dotenv-rails'
+#for 3rd party authentication
+gem 'omniauth'
+
+# User Authentication with Facebook
+gem 'omniauth-facebook'
 
 #use cucumber
 group :test, :development do
