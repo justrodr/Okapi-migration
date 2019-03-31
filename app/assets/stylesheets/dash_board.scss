@@ -225,3 +225,22 @@ table.table .avatar {
 	margin-bottom: 10px;
 	
 }
+
+
+//************ Progress Bar
+
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+}
+
+#myBar {
+	
+  width: 1%;
+  height: 10px;
+  background-color: #4F83FF;
+}
+
+#setup {
+	display: none;
+}

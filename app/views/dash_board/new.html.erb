@@ -34,7 +34,7 @@ $(document).ready(function(){
 </script> %>
 
 
-<body>
+<body onload="move()">
 <!-- Page Content -->
 <div class="d-flex" id="wrapper">
 <%= render 'shared/navbar' if session[:log] == 1%>
@@ -100,14 +100,36 @@ $(document).ready(function(){
                                 <!---- End display checkboxes ------>
 
                                 <!---- Property Attributes ------>
-                                <td><%= f.prop_name %></td>
-                                <td><%= f.address %></td>
+                                <td><%= f.prop_name %><br><%= f.address %></td>
                                 
-                                <td>(last sent nil)</td> 
-                                <td>(last delivered nil)</td>
-                                <td>(days until nil)</td>
-                               
-                                <td><%= f.last_delivered%></td>
+                                <td>(Tenant info)</td>
+                                <td>
+                                	<div id="myProgress">
+  										<div id="myBar"></div>
+									</div>
+									<a id="setup">Set Up Automatic Delivery</a>
+									<!--<button onclick="move()">Click Me</button> -->
+									<br>
+									<script>
+										function move() {
+										  var elem = document.getElementById("myBar");   
+										  var width = 1;
+										  var id = setInterval(frame, 10);
+										  function frame() {
+										    if (width >= 100) {
+										      clearInterval(id);
+										    } else {
+										      width++; 
+										      elem.style.width = width + '%'; 
+										    }
+										  }
+										}
+									</script>
+									<div>
+										<p>(last sent nil / last delivered nil)</p>
+									</div>
+								</td>
+                                
                                 <!---- End property attributes ------>
 
                                 <!---- Display action buttons ------>
