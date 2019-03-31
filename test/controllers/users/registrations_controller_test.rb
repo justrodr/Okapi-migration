@@ -19,15 +19,15 @@ class Users::RegistrationsControllerTest < ActionController::TestCase
   end
   
   test "it should create" do
-    post :create
+    post :create, :user =>{"first_name"=>"a", "last_name"=>"a", "email"=>"john@tamu.edu"}
   end
   
   test "it should destroy" do
-    delete :destroy
+    delete :destroy,:user =>{"first_name"=>"a", "last_name"=>"a", "email"=>"john@tamu.edu"}
   end
   
   test "user object should be nil" do
-    delete :destroy
+    delete :destroy, :user =>{"first_name"=>"a", "last_name"=>"a", "email"=>"john@tamu.edu"}
     assert (assigns(:user).nil?)
   end
 

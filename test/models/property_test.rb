@@ -9,16 +9,6 @@ class PropertyTest < ActiveSupport::TestCase
     assert @property.valid?
   end
   
-  test "user id should be present as user" do 
-    @property.user = nil 
-    assert_not @property.valid?
-  end
-  
-  test "enforce that prop name is present" do 
-    @property.prop_name = "     "
-    assert_not @property.valid?
-  end
-  
   test "enforce tenant's name is present" do 
     @property.tenant_name = "   "
     assert_not @property.valid?
@@ -33,15 +23,4 @@ class PropertyTest < ActiveSupport::TestCase
     @property.address = "   "
     assert_not @property.valid?
   end
-  
-  test "enforce that a delivery frequency is present" do
-    @property.frequency = nil
-    assert_not @property.valid?
-  end
-  
-  
-  #test "enforce that a last delivered date is present" do 
-  #  @property.last_delivered = nil
-  #  assert_not @property.valid?
-  #end
 end

@@ -1,5 +1,8 @@
 class DashBoardController < ApplicationController
     def splash 
+        if(!(session[:email].nil?))
+            redirect_to dash_path
+        end
     end 
     
     def new

@@ -1,3 +1,4 @@
+# @controller = SessionsController.new
 require 'test_helper'
 
 class PropertiesControllerTest < ActionController::TestCase
@@ -8,12 +9,7 @@ class PropertiesControllerTest < ActionController::TestCase
    
    test "should create user and redirect to dash_path" do
       controller = @controller
-     # @controller = SessionsController.new
-     #get :new
-      #post :create, :user =>{"first_name"=>"a", "last_name"=>"a", "email"=>"john@tamu.edu", "password"=>"1234567", "password_confirmation"=>"1234567"}
-      #@controller = old_controller
       controller.session[:email] = users(:one).email
-      #get :new
       post :create, :property =>{"prop_name"=>"house", "tenant_name"=>"Adam", "tenant_email"=>"adam@tamu.edu", "tenant_phone"=>"1234567", "address"=>"1234567", "frequency"=>"1"}
       assert_redirected_to dash_path
    end
@@ -41,11 +37,19 @@ class PropertiesControllerTest < ActionController::TestCase
    end
    
    test "put update should update property" do
-      put :update, :property => Property.first #,:id => Property.first.id 
+      put :update, :id => 1, :property =>{"id" => "1", "prop_name"=>"house", "tenant_name"=>"Adam", "tenant_email"=>"adam@tamu.edu", "tenant_phone"=>"1234567", "address"=>"1234567", "frequency"=>"1"}
+      assert_redirected_to dash_path
+   end
+   
+   test "should find from params" do
+      get :show,  :id => 1
    end
    
    test "post edit should update property" do
-      #property = users(:one)
       post :edit, :id => Property.first.id 
+   end
+   
+   test "delete should destroy an object" do
+      delete :destroy, :id => Property.first.id
    end
 end
