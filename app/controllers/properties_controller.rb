@@ -1,4 +1,4 @@
-class PropertyController < ApplicationController
+class PropertiesController < ApplicationController
   def new
     @property = Property.new
     # respond_to do |format|
@@ -36,9 +36,9 @@ class PropertyController < ApplicationController
   def create(property = nil)
     @current_user =  User.find_by(email: session[:email])
     @property = property || Property.new(prop_params)
-   # if(@current_user)
+    if(@current_user)
      @property.user = @current_user.id
-    #end
+    end
     if(@property.save)
       session[:test] = @property.user
       session[:properties] = Property.where(user: User.find_by(email: session[:email]))

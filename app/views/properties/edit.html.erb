@@ -94,7 +94,8 @@
 }
 </style>
 
-<%= form_for(Property.find_by(id: params[:id]), url: '/property/update', method: :put) do |f| %>
+<%@property = Property.find_by(id: params[:id])%>
+<%= form_for(@property, url: property_path(@property), method: :put) do |f| %>
     <div class="container emp-profile animated fadeIn">
                     <div class="row">
                         <div class="col-md-4">

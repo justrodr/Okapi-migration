@@ -122,19 +122,19 @@ body{
                                 <%# </td> %>
 								<%# <td><%= link_to "Edit Property","property/edit/#{prop.id}"%>
 								<%# <td><%= link_to render(:partial => 'property/edit'),"property/edit/#{prop.id}" %>
-								<%= form_for(prop, url: "property/edit/#{prop.id}", method: :get) do |f|%>	
+								<%= form_for(prop, url: edit_property_path(prop), method: :get) do |f|%>	
 										<td><%= f.button class: 'btn' do %>
 											<i class="material-icons" style="font-size:25px;color:#1da1f2">edit</i>
 										<% end %></td>
 								<%end%>
 
-								<%= form_for(prop, url: "property/#{prop.id}", method: :get) do |f|%>	
+								<%= form_for(prop, url: property_path(prop), method: :get) do |f|%>	
 									<td><%= f.button class: 'btn' do %>
 											<i class="material-icons" style="font-size:25px;color:#fbbe19">visibility</i>
 									<% end %></td>
 								<%end%>
 
-								<%= form_for(prop, url: "property/delete/#{prop.id}", method: :delete) do |f| %>
+								<%= form_for(prop, url: property_path(prop), method: :delete) do |f| %>
 									<td><%= f.button class: 'btn' do %>
 											<i class="material-icons" style="font-size:25px;color:#dc3545">delete</i>
 									<% end %></td>
@@ -189,7 +189,7 @@ body{
 					</div>
 
 					<div class="modal-body">					
-						<%= form_for(@property, url: property_path) do |f| %>
+						<%= form_for(@property, url: properties_path) do |f| %>
 							<%= f.text_field :address, class: "form-control", placeholder: "Property Address", required: true%> 
 							<%= f.text_field :tenant_name, class: "form-control", placeholder: "Tenant Name", required: true%> 
 							<%= f.text_field :tenant_email, class: "form-control", placeholder: "Tenant Email", required: true%> 
