@@ -11,24 +11,26 @@
   end
   
   Then("I want to be taken to the login page") do
-    assert page.current_path, '/login'
+    assert page.current_path, new_user_session_path
   end
 
   Given("I am on the login page") do
-    visit "/users/sign_in"
+    visit new_user_session_path
   end
   
   When("I enter invalid login information") do
-    fill_in 'Email', with: 'badexample@gmail.com'
+    fill_in 'Email Address', with: 'badexample@gmail.com'
     fill_in 'Password', with: 'failure'
+    click_on("Log In")
   end
   
   Then("I should see a login error message") do
-    assert page.current_path, '/users/sign_in'
+    assert page.current_path, new_user_session_path
+    assert page.has_content?("invalid")
   end
 
   Given("I am on the create account page") do
-    visit 'users/sign_up'
+    visit new_user_registration_path
   end
   
   Then("I should not be able to create an account") do
@@ -46,3 +48,10 @@
     fill_in 'Password', with: 'success'
     fill_in 'Confirm Password', with: 'success'
   end
+
+
+
+  
+
+  
+  

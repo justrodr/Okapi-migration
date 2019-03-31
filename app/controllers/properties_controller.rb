@@ -25,12 +25,12 @@ class PropertiesController < ApplicationController
   
   def update
     @property = Property.find params[:property][:id]
-    if(@property.update_attributes(prop_params))
-      # flash[:notice] = "#{@property.prop_name} was successfully updated."
-    else
-      flash[:notice] = "Please enter a valid property"
-    end
-    redirect_to dash_path
+     if(@property.update_attributes(prop_params))
+        flash[:notice] = "#{@property.prop_name} was successfully updated."
+     else
+       #flash[:notice] = "Please enter a valid property"
+     end
+     redirect_to dash_path
   end
 
   def create(property = nil)
@@ -45,7 +45,6 @@ class PropertiesController < ApplicationController
       puts session[:properties].length
       redirect_to dash_path
     else
-      puts @property.errors.messages
       flash[:warning] = "Property Not Saved"
       redirect_to dash_path ###FIXME
     end

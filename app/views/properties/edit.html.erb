@@ -98,6 +98,7 @@
 <%= form_for(@property, url: property_path(@property), method: :put) do |f| %>
     <div class="container emp-profile animated fadeIn">
                     <div class="row">
+                        <!-- Property Image -->
                         <div class="col-md-4">
                             <div class="profile-img">
                                 <img src="https://images.familyhomeplans.com/plans/59952/59952-b600.jpg" alt=""/>
@@ -107,6 +108,9 @@
                                 </div> %>
                             </div>
                         </div>
+                        <!-- End Property Image -->
+
+                        <!-- Property Name, Address, and Tabs -->
                         <div class="col-md-6">
                             <div class="profile-head">
                                         <h5>
@@ -127,17 +131,19 @@
                                 </ul>
                             </div>
                         </div>
-                        
+                        <!-- End Property Name, Address, and Tabs --> 
                     </div>
+
                     <div class="row">
                         <div class="col-md-4">
                             <div class="profile-work">
                                 <p>Date Property Added</p>
-                                <a> <%=@property.created_at%></a>
+                                    <a> <%=@property.created_at%></a>
                                 <p>Property Last Updated</p>
-                                <a> <%=@property.updated_at%></a>
+                                    <a> <%=@property.updated_at%></a>
                             </div>
                         </div>
+
                         <div class="col-md-8">
                             <div class="tab-content profile-tab" id="myTabContent">
                                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -164,23 +170,18 @@
                                                 <div class="col-md-6">
                                                     <%= f.text_field :tenant_email, class: "form-control", placeholder: "Tenant Email", required: true%>
                                                 </div>
-                                            </div>
-                                            <%# <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Profession</label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p>Web Developer and Designer</p>
-                                                </div>
-                                            </div> %>
+                                            </div>      
                                 </div>
+
                                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <label>Order Frequency</label>
+                                                    <label>Order Frequency </label><small> (per year)</small>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <p><%= f.text_field :frequency, class: "form-control", placeholder: "Order Frequency"%></p>
+                                                <div class="col-md-2">
+                                                    <%# <p><%= f.text_field :frequency, class: "form-control", placeholder: "Order Frequency"%>
+                                                
+                                                    <%= f.select :frequency, ['1', '2', '3', '4', '6', '12'],{}, {class: "form-control dropdown"}%>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -195,7 +196,10 @@
                             </div>
                         </div>
                     </div>
+
+                    <div>
                     <%= f.hidden_field :id, value: Property.find_by(id: params[:id]).id%>
-		                <%= f.submit "Save Changes", class: "btn btn-primary btn-sm" %> 
+		                <%= f.submit "Save Changes", class: "btn btn-primary btn-sm col-md-3" %>
                     </div>
-    <%end%>
+     </div>
+<%end%>
