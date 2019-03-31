@@ -49,4 +49,11 @@
             <%="Forgot your password?" %>
             <%= link_to "Click here.", '/users/password/new', {:style=>'color:#007bff;'}%> 
           </div>
+			<div class="text-center">
+						<%- if devise_mapping.omniauthable? %>
+  					<%- resource_class.omniauth_providers.each do |provider| %>
+    				<%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), {:style=>'color:#007bff;'} %>
+  					<% end %>
+						<% end %>
+					</div>
 <%#= render "devise/shared/links" %>
