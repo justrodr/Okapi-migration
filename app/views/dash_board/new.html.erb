@@ -101,6 +101,7 @@ $(document).ready(function(){
                                 <td><%= prop.prop_name %><br><%= prop.address %></td>
                                 
                                 <td>(Tenant info)</td>
+
                                 <td>
                                 	<div id="myProgress">
   										<div id="myBar"></div>
@@ -145,9 +146,9 @@ $(document).ready(function(){
 										<%= link_to '<i class="material-icons" style="font-size:25px;color:#dc3545;padding-right:10px">delete</i>'.html_safe, property_path(prop), method: :delete, class:"float-left",data: { confirm: "Are you sure you want to delete this property? \nThis action cannot be undone."} %>
 									</div>
 								</td>
-                        <% end %>
-						<td></td>
-                    </tr>       
+                        <td></td>
+                    </tr> 
+					<% end %>      
                 </tbody>
             </table>
 
