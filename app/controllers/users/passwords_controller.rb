@@ -9,6 +9,8 @@ class Users::PasswordsController < Devise::PasswordsController
   # POST /resource/password
    def create
      super
+     #abort("passwords_controller")
+     session[:email] = params[:user][:email]
    end
 
   # GET /resource/password/edit?reset_password_token=abcdef

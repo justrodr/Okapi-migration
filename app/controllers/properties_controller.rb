@@ -1,4 +1,4 @@
-class PropertyController < ApplicationController
+class PropertiesController < ApplicationController
   def new
     @property = Property.new
     # respond_to do |format|
@@ -8,7 +8,7 @@ class PropertyController < ApplicationController
   end
   
   def show
-    #redirect_to 
+    @property = Property.find params[:id]
   end
   
   def destroy
@@ -26,7 +26,7 @@ class PropertyController < ApplicationController
   def update
     @property = Property.find params[:property][:id]
     if(@property.update_attributes(prop_params))
-      flash[:notice] = "#{@property.prop_name} was successfully updated."
+      # flash[:notice] = "#{@property.prop_name} was successfully updated."
     else
       flash[:notice] = "Please enter a valid property"
     end
@@ -36,9 +36,9 @@ class PropertyController < ApplicationController
   def create(property = nil)
     @current_user =  User.find_by(email: session[:email])
     @property = property || Property.new(prop_params)
-   # if(@current_user)
+    if(@current_user)
      @property.user = @current_user.id
-    #end
+    end
     if(@property.save)
       session[:test] = @property.user
       session[:properties] = Property.where(user: User.find_by(email: session[:email]))
