@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get    '/contacts_page', to: 'dash_board#contacts'
   get    '/payment_page', to: 'dash_board#payment'
   get    '/orders_page', to: 'dash_board#orders'
+  get    '/profile', to: 'users#edit'
   resources:properties
 
 end
