@@ -52,7 +52,7 @@
         <span class="input-group-addon"><i class="fa fa-lock"></i></span>
         <%= f.password_field :password, 
         class: 'form-control', 
-        placeholder: "Password",
+        placeholder: "New Password",
         required: false %>
       </div>
     </div>  
@@ -62,7 +62,7 @@
       <span class="input-group-addon"><i class="fa fa-lock"></i><i class="fa fa-check"></i></span>
       <%= f.password_field :password_confirmation, 
       class: 'form-control', 
-      placeholder: "Confirm Password",
+      placeholder: "Confirm New Password",
       required: false%>
     </div>
   </div>
@@ -78,6 +78,21 @@
 
   <%= f.submit "Update Account", class:"btn btn-primary btn-block btn-lg" %>
 <% end %>
+
+<br>
+
+<h3>Facebook Settings</h3>
+<% if resource.has_facebook_linked? %>
+  <%= link_to "Unlink Facebook", authentication_path(resource), method: :delete %>
+<% else %>
+  <%= link_to omniauth_authorize_path(:user, :facebook), class: 'btn btn-social btn-facebook btn-md' do %>
+  <i class="fa fa-facebook"></i> | Connect with Facebook
+  <% end %>
+<% end %>
+
+<br>
+
+<h3>Account Settings</h3>
 
 <h3>Delete Account</h3>
 
