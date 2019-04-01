@@ -5,7 +5,12 @@
         Property.create!(property)
     end  
   end
-  
+ Given("the following users exist who own properties:") do |table|
+    listof_users = table.hashes
+    listof_users.each do |user|
+        User.create!(user)
+    end  
+end
   
   Given("I am on the Add property page") do
     visit 'properties/new'
@@ -44,7 +49,16 @@
   end
 
   Then("the property should not be in my table") do
-    assert page.has_css?('destroyed')
-
+    assert_not page.has_css?('Bob')
   end
+  
+  When("I click on okay") do
+    begin
+    main, popup = page.driver.browser.window_handles
+    within_window(popup) do
+      click_on("okay")
+    end
+    rescue
+    end
+end
    

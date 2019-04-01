@@ -1,3 +1,4 @@
+<html>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
 <div class="container">
@@ -9,6 +10,7 @@
           </div>
           <div class="card-body">
             <h5 class="card-title text-center">Login</h5>
+          
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-group">
@@ -59,4 +61,7 @@
   					<% end %>
 						<% end %>
 					</div>
+					</div>
 <%#= render "devise/shared/links" %>
+</body>
+</html>

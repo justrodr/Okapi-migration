@@ -11,7 +11,11 @@ Background: properties in database
   | Beach     | John Doe    | jj@email.com | 7 beach st | 4         | bri@email.com |
   | Lake      | Karen Smith | ks@email.com | 3 lake st  | 2         | bri@email.com |
 
-
+  Given the following users exist who own properties:
+  | first_name | last_name   | email        | password | 
+  | Home       | Jane Doe    | jd@email.com | 4mainst  |
+  | Beach      | John Doe    | jj@email.com | 7beachst |
+  | Lake       | Karen Smith | ks@email.com | 3lakest  |
         Scenario: Viewing add property
             Given I am on the Dashboard page
             When I click on "Add New Property"
@@ -25,8 +29,8 @@ Background: properties in database
             Then I should see the new property in my Dashboard
 
         Scenario: Viewing edit property
-            Given I am on the Dashboard page
-            When I click on "editbutton Lake"
+            Given I am on the Dashboard page for Jane Doe
+            When I click on "editBob"
             Then I should be on the Edit property page
 
         Scenario: Editing a property
@@ -36,6 +40,7 @@ Background: properties in database
             Then I should see the edited property in my Dashboard
 
         Scenario: Deleting a property
-            Given I am on the Dashboard page
-            When I click on "deletebuttonLake"
+            Given I am on the Dashboard page for Jane Doe
+            When I click on "deleteBob"
+            When I click on okay
             Then the property should not be in my table 
