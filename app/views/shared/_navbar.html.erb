@@ -12,14 +12,12 @@
             <br> %>
         <div class="sidebar-header">
             <div class="logo">
-                <a href="./dash">
-                  <%= image_tag("logo_blue.jpg", :class=>"nav_logo")%>  
-                </a>
+                <%= image_tag("logo_blue.jpg", :class=>"nav_logo")%>
             </div>
             <div class="user-info">
                 <%= image_tag("astronaut2.gif", :class=>"nav_prof")%>
                 <!--<h3>Welcome!</h3>-->
-                <h3><%=User.find_by(email: session[:email]).first_name%> <%=User.find_by(email: session[:email]).last_name%></h3>
+                <!--<strong>// User Name //</strong>-->
             </div>
         </div>
 

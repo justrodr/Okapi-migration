@@ -55,8 +55,8 @@ Given("I am on the Dashboard page for Jane Doe") do
   
   And("I enter valid update information") do
     fill_in 'Email Address', with: 'jd@email.com'
-    fill_in 'Password', with: '4mainst'
-    fill_in 'Confirm Password', with: '4mainst'
+    fill_in 'New Password', with: '4mainst'
+    fill_in 'Confirm New Password', with: '4mainst'
     fill_in 'Current Password', with: '4mainst'
   end
 
