@@ -6,7 +6,6 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-
 <script type="text/javascript">
 $(document).ready(function(){
 	// Activate tooltip
@@ -88,29 +87,31 @@ $(document).ready(function(){
                         <% Property.where(user: User.find_by(email: session[:email])).each do |prop| %>
                                 <!---- Property Attributes ------>
                                 <td><%= prop.prop_name %><br><%= prop.address %></td>
-                                
-                                <td>(Tenant info)</td>
-
+                                <td><%= prop.tenant_name %><br><%= prop.tenant_email %></td>
                                 <td>
                                 	<div id="myProgress">
-  										<div id="myBar"></div>
+  										<div class="myBar"></div>
 									</div>
 									<a id="setup">Set Up Automatic Delivery</a>
 									<!--<button onclick="move()">Click Me</button> -->
 									<br>
 									<script>
 										function move() {
-										  var elem = document.getElementById("myBar");   
-										  var width = 1;
-										  var id = setInterval(frame, 10);
-										  function frame() {
-										    if (width >= 100) {
-										      clearInterval(id);
-										    } else {
-										      width++; 
-										      elem.style.width = width + '%'; 
-										    }
-										  }
+											var elems = document.getElementsByClassName("myBar");
+											// console.log(document.getElementsByClassName("myBar").length);
+											for (var i=0; i < 3; i++){
+											  var elem = elems[i];   
+											  var width = 1;
+											  var id = setInterval(frame, 10);
+											  function frame() {
+											    if (width >= i * 20) {
+											      clearInterval(id);
+											    } else {
+											      width++; 
+											      elem.style.width = width + '%'; 
+											    }
+											  }
+											}
 										}
 									</script>
 									<div>
@@ -123,9 +124,9 @@ $(document).ready(function(){
                                 <!---- Display action buttons ------>
 								<td>
 									<div class="float-left">
-										<%= link_to '<i class="material-icons" style="font-size:25px;color:#1da1f2;padding-right:10px">edit</i>'.html_safe, edit_property_path(prop), method: :get, class: "float-left" %>
-										<%= link_to '<i class="material-icons" style="font-size:25px;color:#fbbe19;padding-right:10px">visibility</i>'.html_safe, property_path(prop), method: :get, class: "float-left" %>
-										<%= link_to '<i class="material-icons" style="font-size:25px;color:#dc3545;padding-right:10px">delete</i>'.html_safe, property_path(prop), method: :delete, class:"float-left",data: { confirm: "Are you sure you want to delete this property? \nThis action cannot be undone."} %>
+										<%= link_to '<i class="material-icons" style="font-size:25px;color:#1da1f2;padding-right:10px">edit</i>'.html_safe, edit_property_path(prop), method: :get, class: "float-left", id: "edit#{prop.prop_name}" %>
+										<%= link_to '<i class="material-icons" style="font-size:25px;color:#fbbe19;padding-right:10px">visibility</i>'.html_safe, property_path(prop), method: :get, class: "float-left", id: "view#{prop.prop_name}" %>
+										<%= link_to '<i class="material-icons" style="font-size:25px;color:#dc3545;padding-right:10px">delete</i>'.html_safe, property_path(prop), method: :delete, class:"float-left",id: "delete#{prop.prop_name}", data: { confirm: "Are you sure you want to delete this property? \nThis action cannot be undone."} %>
 									</div>
 								</td>
 								<!---- End display action buttons ------>
