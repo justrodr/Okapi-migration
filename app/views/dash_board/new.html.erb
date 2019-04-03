@@ -98,29 +98,31 @@ $(document).ready(function(){
 
                                 <!---- Property Attributes ------>
                                 <td><%= prop.prop_name %><br><%= prop.address %></td>
-                                
-                                <td>(Tenant info)</td>
-
+                                <td><%= prop.tenant_name %><br><%= prop.tenant_email %></td>
                                 <td>
                                 	<div id="myProgress">
-  										<div id="myBar"></div>
+  										<div class="myBar"></div>
 									</div>
 									<a id="setup">Set Up Automatic Delivery</a>
 									<!--<button onclick="move()">Click Me</button> -->
 									<br>
 									<script>
 										function move() {
-										  var elem = document.getElementById("myBar");   
-										  var width = 1;
-										  var id = setInterval(frame, 10);
-										  function frame() {
-										    if (width >= 100) {
-										      clearInterval(id);
-										    } else {
-										      width++; 
-										      elem.style.width = width + '%'; 
-										    }
-										  }
+											var elems = document.getElementsByClassName("myBar");
+											// console.log(document.getElementsByClassName("myBar").length);
+											for (var i=0; i < 3; i++){
+											  var elem = elems[i];   
+											  var width = 1;
+											  var id = setInterval(frame, 10);
+											  function frame() {
+											    if (width >= i * 20) {
+											      clearInterval(id);
+											    } else {
+											      width++; 
+											      elem.style.width = width + '%'; 
+											    }
+											  }
+											}
 										}
 									</script>
 									<div>
