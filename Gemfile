@@ -30,7 +30,7 @@ gem 'devise'
 gem 'dotenv-rails'
 #for 3rd party authentication
 gem 'omniauth'
-
+gem 'activerecord-session_store'
 # User Authentication with Facebook
 gem 'omniauth-facebook'
 
