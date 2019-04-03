@@ -16,5 +16,7 @@ Our mission is to provide rental home owners with a more convenient, stress-free
 6. Cucumber 
 7. SimpleCov
 8. Bootstrap 4
+9. Devise
+10. Omniauth
  # misc	
 Interview with customer: https://www.youtube.com/watch?v=DNYueCqOXtw&feature=youtu.be	

@@ -1,6 +1,18 @@
 class DashBoardController < ApplicationController
     def splash 
+        if(!(session[:email].nil?))
+            redirect_to dash_path
+        end
     end 
+    
+    def contacts
+    end
+    
+    def payment
+    end
+    
+    def orders
+    end
     
     def new
         #abort("She cannot take any more of this, Captain!")
