@@ -61,6 +61,9 @@ ActiveRecord::Schema.define(version: 20190403005440) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.datetime "last_delivered"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
   end
 
   create_table "users", force: :cascade do |t|
