@@ -1,12 +1,12 @@
 class PropertiesController < ApplicationController
   def new
     @property = Property.new
-    # respond_to do |format|
-    #   format.html
-    #   format.js
-    # end
   end
   
+  # def index #TODO if needed
+  #   @properties = Property.paginate(:page=>params[:page], :per_page: 5)
+  # end
+
   def show
     @property = Property.find params[:id]
   end
@@ -14,7 +14,7 @@ class PropertiesController < ApplicationController
   def destroy
      @property = Property.find params[:id]
      @property.destroy
-     flash[:notice] = "Property #{@property.prop_name} destroyed"
+    #  flash[:notice] = "Property #{@property.prop_name} destroyed"
      session[:properties] = Property.where(user: User.find_by(email: session[:email]))
      redirect_to dash_path
   end 
@@ -26,7 +26,7 @@ class PropertiesController < ApplicationController
   def update
     @property = Property.find params[:property][:id]
      if(@property.update_attributes(prop_params))
-        flash[:notice] = "#{@property.prop_name} was successfully updated."
+        # flash[:notice] = "#{@property.prop_name} was successfully updated."
      else
        #flash[:notice] = "Please enter a valid property"
      end
@@ -45,13 +45,13 @@ class PropertiesController < ApplicationController
       puts session[:properties].length
       redirect_to dash_path
     else
-      flash[:warning] = "Property Not Saved"
+      # flash[:warning] = "Property Not Saved"
       redirect_to dash_path ###FIXME
     end
   end
 
   private 
       def prop_params
-        params.require(:property).permit(:prop_name, :tenant_name, :tenant_email, :tenant_phone, :address, :frequency)
+        params.require(:property).permit(:prop_name, :tenant_name, :tenant_email, :tenant_phone, :address, :frequency, :city, :state, :zipcode)
       end
 end
