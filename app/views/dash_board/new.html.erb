@@ -31,6 +31,7 @@ $(document).ready(function(){
 	});
 });
 </script> %>
+
 <body>
 <!-- Page Content -->
 <div class="d-flex" id="wrapper">
@@ -44,61 +45,37 @@ $(document).ready(function(){
                     <div class="col-sm-6">
 						<h2>Properties</h2>
 					</div>
-                    <!---- Start of edit/delete pop ups ------>
+                    <!---- Start of add modal ------>
 					<div class="col-sm-6">
 						<a href="#addPropertyModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Property</span></a>
 						<%# <a href="#deletePropertyModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>						 %>
 					</div>
-                    <!---- End of edit/delete pop ups ------>
+                    <!---- End of add modal ------>
                 </div>
             </div>
 
-            <table class="table table-striped table-hover">
+            <!---- Start of property table headers ------>
+			<table class="table table-striped table-hover">
                 <thead>
-                    <tr> <!---- Display elements/titles in a single row ------>
-						<%# <th>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="selectAll">
-								<label for="selectAll"></label>
-							</span>
-						</th> %>
-                        <!--<th>Property Name</th>-->
+                    <tr> 
                         <th class="px-5">Address</th>
-                        <!-- Address and Nickname will go in this column-->
-                        <!--If there is no nickname, just display address-->
-                        <!--If there is nickname: Nickname -->
-                        <!--                      Address -->
-						<%# <th>Tenant Name</th> %>
 						<th>Tenant</th>
-						<!--Tenant info goes in here: Tenant Name and email address-->
                         <th>Delivery Status</th>
-                        <!--Delivery status goes here: Semicircle timer counting down till next ship -->
-                        <!--If package has shipped & not delivered: Shipped: Date -->
-                        <!--If package has shipped and delivered:   Last Delivered: Date-->
-                        <!--Pause delivery button-->
-                        <!--<th>Date last delivered</th>-->
-                        <!--<th>Days until next order<th>-->
                         <th class="pr-5">Actions</th>
 						<th></th>
-                        <!--Edit and Details-->
                     </tr>
                 </thead>
+				<!---- End of property table headers ------>
 
+				<!-- Start of property table -->
                 <tbody>
                     <tr>
                         <% Property.where(user: User.find_by(email: session[:email])).each do |prop| %>
-                                <!---- Display checkboxes ------>
-                                <%# <td>
-							        <span class="custom-checkbox">
-								        <input type="checkbox" id="checkbox1" name="options[]" value="1">
-								        <label for="checkbox1"></label>
-							        </span>
-						        </td> %>
-                                <!---- End display checkboxes ------>
-
                                 <!---- Property Attributes ------>
                                 <td><%= prop.prop_name %><br><%= prop.address %></td>
-                                <td><%= prop.tenant_name %><br><%= prop.tenant_email %></td>
+                                
+                                <td>(Tenant info)</td>
+
                                 <td>
                                 	<div id="myProgress">
   										<div class="myBar" id="<%= prop.address %>"></div>
@@ -129,13 +106,6 @@ $(document).ready(function(){
                                 <!---- End property attributes ------>
 
                                 <!---- Display action buttons ------>
-                                <%# <td>
-								
-                                	<a href="#viewPropertyModal" class="view" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE8F4;</i></a>
-                                    <a href="#editPropertyModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a> %>
-                                    <%# <a href="#deletePropertyModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a> %>
-                                <%# </td> %>
-								
 								<td>
 									<div class="float-left">
 										<%= link_to '<i class="material-icons" style="font-size:25px;color:#1da1f2;padding-right:10px">edit</i>'.html_safe, edit_property_path(prop), method: :get, class: "float-left", id: "edit#{prop.prop_name}" %>
@@ -143,11 +113,13 @@ $(document).ready(function(){
 										<%= link_to '<i class="material-icons" style="font-size:25px;color:#dc3545;padding-right:10px">delete</i>'.html_safe, property_path(prop), method: :delete, class:"float-left",id: "delete#{prop.prop_name}", data: { confirm: "Are you sure you want to delete this property? \nThis action cannot be undone."} %>
 									</div>
 								</td>
+								<!---- End display action buttons ------>
                         <td></td>
                     </tr> 
 					<% end %>      
                 </tbody>
             </table>
+			<!-- End of Property Table-->
 
 	
 <!-- Edit Modal HTML -->
@@ -184,6 +156,10 @@ $(document).ready(function(){
 					<div class="modal-body">					
 						<%= form_for(@property, url: properties_path) do |f| %>
 							<%= f.text_field :address, class: "form-control", placeholder: "Property Address", required: true%> 
+							<%= f.text_field :city, class: "form-control", placeholder: "City", required: true%> 
+							<%= f.text_field :state, class: "form-control", placeholder: "State", required: true%> 
+							<%= f.text_field :zipcode, class: "form-control", placeholder: "Zip Code", required: true%> 
+							<hr>
 							<%= f.text_field :tenant_name, class: "form-control", placeholder: "Tenant Name", required: true%> 
 							<%= f.text_field :tenant_email, class: "form-control", placeholder: "Tenant Email", required: true%> 
 							<%= f.text_field :prop_name, class: "form-control", placeholder: "Property Name (Optional)", required: false%> 
