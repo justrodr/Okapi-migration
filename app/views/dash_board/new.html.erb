@@ -31,8 +31,8 @@ $(document).ready(function(){
 	});
 });
 </script> %>
-<body onload="move()">
 
+<body>
 <!-- Page Content -->
 <div class="d-flex" id="wrapper">
 <%= render 'shared/navbar' if session[:log] == 1%>
@@ -78,24 +78,24 @@ $(document).ready(function(){
 
                                 <td>
                                 	<div id="myProgress">
-  										<div id="myBar"></div>
+  										<div class="myBar" id="<%= prop.address %>"></div>
 									</div>
-									<a id="setup">Set Up Automatic Delivery</a>
 									<!--<button onclick="move()">Click Me</button> -->
 									<br>
 									<script>
-										function move() {
-										  var elem = document.getElementById("myBar");   
-										  var width = 1;
-										  var id = setInterval(frame, 10);
-										  function frame() {
-										    if (width >= 100) {
-										      clearInterval(id);
-										    } else {
-										      width++; 
-										      elem.style.width = width + '%'; 
-										    }
-										  }
+										update_progress_bar('<%= prop.frequency %>', '<%= prop.address %>', '<%= prop.created_at.strftime("%d %m %Y") %>' );
+										function get_table_elems(){
+											return document.getElementsByClassName("myBar");
+										}
+										function update_progress_bar(x, y, z) {
+											var elem = document.getElementById(y);
+											var width = x * 10;
+											if (x<=0){
+												width = 1;
+												elem.style.backgroundColor = '#FF4838';
+											}
+											console.log(z);
+											elem.style.width = width + '%';
 										}
 									</script>
 									<div>
