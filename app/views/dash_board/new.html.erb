@@ -103,26 +103,22 @@ $(document).ready(function(){
                                 	<div id="myProgress">
   										<div class="myBar" id="<%= prop.address %>"></div>
 									</div>
-									<a class = "setup" id='<%= prop.tenant_email %>' + "_setup">Set Up Automatic Delivery</a>
 									<!--<button onclick="move()">Click Me</button> -->
 									<br>
 									<script>
-										update_progress_bar('<%= prop.frequency %>', '<%= prop.address %>');
+										update_progress_bar('<%= prop.frequency %>', '<%= prop.address %>', '<%= prop.created_at.strftime("%d %m %Y") %>' );
 										function get_table_elems(){
 											return document.getElementsByClassName("myBar");
 										}
-										function update_progress_bar(x, y) {
-											if (x>0){
-												var width = x * 10;
-												console.log(width);
-												var elem = document.getElementById(y);
-												elem.style.width = width + '%';
+										function update_progress_bar(x, y, z) {
+											var elem = document.getElementById(y);
+											var width = x * 10;
+											if (x<=0){
+												width = 1;
+												elem.style.backgroundColor = '#FF4838';
 											}
-											else{
-												console.log(y + "_setup");
-												var elem = document.getElementById(y + "_setup");
-												elem.style.display = 'visible';
-											}
+											console.log(z);
+											elem.style.width = width + '%';
 										}
 									</script>
 									<div>
