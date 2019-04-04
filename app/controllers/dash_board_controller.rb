@@ -5,17 +5,16 @@ class DashBoardController < ApplicationController
         end
     end 
     
-    def contacts
-    end
+    # def contacts
+    # end
     
     def payment
     end
     
-    def orders
-    end
+    # def orders
+    # end
     
     def new
-        #abort("She cannot take any more of this, Captain!")
         session[:log] = 1
         if(!session.nil?)
             @user = User.find_by(email: session[:email]) #why does first id make this nil in cucumber test
