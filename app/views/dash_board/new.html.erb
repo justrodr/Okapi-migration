@@ -31,7 +31,7 @@ $(document).ready(function(){
 	});
 });
 </script> %>
-<body onload="move()">
+<body>
 <!-- Page Content -->
 <div class="d-flex" id="wrapper">
 <%= render 'shared/navbar' if session[:log] == 1%>
@@ -101,27 +101,27 @@ $(document).ready(function(){
                                 <td><%= prop.tenant_name %><br><%= prop.tenant_email %></td>
                                 <td>
                                 	<div id="myProgress">
-  										<div class="myBar"></div>
+  										<div class="myBar" id="<%= prop.address %>"></div>
 									</div>
-									<a id="setup">Set Up Automatic Delivery</a>
+									<a class = "setup" id='<%= prop.tenant_email %>' + "_setup">Set Up Automatic Delivery</a>
 									<!--<button onclick="move()">Click Me</button> -->
 									<br>
 									<script>
-										function move() {
-											var elems = document.getElementsByClassName("myBar");
-											// console.log(document.getElementsByClassName("myBar").length);
-											for (var i=0; i < 3; i++){
-											  var elem = elems[i];   
-											  var width = 1;
-											  var id = setInterval(frame, 10);
-											  function frame() {
-											    if (width >= i * 20) {
-											      clearInterval(id);
-											    } else {
-											      width++; 
-											      elem.style.width = width + '%'; 
-											    }
-											  }
+										update_progress_bar('<%= prop.frequency %>', '<%= prop.address %>');
+										function get_table_elems(){
+											return document.getElementsByClassName("myBar");
+										}
+										function update_progress_bar(x, y) {
+											if (x>0){
+												var width = x * 10;
+												console.log(width);
+												var elem = document.getElementById(y);
+												elem.style.width = width + '%';
+											}
+											else{
+												console.log(y + "_setup");
+												var elem = document.getElementById(y + "_setup");
+												elem.style.display = 'visible';
 											}
 										}
 									</script>
