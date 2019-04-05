@@ -6,6 +6,9 @@ gem 'autoprefixer-rails'
 # Allows table pagination
 # gem 'will_paginate-bootstrap4'
 # gem 'will_paginate', '~> 3.1.0'
+
+# Add Datepicker from Bootstrap
+gem 'bootstrap-datepicker-rails'
 # Provides cross-browser animations
 gem 'animate.css-rails', '~> 3.2.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
