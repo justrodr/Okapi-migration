@@ -3,11 +3,31 @@ class OrderController < ApplicationController
         @order = Order.new
     end
     def create
-        @current_user = User.find_by(email: session[:email])
-        @order = Order.new(order_params)
+        #@current_user = User.find_by(email: session[:email])
+        #@order = Order.new(order_params)
     end
     
     def checkout
+        @current_user = User.find_by(email: session[:email])
+        @order = Order.new(order_params)
+        @order.property = session[:property]
+        #puts Property.find(@order.property).address
+        @property = Property.find(@order.property)
+        @order.shipping_address = @property.address
+        @order.tenant_name = @property.tenant_name
+        @order.tenant_email = @property.tenant_email
+        @order.city = @property.city
+        @order.state = @property.state
+        @order.zipcode = @property.zipcode
+        @order.frequency = @property.frequency
+        @order.user = @current_user
+        if @order.save?
+            #do nothing
+        else
+            redirect_to order_path(@property)
+            flash[:warning] = "property not saved"
+        end
+        end
     end
     
     private
