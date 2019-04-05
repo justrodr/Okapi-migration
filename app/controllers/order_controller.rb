@@ -21,12 +21,11 @@ class OrderController < ApplicationController
         @order.zipcode = @property.zipcode
         @order.frequency = @property.frequency
         @order.user = @current_user
-        if @order.save?
+        if @order.save? #not working
             #do nothing
         else
             redirect_to order_path(@property)
             flash[:warning] = "property not saved"
-        end
         end
     end
     
