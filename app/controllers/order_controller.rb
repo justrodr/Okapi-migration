@@ -7,6 +7,9 @@ class OrderController < ApplicationController
         @order = Order.new(order_params)
     end
     
+    def checkout
+    end
+    
     private
         def order_params
             params.require(:order).permit(:shipping_address, :tenant_name, :tenant_email, :property, :order_status, :size10b20, :size14b20, :size16b24,

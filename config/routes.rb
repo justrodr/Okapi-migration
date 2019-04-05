@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get    '/orders_page', to: 'order#new'
   get    '/profile', to: 'users#edit'
   get    '/admin', to: 'dash_board#admin'
+  match   'properties/add/:id', to: 'properties#add', :via => :get, :as => :add_order
   resources:properties
 
 end

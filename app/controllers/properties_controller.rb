@@ -50,6 +50,9 @@ class PropertiesController < ApplicationController
     end
   end
 
+  def add
+  end
+
   private 
       def prop_params
         params.require(:property).permit(:prop_name, :tenant_name, :tenant_email, :tenant_phone, :address, :frequency, :city, :state, :zipcode)
