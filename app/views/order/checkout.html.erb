@@ -1,11 +1,9 @@
 <h1>CHECKOUT</h1>
-
-<% keys = @order.attributes.keys, small_keys = [] %>
-    <% keys.each do |str| %>
-        <%str.each do |subs| %>
-            <% if subs.include? "size" %>
-                <%= small_keys.push subs %>
-            <% end %>
+<% small_keys = [] %>
+<% keys = @order.attributes.keys%>
+    <% keys.each do |subs| %>
+        <% if subs.include? "size" %>
+            <% small_keys.push subs %>
         <%end%>
     <% end %>
     
@@ -13,7 +11,7 @@
     <% small_keys.each do |key|%>
         <% if(@order.attributes[key]) %>
             <%= key%>
-            <%= ", #{attributes[key]}" %>
+            <%= ", #{@order.attributes[key]}" %>
         <% end %>
     <% end %>
     
