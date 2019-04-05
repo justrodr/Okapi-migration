@@ -21,12 +21,10 @@ class OrderController < ApplicationController
         @order.zipcode = @property.zipcode
         @order.frequency = @property.frequency
         @order.user = @current_user
-        if @order.save?
-            #do nothing
+        if @order.save
         else
             redirect_to order_path(@property)
             flash[:warning] = "property not saved"
-        end
         end
     end
     
@@ -35,5 +33,5 @@ class OrderController < ApplicationController
             params.require(:order).permit(:shipping_address, :tenant_name, :tenant_email, :property, :order_status, :size10b20, :size14b20, :size16b24,
                 :size18b30, :size12b12, :size14b24, :size16b25, :size20b20, :size12b20, :size14b25, :size18b18, :size20b24, :size12b24, :size14b30, :size18b20,
                 :size20b25, :size12b30, :size15b20, :size18b24, :size20b30, :size12b36, :size16b20, :size18b25, :size24b24, :size25b25, :user)
-            end
+        end
 end
