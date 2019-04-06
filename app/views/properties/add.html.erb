@@ -8,20 +8,19 @@
 
 <!-- FIXME: Give order property field -->
 <%@order = Order.new%>
-
 <%= form_for(@order, url: checkout_path(@order)) do |f| %>
     
     <br>
     <!-- TODO: Need to know what field to be submitted as, formatting -->
     <h5>Date Picker</h5>
-    <%= f.text_field :start_date, data-provide='datepicker'> 
+    <input type="text" data-provide='datepicker'> 
     <!-- TODO: Formatting -->
     <br>
     <h5>Schedule Deliveries </h5>
     <h6>Air filters sent every:</h6>
     <%= f.select :frequency, [0,1, 2, 3, 4, 6, 12],{}, {class: "form-control dropdown col-md-4"}%>
     <h6>months (*0 as one time delivery)</h6>
-
+    
     <br>
     <br>
     <table class="table table-striped table-hover col-md-5">
@@ -62,7 +61,7 @@
         </tbody>
     </table>
 
-    <%= f.submit "Place Order", class: "btn btn-primary btn-sm col-sm-2" %>
+    <%= f.submit "Proceed to Checkout", class: "btn btn-primary btn-sm col-sm-2" %>
                           
 <%end%>
 
