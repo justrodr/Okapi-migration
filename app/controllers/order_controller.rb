@@ -22,10 +22,14 @@ class OrderController < ApplicationController
     
     def orders_page
         @all_orders = Order.where(user: User.find_by(email: session[:email]).id)
+        puts "&&&&&&&&&&&ALLSIZEALLSIZEALLSIZ&&&&&&&&&&&&"
+        @all_orders.size
+        puts "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
+        
     end
 
     def checkout
-       session[:order].destroy
+       session[:order] = nil
        session[:sizes] = {"size10b20"=>"10\" x 20\" x 1\"","size14b20"=>"14\" x 20\" x 1\"","size16b24"=>"16\" x 24\" x 1\"",
                "size18b30"=>"18\" x 30\" x 1\"","size12b12"=>"12\" x 12\" x 1\"","size14b24"=>"14\" x 24\" x 1\"","size16b25"=>"16\" x 25\" x 1\"", 
                "size20b20"=>"20\" x 20\" x 1\"","size12b20"=>"12\" x 20\" x 1\"","size14b25"=>"14\" x 25\" x 1\"","size18b18"=>"18\" x 18\" x 1\"", 
@@ -52,7 +56,7 @@ class OrderController < ApplicationController
         @order.state = @property.state
         @order.zipcode = @property.zipcode
         @order.frequency = @property.frequency
-        @order.user = @current_user
+        @order.user = @current_user.id
         small_keys = []
         total_price = [] 
         keys = @order.attributes.keys
@@ -68,7 +72,9 @@ class OrderController < ApplicationController
         end
         @order.price = total_price.inject(0){|sum,x| sum + x }+7.00 #plus 7 is for shipping
         puts @order.price
-        puts @property.errors.messages
+        puts "******************USERUSERUSERUSERUSERUSER*******************"
+        puts @order.user
+        puts "*************************************************************"
         session[:order] = @order
         redirect_to view_checkout_path(@order)
     end
