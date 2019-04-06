@@ -55,7 +55,10 @@ class OrderController < ApplicationController
         @order.city = @property.city
         @order.state = @property.state
         @order.zipcode = @property.zipcode
-        @order.frequency = @property.frequency
+        @order.frequency = params[:order][:frequency]
+        puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+        puts params[:order][:start_date]
+        @order.start_date = params[:order][:start_date]
         @order.user = @current_user.id
         small_keys = []
         total_price = [] 
