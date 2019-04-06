@@ -30,3 +30,5 @@ Shipping: $7
 <%= form_for(:anything, url: paypal_path, method: :get) do |g| %>
     <%=g.submit "Pay with PayPal", class: "btn btn-link px-5"%>
 <%end%>
+<script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+<script>paypal.Buttons().render('body');</script>
