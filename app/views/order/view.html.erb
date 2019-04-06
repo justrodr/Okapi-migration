@@ -1,0 +1,32 @@
+<%@order = session[:order]%>
+<h1>CHECKOUT</h1>
+<% small_keys = [] %>
+<% keys = @order.attributes.keys%>
+    <% keys.each do |subs| %>
+        <% if subs.include? "size" %>
+            <% small_keys.push subs %>
+        <%end%>
+    <% end %>
+    
+    
+    <% small_keys.each do |key|%>
+        <% if(@order.attributes[key]) %>
+            <%="Size: #{session[:sizes][key]}"%>
+            <br>
+            <%= "Quantity: #{@order.attributes[key]}" %>
+            <%= "Price: $#{session[:price_hash][key]*@order.attributes[key]}" %>
+            <br>
+            <br>
+        <% end %>
+    <% end %>
+    
+Shipping: $7
+
+<h2>Total Cost: 
+<%="$#{'%.2f' % @order.price}"%>
+</h2>
+
+<%session[:order] = @order%>
+<%= form_for(:anything, url: paypal_path, method: :get) do |g| %>
+    <%=g.submit "Pay with PayPal", class: "btn btn-link px-5"%>
+<%end%>

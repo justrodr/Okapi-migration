@@ -4,11 +4,14 @@ Rails.application.routes.draw do
   get    '/dash',   to: 'dash_board#new'
   #get    '/contacts_page', to: 'dash_board#contacts'
   get    '/payment_page', to: 'dash_board#payment'
-  get    '/orders_page', to: 'order#new'
+  get    '/orders_page', to: 'order#orders_page'
   get    '/profile', to: 'users#edit'
   get    '/admin', to: 'dash_board#admin'
   match   'properties/add/:id', to: 'properties#add', :via => :get, :as => :add_order
-  match   'order/checkout/', to: 'order#checkout', :via => :post, :as => :checkout
+  get    'view_checkout', to: "order#view"
+  post   'checkout', to: "order#checkout"
+  get    'paypal', to: "order#paypal"
+  #match   'order/checkout', to: 'order#checkout', :via => :post, :as => :checkout
   resources:properties
 
 end
