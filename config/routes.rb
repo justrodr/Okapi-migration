@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get    '/admin', to: 'dash_board#admin'
   match   'properties/add/:id', to: 'properties#add', :via => :get, :as => :add_order
   match   'order/checkout/', to: 'order#checkout', :via => :post, :as => :checkout
+ # get     'order/checkout', to: 'order#checkout'
   resources:properties
 
 end

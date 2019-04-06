@@ -33,6 +33,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # for login authentication
 gem 'devise'
 
+gem 'activerecord-session_store'
+
 gem 'dotenv-rails'
 #for 3rd party authentication
 gem 'omniauth'

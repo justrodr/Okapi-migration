@@ -10,8 +10,12 @@
     
     <% small_keys.each do |key|%>
         <% if(@order.attributes[key]) %>
-            <%= key%>
-            <%= ", #{@order.attributes[key]}" %>
+            <%="Size: #{session[:size_strings][key]}"%>
+            <br>
+            <%= "Quantity: #{@order.attributes[key]}" %>
+            <%= "Price: $#{session[:price][key]}" %>
+            <br>
+            <br>
         <% end %>
     <% end %>
     
