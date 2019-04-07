@@ -22,6 +22,10 @@ class OrderController < ApplicationController
     
     def orders_page
         @all_orders = Order.where(user: User.find_by(email: session[:email]).id)
+        puts "&&&&&&&&&&&ALLSIZEALLSIZEALLSIZ&&&&&&&&&&&&"
+        @all_orders.size
+        puts "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
+        
     end
 
     def checkout
@@ -51,8 +55,11 @@ class OrderController < ApplicationController
         @order.city = @property.city
         @order.state = @property.state
         @order.zipcode = @property.zipcode
-        @order.frequency = @property.frequency
-        @order.user = @current_user
+        @order.frequency = params[:order][:frequency]
+        puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+        puts params[:order][:start_date]
+        @order.start_date = params[:order][:start_date]
+        @order.user = @current_user.id
         small_keys = []
         total_price = [] 
         keys = @order.attributes.keys
@@ -68,7 +75,9 @@ class OrderController < ApplicationController
         end
         @order.price = total_price.inject(0){|sum,x| sum + x }+7.00 #plus 7 is for shipping
         puts @order.price
-        puts @property.errors.messages
+        puts "******************USERUSERUSERUSERUSERUSER*******************"
+        puts @order.user
+        puts "*************************************************************"
         session[:order] = @order
         redirect_to view_checkout_path(@order)
     end

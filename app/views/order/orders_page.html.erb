@@ -1,5 +1,49 @@
 <h3> This is the orders Page <h3>
+<% count = 0 %>
 <% @all_orders.each do |order| %>
+<% count += 1 %>
+<h4>
+<%=count%>.
 <%= order.shipping_address %>
+</h4>
+<h6>
+<%= "Total Price: $#{'%.2f' % order.price}"%>
+<br>
+<%= "Order Date: #{order.start_date}"%>
+<br>
+<%= "Orders per month: #{order.frequency}"%>
+<br>
+<%= "Tenant Name: #{order.tenant_name.to_s}"%>
+<br>
+<%= "Order Status: #{order.order_status}"%>
+<br>
+</h6>
+<h5>Filters:</h5>
+<% small_keys = [] %>
+<h6>
+<% keys = order.attributes.keys%>
+    <% keys.each do |subs| %>
+        <% if subs.include? "size" %>
+            <% small_keys.push subs %>
+        <%end%>
+    <% end %>
+    
+    
+    <% small_keys.each do |key|%>
+        <% if(order.attributes[key]) %>
+            <%="Size: #{session[:sizes][key]}"%>
+            <br>
+            <%= "Quantity: #{order.attributes[key]}" %>
+            <br>
+            <%= "Price: $#{session[:price_hash][key]*order.attributes[key]}" %>
+            <br>
+            <br>
+        <% end %>
+    <% end %>
 <br>
 <% end %>
+</h6>
+<%session[:order] = @order%>
+<%= form_for(:anything, url: dash_path, method: :get) do |g| %>
+    <%=g.submit "Go to dash board", class: "btn btn-link px-5"%>
+<%end%>
