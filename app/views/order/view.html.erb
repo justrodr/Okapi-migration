@@ -27,9 +27,9 @@ Shipping: $7
 </h2>
 
 <%session[:order] = @order%>
-<%= form_for(:anything, url: paypal_path, method: :get) do |g| %>
-    <%=g.submit "Pay with PayPal", class: "btn btn-link px-5"%>
-<%end%>
+<%#= form_for(:anything, url: paypal_path, method: :get) do |g| %>
+    <%#=g.submit "Pay with PayPal", class: "btn btn-link px-5"%>
+<%#end%>
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,12 +43,13 @@ Shipping: $7
   <div id="paypal-button-container"></div>
 
   <script>
+    var price = <%= @order.price %>;
      paypal.Buttons({
     createOrder: function(data, actions) {
       return actions.order.create({
         purchase_units: [{
           amount: {
-            value: '1.01'
+            value: price
           }
         }]
       });
