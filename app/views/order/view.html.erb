@@ -27,9 +27,11 @@ Shipping: $7
 </h2>
 
 <%session[:order] = @order%>
-<%#= form_for(:anything, url: paypal_path, method: :get) do |g| %>
-    <%#=g.submit "Pay with PayPal", class: "btn btn-link px-5"%>
-<%#end%>
+<%= form_for(:anything, url: paypal_path, method: :get) do |g| %>
+    <%=g.submit "Pay with PayPal", class: "btn btn-link px-5"%>
+<%end%>
+
+<%# PayPal stuff below%>
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">

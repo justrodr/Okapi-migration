@@ -1,2 +1,45 @@
 <h1> This is the Admin Page </h1>
+<% count = 0 %>
+<%@all_orders = Order.all%>
+<% @all_orders.each do |order| %>
+<% count += 1 %>
+<h4>
+<%=count%>.
+<%= order.shipping_address %>
+</h4>
+<h6>
+<%= "Order Date: #{order.start_date}"%>
+<br>
+<%= "Orders per month: #{order.frequency}"%>
+<br>
+<%= "Tenant Name: #{order.tenant_name.to_s}"%>
+<br>
+<%= "Order Status: #{order.order_status}"%>
+<br>
+</h6>
+<h5>Filters:</h5>
+<% small_keys = [] %>
+<h6>
+<% keys = order.attributes.keys%>
+    <% keys.each do |subs| %>
+        <% if subs.include? "size" %>
+            <% small_keys.push subs %>
+        <%end%>
+    <% end %>
+    
+    
+    <% small_keys.each do |key|%>
+        <% if(order.attributes[key]) %>
+            <%="Size: #{session[:sizes][key]}"%>
+            <br>
+            <%= "Quantity: #{order.attributes[key]}" %>
+            <br>
+            <%= "Price: $#{session[:price_hash][key]*order.attributes[key]}" %>
+            <br>
+            <br>
+        <% end %>
+    <% end %>
+<br>
+<% end %>
+</h6>
 <%= link_to "Log Out",destroy_user_session_path, method: :delete %>

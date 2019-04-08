@@ -36,6 +36,7 @@ class DashBoardController < ApplicationController
             puts session[:email]
         end
         if (@user.admin)
+            #@all_orders = Order.all
             redirect_to admin_path
         end
         @property = Property.new
