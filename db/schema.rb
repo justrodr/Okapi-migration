@@ -11,43 +11,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190403005440) do
+ActiveRecord::Schema.define(version: 20190405020827) do
 
   create_table "orders", force: :cascade do |t|
     t.string   "shipping_address"
     t.string   "tenant_name"
     t.string   "tenant_email"
-    t.string   "size10b20"
-    t.string   "size14b20"
-    t.string   "size16b24"
-    t.string   "size18b30"
-    t.string   "size12b12"
-    t.string   "size14b24"
-    t.string   "size16b25"
-    t.string   "size20b20"
-    t.string   "size12b20"
-    t.string   "size14b25"
-    t.string   "size18b18"
-    t.string   "size20b24"
-    t.string   "size12b24"
-    t.string   "size14b30"
-    t.string   "size18b20"
-    t.string   "size20b25"
-    t.string   "size12b30"
-    t.string   "size15b20"
-    t.string   "size18b24"
-    t.string   "size20b30"
-    t.string   "size12b36"
-    t.string   "size16b20"
-    t.string   "size18b25"
-    t.string   "size24b24"
-    t.string   "size25b25"
+    t.integer  "size10b20"
+    t.integer  "size14b20"
+    t.integer  "size16b24"
+    t.integer  "size18b30"
+    t.integer  "size12b12"
+    t.integer  "size14b24"
+    t.integer  "size16b25"
+    t.integer  "size20b20"
+    t.integer  "size12b20"
+    t.integer  "size14b25"
+    t.integer  "size18b18"
+    t.integer  "size20b24"
+    t.integer  "size12b24"
+    t.integer  "size14b30"
+    t.integer  "size18b20"
+    t.integer  "size20b25"
+    t.integer  "size12b30"
+    t.integer  "size15b20"
+    t.integer  "size18b24"
+    t.integer  "size20b30"
+    t.integer  "size12b36"
+    t.integer  "size16b20"
+    t.integer  "size18b25"
+    t.integer  "size24b24"
+    t.integer  "size25b25"
     t.integer  "property"
     t.string   "order_status"
     t.integer  "user"
     t.float    "amount_paid"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.integer  "frequency"
+    t.float    "price"
+    t.datetime "start_date"
+    t.datetime "delivered_date"
   end
 
   create_table "properties", force: :cascade do |t|
@@ -65,6 +72,16 @@ ActiveRecord::Schema.define(version: 20190403005440) do
     t.string   "state"
     t.string   "zipcode"
   end
+
+  create_table "sessions", force: :cascade do |t|
+    t.string   "session_id", null: false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true
+  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"

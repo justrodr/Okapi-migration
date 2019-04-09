@@ -31,8 +31,8 @@ $(document).ready(function(){
 	});
 });
 </script> %>
-<body onload="move()">
 
+<body>
 <!-- Page Content -->
 <div class="d-flex" id="wrapper">
 <%= render 'shared/navbar' if session[:log] == 1%>
@@ -58,8 +58,8 @@ $(document).ready(function(){
 			<table class="table table-striped table-hover">
                 <thead>
                     <tr> 
-                        <th class="px-5">Address</th>
-						<th>Tenant</th>
+                        <th class="px-5"><%= link_to "Address", :sort => "address"%> </th>
+						<th><%= link_to "Tenant", :sort => "tenant_name"%></th>
                         <th>Delivery Status</th>
                         <th class="pr-5">Actions</th>
 						<th></th>
@@ -76,28 +76,24 @@ $(document).ready(function(){
                                 <td><%= prop.tenant_name %><br><%= prop.tenant_email %></td>
                                 <td>
                                 	<div id="myProgress">
-  										<div class="myBar"></div>
+  										<div class="myBar" id="<%= prop.address %>"></div>
 									</div>
-									<a id="setup">Set Up Automatic Delivery</a>
 									<!--<button onclick="move()">Click Me</button> -->
 									<br>
 									<script>
-										function move() {
-											var elems = document.getElementsByClassName("myBar");
-											// console.log(document.getElementsByClassName("myBar").length);
-											for (var i=0; i < 3; i++){
-											  var elem = elems[i];   
-											  var width = 1;
-											  var id = setInterval(frame, 10);
-											  function frame() {
-											    if (width >= i * 20) {
-											      clearInterval(id);
-											    } else {
-											      width++; 
-											      elem.style.width = width + '%'; 
-											    }
-											  }
+										update_progress_bar('<%= prop.frequency %>', '<%= prop.address %>', '<%= prop.created_at.strftime("%d %m %Y") %>' );
+										function get_table_elems(){
+											return document.getElementsByClassName("myBar");
+										}
+										function update_progress_bar(x, y, z) {
+											var elem = document.getElementById(y);
+											var width = x * 10;
+											if (x<=0){
+												width = 1;
+												elem.style.backgroundColor = '#FF4838';
 											}
+											console.log(z);
+											elem.style.width = width + '%';
 										}
 									</script>
 									<div>
@@ -110,6 +106,7 @@ $(document).ready(function(){
                                 <!---- Display action buttons ------>
 								<td>
 									<div class="float-left">
+										<%= link_to '<i class="material-icons" style="font-size:25px;color:#28a745;padding-right:10px">add_shopping_cart</i>'.html_safe, add_order_path(prop), method: :get, class: "float-left", id: "add#{prop.prop_name}" %>
 										<%= link_to '<i class="material-icons" style="font-size:25px;color:#1da1f2;padding-right:10px">edit</i>'.html_safe, edit_property_path(prop), method: :get, class: "float-left", id: "edit#{prop.prop_name}" %>
 										<%= link_to '<i class="material-icons" style="font-size:25px;color:#fbbe19;padding-right:10px">visibility</i>'.html_safe, property_path(prop), method: :get, class: "float-left", id: "view#{prop.prop_name}" %>
 										<%= link_to '<i class="material-icons" style="font-size:25px;color:#dc3545;padding-right:10px">delete</i>'.html_safe, property_path(prop), method: :delete, class:"float-left",id: "delete#{prop.prop_name}", data: { confirm: "Are you sure you want to delete this property? \nThis action cannot be undone."} %>
