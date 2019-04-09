@@ -73,7 +73,9 @@ $(document).ready(function(){
                         <% Property.where(user: User.find_by(email: session[:email])).each do |prop| %>
                                 <!---- Property Attributes ------>
                                 <td><%= prop.prop_name %><br><%= prop.address %></td>
+                                
                                 <td><%= prop.tenant_name %><br><%= prop.tenant_email %></td>
+
                                 <td>
                                 	<div id="myProgress">
   										<div class="myBar" id="<%= prop.address %>"></div>
@@ -82,9 +84,9 @@ $(document).ready(function(){
 									<br>
 									<script>
 										update_progress_bar('<%= prop.frequency %>', '<%= prop.address %>', '<%= prop.created_at.strftime("%d %m %Y") %>' );
-										function get_table_elems(){
-											return document.getElementsByClassName("myBar");
-										}
+										// function get_table_elems(){
+										// 	return document.getElementsByClassName("myBar");
+										// }
 										function update_progress_bar(x, y, z) {
 											var elem = document.getElementById(y);
 											var width = x * 10;
@@ -94,6 +96,7 @@ $(document).ready(function(){
 											}
 											console.log(z);
 											elem.style.width = width + '%';
+
 										}
 									</script>
 									<div>
