@@ -1,0 +1,70 @@
+
+<%@property = Property.find_by(id: params[:id])%>
+
+<h6><%=@property.address%></h6>
+<h6><%=@property.city%>, <%=@property.state%> <%=@property.zipcode%></h6>
+<%session[:property] = @property.id%>
+
+
+<!-- FIXME: Give order property field -->
+<%@order = Order.new%>
+<%= form_for(@order, url: checkout_path(@order)) do |f| %>
+    
+    <br>
+    <!-- TODO: Need to know what field to be submitted as, formatting -->
+    <h5>Date Picker</h5>
+   <%= f.text_field :start_date, "data-provide" => 'datepicker' %>
+    <!-- TODO: Formatting -->
+    <br>
+    <h5>Schedule Deliveries </h5>
+    <h6>Air filters sent every:</h6>
+    <%= f.select :frequency, [0,1, 2, 3, 4, 6, 12],{}, {class: "form-control dropdown col-md-4"}%>
+    <h6>months (*0 as one time delivery)</h6>
+    
+    <br>
+    <br>
+    <table class="table table-striped table-hover col-md-5">
+        <thead>
+            <tr><td> 
+                <th class="col-md-5">Filter </th>
+                <th class="col-sm-2">Quantity</th>
+            </td></tr>
+        </thead>
+
+        
+        <tbody>
+            <tr><td>"10x20x1"</td><td><%=f.text_field :size10b20, placeholder: "0" %></td></tr>
+            <tr><td>"14x20x1"</td><td><%=f.text_field :size14b20, placeholder: "0" %></td></tr>
+            <tr><td>"16x24x1"</td><td><%=f.text_field :size16b24, placeholder: "0" %></td></tr>
+            <tr><td>"18x30x1"</td><td><%=f.text_field :size18b30, placeholder: "0" %></td></tr>
+            <tr><td>"12x12x1"</td><td><%=f.text_field :size12b12, placeholder: "0" %></td></tr>
+            <tr><td>"14x24x1"</td><td><%=f.text_field :size14b24, placeholder: "0" %></td></tr>
+            <tr><td>"16x25x1"</td><td><%=f.text_field :size16b25, placeholder: "0" %></td></tr>
+            <tr><td>"20x20x1"</td><td><%=f.text_field :size20b20, placeholder: "0" %></td></tr>
+            <tr><td>"12x20x1"</td><td><%=f.text_field :size12b20, placeholder: "0" %></td></tr>
+            <tr><td>"14x25x1"</td><td><%=f.text_field :size14b25, placeholder: "0" %></td></tr>
+            <tr><td>"18x18x1"</td><td><%=f.text_field :size18b18, placeholder: "0" %></td></tr>
+            <tr><td>"20x24x1"</td><td><%=f.text_field :size20b24, placeholder: "0" %></td></tr>
+            <tr><td>"12x24x1"</td><td><%=f.text_field :size12b24, placeholder: "0" %></td></tr>
+            <tr><td>"14x30x1"</td><td><%=f.text_field :size14b30, placeholder: "0" %></td></tr>
+            <tr><td>"18x20x1"</td><td><%=f.text_field :size18b20, placeholder: "0" %></td></tr>
+            <tr><td>"20x25x1"</td><td><%=f.text_field :size20b25, placeholder: "0" %></td></tr>
+            <tr><td>"12x30x1"</td><td><%=f.text_field :size12b30, placeholder: "0" %></td></tr>
+            <tr><td>"15x20x1"</td><td><%=f.text_field :size15b20, placeholder: "0" %></td></tr>
+            <tr><td>"18x24x1"</td><td><%=f.text_field :size18b24, placeholder: "0" %></td></tr>
+            <tr><td>"20x30x1"</td><td><%=f.text_field :size20b30, placeholder: "0" %></td></tr>
+            <tr><td>"12x36x1"</td><td><%=f.text_field :size12b36, placeholder: "0" %></td></tr>
+            <tr><td>"16x20x1"</td><td><%=f.text_field :size16b20, placeholder: "0" %></td></tr>
+            <tr><td>"18x25x1"</td><td><%=f.text_field :size18b25, placeholder: "0" %></td></tr>
+            <tr><td>"24x24x1"</td><td><%=f.text_field :size24b24, placeholder: "0" %></td></tr>
+            <tr><td>"25x25x1"</td><td><%=f.text_field :size25b25, placeholder: "0" %></td></tr>
+        </tbody>
+    </table>
+
+    <%= f.submit "Proceed to Checkout", class: "btn btn-primary btn-sm col-sm-2" %>
+                          
+<%end%>
+
+<%= form_for(:anything, url: dash_path, method: :get) do |g| %>
+    <%=g.submit "Cancel", class: "btn btn-link px-5"%>
+<%end%>

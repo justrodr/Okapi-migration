@@ -14,7 +14,11 @@ class ApplicationController < ActionController::Base
     #user_params.permit(:username, :email)
   end
   def after_sign_in_path_for(resource)
-    request.env['omniauth.origin'] || stored_location_for(resource) || dash_path
+    if resource.admin
+      admin_path
+    else
+      request.env['omniauth.origin'] || stored_location_for(resource) || dash_path
+    end
   end
   def after_sign_out_path_for(resource_or_scope)
     root_path
