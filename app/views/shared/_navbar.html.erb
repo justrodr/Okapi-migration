@@ -18,6 +18,7 @@
                 <%= image_tag("astronaut2.gif", :class=>"nav_prof")%>
                 <!--<h3>Welcome!</h3>-->
                 <!--<strong>// User Name //</strong>-->
+                <h3><%=User.find_by(email: session[:email]).first_name%> <%=User.find_by(email: session[:email]).last_name%></h3>
             </div>
         </div>
 
@@ -26,11 +27,11 @@
                 <a href="/dash" role="button"><i class="fa fa-tachometer px-2"></i>Dashboard</a>
             </li>
 
-            <li>
+            <%# <li>
                 <a href="/contacts_page"><i class="fa fa-address-book px-2"></i>
                     Contacts
                 </a>
-            </li>
+            </li> %>
             <li>
                 <a href="/payment_page"><i class="fa fa-credit-card px-2"></i>Payments</a>
             </li>
