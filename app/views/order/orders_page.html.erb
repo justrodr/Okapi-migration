@@ -20,6 +20,7 @@
 </h6>
 <h5>Filters:</h5>
 <% small_keys = [] %>
+
 <h6>
 <% keys = order.attributes.keys%>
     <% keys.each do |subs| %>
@@ -28,7 +29,7 @@
         <%end%>
     <% end %>
     
-    
+    <% total = 0 %>
     <% small_keys.each do |key|%>
         <% if(order.attributes[key]) %>
             <%="Size: #{session[:sizes][key]}"%>
@@ -36,10 +37,15 @@
             <%= "Quantity: #{order.attributes[key]}" %>
             <br>
             <%= "Price: $#{session[:price_hash][key]*order.attributes[key]}" %>
+            <% total += session[:price_hash][key]*order.attributes[key] %>
             <br>
             <br>
         <% end %>
     <% end %>
+Shipping: $7
+<br>
+<%= "Total Price: $#{total+7}" %>
+<br>
 <br>
 <% end %>
 </h6>
