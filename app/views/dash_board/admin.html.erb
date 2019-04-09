@@ -41,4 +41,8 @@
 <br>
 <% end %>
 </h6>
+<%#= form_for(@order, url: admin_path) do |f| %>
+    <%#= f.select :order_status, ['order received', 'shipped', 'delivered'],{}, {class: "form-control dropdown"}%>
+    <%#= f.submit "update status", class: "btn btn-primary btn-block btn-md" %>
+    <%#end%>
 <%= link_to "Log Out",destroy_user_session_path, method: :delete %>

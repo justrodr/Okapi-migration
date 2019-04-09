@@ -42,6 +42,9 @@ gem 'omniauth'
 # User Authentication with Facebook
 gem 'omniauth-facebook'
 
+#Paypal SDK
+gem 'paypal-checkout-sdk'
+
 #use cucumber
 group :test, :development do
   gem 'cucumber-rails', :require => false
