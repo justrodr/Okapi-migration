@@ -11,6 +11,9 @@ class OrderController < ApplicationController
     
     def view
     end
+
+    
+  
     
     def paypal
         @order = session[:order]
