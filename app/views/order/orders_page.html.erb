@@ -1,4 +1,4 @@
-<h1> This is the Admin Page </h1>
+<h3> This is the orders Page <h3>
 <% count = 0 %>
 <% @all_orders.each do |order| %>
 <% count += 1 %>
@@ -7,6 +7,8 @@
 <%= order.shipping_address %>
 </h4>
 <h6>
+<%= "Total Price: $#{'%.2f' % order.price}"%>
+<br>
 <%= "Order Date: #{order.start_date}"%>
 <br>
 <%= "Orders per month: #{order.frequency}"%>
@@ -41,8 +43,7 @@
 <br>
 <% end %>
 </h6>
-<%#= form_for(@order, url: admin_path) do |f| %>
-    <%#= f.select :order_status, ['order received', 'shipped', 'delivered'],{}, {class: "form-control dropdown"}%>
-    <%#= f.submit "update status", class: "btn btn-primary btn-block btn-md" %>
-    <%#end%>
-<%= link_to "Log Out",destroy_user_session_path, method: :delete %>
+<%session[:order] = @order%>
+<%= form_for(:anything, url: dash_path, method: :get) do |g| %>
+    <%=g.submit "Go to dash board", class: "btn btn-link px-5"%>
+<%end%>
