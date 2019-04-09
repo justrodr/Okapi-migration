@@ -1,3 +1,4 @@
+require 'paypal-checkout-sdk'
 class OrderController < ApplicationController
 
     def new
@@ -14,9 +15,23 @@ class OrderController < ApplicationController
     def paypal
         @order = session[:order]
         @order.save
-        puts "***************************"
-        puts @order.id
-        puts "***************************"
+        # request = OrdersGetRequest::new(order_id)
+        # #3. Call PayPal to get the transaction
+        # response = PayPalClient::client::execute(request)
+        # #4. Save the transaction in your database. Implement logic to save transaction to your database for future reference.
+        # puts "***************************"
+        # puts "Status Code: #"
+        # puts "Status: #"
+        # puts "Order ID: #"
+        # puts "Intent: #"
+        # puts "Links:"
+        # for link in response.result.links
+        # # You could also call this link.rel or link.href, but method is a reserved keyword for RUBY. Avoid calling link.method.
+        # puts "\t#{link["rel"]}: #{link["href"]}\tCall Type: #{link["method"]}"
+        # end
+        # puts "Gross Amount: # #"
+        # puts @order.id
+        # puts "***************************"
         redirect_to orders_page_path
     end
     
