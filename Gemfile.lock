@@ -57,6 +57,7 @@ GEM
       sassc-rails (>= 2.0.0)
     bootstrap-datepicker-rails (1.8.0.1)
       railties (>= 3.0)
+    braintreehttp (0.5.0)
     builder (3.2.3)
     byebug (11.0.0)
     capybara (3.14.0)
@@ -164,6 +165,8 @@ GEM
       oauth2 (~> 1.1)
       omniauth (~> 1.9)
     orm_adapter (0.5.0)
+    paypal-checkout-sdk (1.0.2)
+      braintreehttp (~> 0.5)
     pg (0.21.0)
     popper_js (1.14.5)
     public_suffix (3.0.3)
@@ -287,6 +290,7 @@ DEPENDENCIES
   jquery-rails
   omniauth
   omniauth-facebook
+  paypal-checkout-sdk
   pg (~> 0.21)
   rails (= 4.2.10)
   rails_12factor

@@ -16,7 +16,12 @@ class DashBoardController < ApplicationController
                "size20b30"=> 50,"size12b36"=> 48,"size16b20"=> 36,"size18b25"=> 43, 
                "size24b24"=> 48,"size25b25"=> 50}
         if(!(session[:email].nil?))
-            redirect_to dash_path
+            @user = User.find_by(email: session[:email])
+            if (@user.admin)
+                redirect_to admin_path
+            else
+                redirect_to dash_path
+            end
         end
     end 
     
@@ -28,15 +33,17 @@ class DashBoardController < ApplicationController
     
     # def orders
     # end
+
+    def admin
+        @all_orders = Order.all
+        #@order = Order.find_by_id(1)
+    end
     
     def new
         session[:log] = 1
         if(!session.nil?)
             @user = User.find_by(email: session[:email]) #why does first id make this nil in cucumber test
             puts session[:email]
-        end
-        if (@user.admin)
-            redirect_to admin_path
         end
         @property = Property.new
         session[:properties] = Property.where(id: User.find_by(email: session[:email]))
