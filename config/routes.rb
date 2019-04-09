@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   match   'properties/add/:id', to: 'properties#add', :via => :get, :as => :add_order
   get    'view_checkout', to: "order#view"
   post   'checkout', to: "order#checkout"
-  get    'paypal', to: "order#paypal"
+  post    'paypal', to: "order#paypal"
   get    'order/new', to: "order#new"
   #match   'order/checkout', to: 'order#checkout', :via => :post, :as => :checkout
   resources:properties
