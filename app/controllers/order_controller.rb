@@ -46,9 +46,9 @@ class OrderController < ApplicationController
                "size24b24"=> 48,"size25b25"=> 50}
         @current_user = User.find_by(email: session[:email])
         @order = Order.new(order_params)
-        @order.property = session[:property]
+        @order.property = session[:property].id
         #puts Property.find(@order.property).address
-        @property = Property.find(@order.property)
+        @property = Property.find_by(id: @order.property)
         @order.shipping_address = @property.address
         @order.tenant_name = @property.tenant_name
         @order.tenant_email = @property.tenant_email
