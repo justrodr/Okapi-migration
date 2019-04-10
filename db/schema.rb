@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190409230758) do
+ActiveRecord::Schema.define(version: 20190410001404) do
 
   create_table "orders", force: :cascade do |t|
     t.string   "shipping_address"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20190409230758) do
     t.float    "price"
     t.string   "start_date"
     t.datetime "delivered_date"
+    t.datetime "sent_date"
   end
 
   create_table "properties", force: :cascade do |t|
