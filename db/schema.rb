@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190410001404) do
+ActiveRecord::Schema.define(version: 20190410002435) do
 
   create_table "orders", force: :cascade do |t|
     t.string   "shipping_address"
@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(version: 20190410001404) do
     t.string   "order_status"
     t.integer  "user"
     t.float    "amount_paid"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "city"
     t.string   "state"
     t.string   "zipcode"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20190410001404) do
     t.string   "start_date"
     t.datetime "delivered_date"
     t.datetime "sent_date"
+    t.boolean  "canceled",         default: false
   end
 
   create_table "properties", force: :cascade do |t|
