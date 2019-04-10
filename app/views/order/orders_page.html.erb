@@ -1,48 +1,158 @@
-<h3> This is the orders Page <h3>
+<style>
+
+.table tr {
+    cursor: pointer;
+}
+.hiddenRow {
+    padding: 0 4px !important;
+    background-color: #eeeeee;
+    font-size: 13px;
+}
+</style>
 <% count = 0 %>
-<% @all_orders.each do |order| %>
-<% count += 1 %>
-<h4>
-<%=count%>.
-<%= order.shipping_address %>
-</h4>
-<h6>
-<%= "Total Price: $#{'%.2f' % order.price}"%>
-<br>
-<%= "Order Date: #{order.start_date}"%>
-<br>
-<%= "Orders per month: #{order.frequency}"%>
-<br>
-<%= "Tenant Name: #{order.tenant_name.to_s}"%>
-<br>
-<%= "Order Status: #{order.order_status}"%>
-<br>
-</h6>
-<h5>Filters:</h5>
-<% small_keys = [] %>
-<h6>
-<% keys = order.attributes.keys%>
-    <% keys.each do |subs| %>
-        <% if subs.include? "size" %>
-            <% small_keys.push subs %>
-        <%end%>
-    <% end %>
-    
-    
-    <% small_keys.each do |key|%>
-        <% if(order.attributes[key]) %>
-            <%="Size: #{session[:sizes][key]}"%>
-            <br>
-            <%= "Quantity: #{order.attributes[key]}" %>
-            <br>
-            <%= "Price: $#{session[:price_hash][key]*order.attributes[key]}" %>
-            <br>
-            <br>
-        <% end %>
-    <% end %>
-<br>
-<% end %>
-</h6>
+
+<div class="container">
+    <table class="table table-striped">
+        <!-- Table Headers -->
+        <thead>
+            <tr>
+                <th>Order No.</th>
+                <th>Tenant</th>
+                <th>Date to ship</th>
+                <th>Frequency              </th>
+                <th>No. Filters</th>
+                <th>Shipping Address</th>
+                <th>Sent Date</th>
+                <th>Delivered Date</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+            <% @all_orders.each do |order| %>
+                <%# <% count += 1 %> %>
+                <td><%=count%></td>
+                <td><%=order.tenant_name%></td>
+                <td><%=order.start_date%></td>
+                <td><%=order.frequency%> orders/month</td>
+
+                <% small_keys = [] %>
+                <% keys = order.attributes.keys%>
+                    <% keys.each do |subs| %>
+                        <% if subs.include? "size" %>
+                            <% small_keys.push subs %>
+                        <%end%>
+                <% end %>
+            
+            <td>
+                    <% small_keys.each do |key|%>
+                        <% if(order.attributes[key]) %>
+                            <%="Size: #{session[:sizes][key]}"%>
+                            <br>
+                            <%= "Quantity: #{order.attributes[key]}" %>
+                            <br>
+                            <br>
+                        <% end %>
+                    <% end %>
+                </td>
+
+                <td><%= order.shipping_address %></td>
+                <td>TBD</td>
+                <td>TBD</td>
+                <td><%= "$#{'%.2f' % order.price}"%></td>
+           
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+
+
+
+<!-- Accordian Table -->
+<%# <div class="container">
+  <h2>Accordion Example</h2>
+  <p><strong>Note:</strong> The <strong>data-parent</strong> attribute makes sure that all collapsible elements under the specified parent will be closed when one of the collapsible item is shown.</p>
+  <div id="accordion">
+    <div class="card">
+      <div class="card-header">
+        <a class="card-link" data-toggle="collapse" href="#collapseOne">
+          Collapsible Group Item #1
+        </a>
+      </div>
+      <div id="collapseOne" class="collapse show" data-parent="#accordion">
+        <div class="card-body">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+        Collapsible Group Item #2
+      </a>
+      </div>
+      <div id="collapseTwo" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+          Collapsible Group Item #3
+        </a>
+      </div>
+      <div id="collapseThree" class="collapse" data-parent="#accordion">
+        <div class="card-body">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </div>
+      </div>
+    </div>
+  </div>
+</div> %>
+
+<!-- Collapsable Table -->
+<div class="container">
+    <table class="table table-condensed" style="border-collapse:collapse;">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Tenant</th>
+                <th>Address</th>
+                <th>Deliver Date</th>
+                <th>Cost</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @all_orders.each do |order| %>
+                <tr data-toggle="collapse" data-target = "#collapse<%= order.id %>" class="accordion-toggle">
+                    <% count += 1 %>
+                    <td><%=count%></td>
+                    <td><%=order.tenant_name%></td>
+                    <td><%= order.shipping_address %></td>
+                    <td>TBD</td>
+                    <td class="text-success"><%= "$#{'%.2f' % order.price}"%></td>
+                </tr>
+
+                <!-- Collapse Info -->
+                <tr >
+                    <td colspan="6" class="hiddenRow">
+                        <div class="accordian-body collapse" id="collapse<%= order.id %>"> 
+                            This is info for <%=order.id%> at <%=order.shipping_address%> 
+                        </div> 
+                    </td>
+                </tr>
+            
+            
+            <% end %>		
+        </tbody>
+    </table>
+</div>
+
 <%session[:order] = @order%>
 <%= form_for(:anything, url: dash_path, method: :get) do |g| %>
     <%=g.submit "Go to dash board", class: "btn btn-link px-5"%>
