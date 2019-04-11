@@ -1,4 +1,6 @@
 class DashBoardController < ApplicationController
+helper_method :sort_column, :sort_direction
+
     def splash 
        session[:order] = nil
        session[:sizes] = {"size10b20"=>"10\" x 20\" x 1\"","size14b20"=>"14\" x 20\" x 1\"","size16b24"=>"16\" x 24\" x 1\"",
@@ -48,5 +50,20 @@ class DashBoardController < ApplicationController
         @property = Property.new
         session[:properties] = Property.where(id: User.find_by(email: session[:email]))
         #SubscriptionMailer.sample_email(@user).deliver
+        @properties = Property.where(user: User.find_by(email: session[:email])).order("#{sort_column} #{sort_direction}")
+
     end
+
+    private
+  def sortable_columns
+    ["address", "tenant_name"]
+  end
+
+  def sort_column
+    sortable_columns.include?(params[:column]) ? params[:column] : "address"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
 end
