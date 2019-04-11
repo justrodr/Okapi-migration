@@ -47,5 +47,6 @@ class DashBoardController < ApplicationController
         end
         @property = Property.new
         session[:properties] = Property.where(id: User.find_by(email: session[:email]))
+        #SubscriptionMailer.sample_email(@user).deliver
     end
 end

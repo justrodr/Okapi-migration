@@ -1,5 +1,6 @@
 require 'paypal-checkout-sdk'
 class OrderController < ApplicationController
+    skip_before_action :verify_authenticity_token
 
     def new
         @order = Order.new
@@ -18,28 +19,43 @@ class OrderController < ApplicationController
     
     def view
     end
+
+    
+  
     
     def paypal
         @order = session[:order]
         @order.save
-        # request = OrdersGetRequest::new(order_id)
+        order_id = params[:orderID]
+        # Creating Access Token for Sandbox
+        client_id = ENV['PAYPAL_CLIENT_ID']
+        client_secret = ENV['PAYPAL_CLIENT_SECRET']
+        # Creating an environment
+        environment = PayPal::SandboxEnvironment.new(client_id, client_secret)
+        client = PayPal::PayPalHttpClient.new(environment)
+        #request = OrdersGetRequest::new(order_id)
+        request = PayPalCheckoutSdk::Orders::OrdersCaptureRequest::new(order_id)
         # #3. Call PayPal to get the transaction
-        # response = PayPalClient::client::execute(request)
+        response = client.execute(request) 
         # #4. Save the transaction in your database. Implement logic to save transaction to your database for future reference.
-        # puts "***************************"
-        # puts "Status Code: #"
-        # puts "Status: #"
-        # puts "Order ID: #"
-        # puts "Intent: #"
-        # puts "Links:"
-        # for link in response.result.links
-        # # You could also call this link.rel or link.href, but method is a reserved keyword for RUBY. Avoid calling link.method.
-        # puts "\t#{link["rel"]}: #{link["href"]}\tCall Type: #{link["method"]}"
-        # end
-        # puts "Gross Amount: # #"
-        # puts @order.id
-        # puts "***************************"
-        redirect_to orders_page_path
+        puts "***************************"
+        puts "Status Code: #"
+        puts "Status: #"
+        #puts response.result.id
+        puts "Order ID: "
+        puts order_id
+        puts "Intent: #"
+        puts "Links:"
+        for link in response.result.links
+        # You could also call this link.rel or link.href, but method is a reserved keyword for RUBY. Avoid calling link.method.
+        puts "\t#{link["rel"]}: #{link["href"]}\tCall Type: #{link["method"]}"
+        end
+        puts "Gross Amount: # #"
+        puts @order.id
+        puts "***************************"
+        @user1 = User.find_by(email: session[:email])
+        #SubscriptionMailer.send_confirmation(@user1).deliver_later(wait_until: 2.minutes.from_now)
+        #redirect_to orders_page_path
     end
     
     def orders_page

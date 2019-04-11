@@ -27,9 +27,9 @@ Shipping: $7
 </h2>
 
 <%session[:order] = @order%>
-<%= form_for(:anything, url: paypal_path, method: :get) do |g| %>
-    <%=g.submit "Pay with PayPal", class: "btn btn-link px-5"%>
-<%end%>
+<%#= form_for(:anything, url: paypal_path, method: :get) do |g| %>
+    <%#=g.submit "Pay with PayPal", class: "btn btn-link px-5"%>
+<%#end%>
 
 <%# PayPal stuff below%>
 
@@ -40,7 +40,7 @@ Shipping: $7
 
 <body>
   <script
-    src="https://www.paypal.com/sdk/js?client-id=sb">
+    src="https://www.paypal.com/sdk/js?client-id=AYEvKhOwg3t1wPfRKErTkTWRRCpbhMU1-cOMcoBl2P4LydSk55VrkNnNUkm32LRuxtYF1sXNZlv-s6w7">
   </script>
   <div id="paypal-button-container"></div>
 
@@ -59,8 +59,9 @@ Shipping: $7
     onApprove: function(data, actions) {
       return actions.order.capture().then(function(details) {
         alert('Transaction completed by ' + details.payer.name.given_name);
+        window.location.replace("http://localhost:3000/orders_page");
         // Call your server to save the transaction
-        return fetch('/paypal-transaction-complete', {
+        return fetch('/paypal', {
           method: 'post',
           headers: {
             'content-type': 'application/json'
@@ -69,6 +70,7 @@ Shipping: $7
             orderID: data.orderID
           })
         });
+        //window.location.replace("http://localhost:3000/orders_page");
       });
     }
   }).render('body');
