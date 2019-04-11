@@ -1,5 +1,6 @@
 require 'paypal-checkout-sdk'
 class OrderController < ApplicationController
+    skip_before_action :verify_authenticity_token
 
     def new
         @order = Order.new
@@ -8,31 +9,53 @@ class OrderController < ApplicationController
         #@current_user = User.find_by(email: session[:email])
         #@order = Order.new(order_params)
     end
+
+    def cancel
+        @cancel_order = Order.find_by(id: params[:id])
+        @cancel_order.update(canceled: 1)
+        puts @cancel_order.canceled
+        redirect_to orders_page_path
+    end
     
     def view
     end
+
+    
+  
     
     def paypal
         @order = session[:order]
         @order.save
-        # request = OrdersGetRequest::new(order_id)
+        order_id = params[:orderID]
+        # Creating Access Token for Sandbox
+        client_id = ENV['PAYPAL_CLIENT_ID']
+        client_secret = ENV['PAYPAL_CLIENT_SECRET']
+        # Creating an environment
+        environment = PayPal::SandboxEnvironment.new(client_id, client_secret)
+        client = PayPal::PayPalHttpClient.new(environment)
+        #request = OrdersGetRequest::new(order_id)
+        request = PayPalCheckoutSdk::Orders::OrdersCaptureRequest::new(order_id)
         # #3. Call PayPal to get the transaction
-        # response = PayPalClient::client::execute(request)
+        response = client.execute(request) 
         # #4. Save the transaction in your database. Implement logic to save transaction to your database for future reference.
-        # puts "***************************"
-        # puts "Status Code: #"
-        # puts "Status: #"
-        # puts "Order ID: #"
-        # puts "Intent: #"
-        # puts "Links:"
-        # for link in response.result.links
-        # # You could also call this link.rel or link.href, but method is a reserved keyword for RUBY. Avoid calling link.method.
-        # puts "\t#{link["rel"]}: #{link["href"]}\tCall Type: #{link["method"]}"
-        # end
-        # puts "Gross Amount: # #"
-        # puts @order.id
-        # puts "***************************"
-        redirect_to orders_page_path
+        puts "***************************"
+        puts "Status Code: #"
+        puts "Status: #"
+        #puts response.result.id
+        puts "Order ID: "
+        puts order_id
+        puts "Intent: #"
+        puts "Links:"
+        for link in response.result.links
+        # You could also call this link.rel or link.href, but method is a reserved keyword for RUBY. Avoid calling link.method.
+        puts "\t#{link["rel"]}: #{link["href"]}\tCall Type: #{link["method"]}"
+        end
+        puts "Gross Amount: # #"
+        puts @order.id
+        puts "***************************"
+        @user1 = User.find_by(email: session[:email])
+        #SubscriptionMailer.send_confirmation(@user1).deliver_later(wait_until: 2.minutes.from_now)
+        #redirect_to orders_page_path
     end
     
     def orders_page
@@ -52,13 +75,13 @@ class OrderController < ApplicationController
                "size20b25"=>"20\" x 25\" x 1\"","size12b30"=>"12\" x 30\" x 1\"","size15b20"=>"15\" x 20\" x 1\"","size18b24"=>"18\" x 24\" x 1\"", 
                "size20b30"=>"20\" x 30\" x 1\"","size12b36"=>"12\" x 36\" x 1\"","size16b20"=>"16\" x 20\" x 1\"","size18b25" =>"18\" x 25\" x 1\"", 
                "size24b24"=>"24\" x 24\" x 1\"","size25b25"=>"25\" x 25\" x 1\""}
-        session[:price_hash] = {"size10b20"=> 30,"size14b20"=> 34,"size16b24"=> 40,
-               "size18b30"=> 48,"size12b12"=> 24,"size14b24"=> 38,"size16b25"=> 41, 
-               "size20b20"=> 40,"size12b20"=> 32,"size14b25"=> 39,"size18b18"=> 36, 
-               "size20b24"=> 44,"size12b24"=> 36,"size14b30"=> 34,"size18b20"=> 38,
-               "size20b25"=> 45,"size12b30"=> 42,"size15b20"=> 35,"size18b24"=> 42, 
-               "size20b30"=> 50,"size12b36"=> 48,"size16b20"=> 36,"size18b25"=> 43, 
-               "size24b24"=> 48,"size25b25"=> 50}
+               session[:price_hash] = {"size10b20"=> 5.20,"size14b20"=> 5.20,"size16b24"=> 6.62,
+               "size18b30"=> 7.93,"size12b12"=> 6.62,"size14b24"=> 5.67,"size16b25"=> 4.92, 
+               "size20b20"=> 5.20,"size12b20"=> 5.11,"size14b25"=> 5.20,"size18b18"=> 6.62, 
+               "size20b24"=> 6.24,"size12b24"=> 6.15,"size14b30"=> 6.62,"size18b20"=> 7.56,
+               "size20b25"=> 5.67,"size12b30"=> 6.62,"size15b20"=> 7.09,"size18b24"=> 6.62, 
+               "size20b30"=> 6.62,"size12b36"=> 8.89,"size16b20"=> 5.20,"size18b25"=> 7.09, 
+               "size24b24"=> 6.62,"size25b25"=> 7.68}
         @current_user = User.find_by(email: session[:email])
         @order = Order.new(order_params)
         @order.property = session[:property] #
