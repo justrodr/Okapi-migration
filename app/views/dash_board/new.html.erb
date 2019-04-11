@@ -84,6 +84,7 @@ $(document).ready(function(){
 	  										<div class="myBar" id="<%= ord.id %>"></div>
 										</div>
 										<p><%= ord.start_date %></p>
+										<p><%= Datetime.now %></p>
 										<script>
 											if ("<%= ord.delivered_date %>" == "") {
 												// if ord.sent_date == ""
@@ -95,10 +96,25 @@ $(document).ready(function(){
 												// console.log(freq);
 												var progbar = document.getElementById(id);
 												var dNow = new Date();
-												var c = dNow.getMonth()+1 + '/' + dNow.getDate() + '/' + dNow.getFullYear();
+												var c = formatDate(dNow.getMonth()+1) + '/' + formatDate(dNow.getDate()) + '/' + dNow.getFullYear();
+												
 												console.log(c);
 												console.log(date);
+												
+												var timeTillShip = 0;
+												
+												//Month = 28, 30, 31 days
+												
 												// progbar.style.width = width + '%';
+											}
+											
+											function formatDate(x){
+												if (x < 10){
+													return '0' + x;
+												}
+												else {
+													return x;
+												}
 											}
 										</script>
 										<div>
