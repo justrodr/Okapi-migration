@@ -83,7 +83,10 @@ $(document).ready(function(){
 	                                	<div id="myProgress">
 	  										<div class="myBar" id="<%= ord.id %>"></div>
 										</div>
+										<!--<p><%= ord.start_date %></p>-->
+										<p><%= DateTime.now %></p>
 										<p><%= ord.start_date %></p>
+										<p><%= ord.created_at %></p>
 										
 										<script>
 											if ("<%= ord.delivered_date %>" == "") {
@@ -118,7 +121,7 @@ $(document).ready(function(){
 											}
 										</script>
 										<div>
-											<p>(last sent nil / last delivered nil)</p>
+											<p>Last Delivered: <%= ord.delivered_date %></p>
 										</div>
 										<% end %>
 									</td>
