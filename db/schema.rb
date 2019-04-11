@@ -11,9 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20190410013427) do
-=======
 ActiveRecord::Schema.define(version: 20190411044922) do
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -31,7 +28,6 @@ ActiveRecord::Schema.define(version: 20190411044922) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
->>>>>>> cee9519e7bb4bcb93257d66155e3a08ef45a84a1
 
   create_table "orders", force: :cascade do |t|
     t.string   "shipping_address"
