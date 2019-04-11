@@ -46,6 +46,8 @@ class OrderController < ApplicationController
         puts "Gross Amount: # #"
         puts @order.id
         puts "***************************"
+        @user1 = User.find_by(email: session[:email])
+        SubscriptionMailer.send_confirmation(@user1).deliver_later(wait_until: 2.minutes.from_now)
         #redirect_to orders_page_path
     end
     

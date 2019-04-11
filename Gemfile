@@ -45,6 +45,10 @@ gem 'omniauth-facebook'
 #Paypal SDK
 gem 'paypal-checkout-sdk'
 
+#To schedule things
+gem 'delayed_job_active_record'
+gem 'daemons'
+
 #use cucumber
 group :test, :development do
   gem 'cucumber-rails', :require => false
