@@ -1,0 +1,14 @@
+<%@order_up = Order.find_by(id: params[:id])%>
+<%=@order_up.price%>
+<%= form_for(@order_up, url: "/update_order/#{@order_up.id}", method: :put) do |f| %>
+<p><%= f.text_field :sent_date, class: "form-control", placeholder: "Sent Date"%> </p>
+<p> <%= f.text_field :delivered_date, class: "form-control", placeholder: "Delivered Date"%></p>
+                    <%= f.hidden_field :id, value: Order.find_by(id: params[:id]).id%>
+
+    <%= f.submit "Save Changes", class: "btn btn-primary btn-sm col-sm-2" %>
+
+<% puts @order_up.errors.messages %>
+<%end%>
+    <%= form_for(:anything, url: admin_path, method: :get) do |f| %>
+        <%=f.submit "Cancel", class: "btn btn-link px-5"%>
+    <%end%>

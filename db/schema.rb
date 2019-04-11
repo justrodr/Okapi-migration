@@ -70,8 +70,8 @@ ActiveRecord::Schema.define(version: 20190411135710) do
     t.integer  "filter_freq"
     t.float    "price"
     t.string   "start_date"
-    t.datetime "delivered_date"
-    t.datetime "sent_date"
+    t.string   "delivered_date"
+    t.string   "sent_date"
     t.boolean  "canceled",         default: false
     t.integer  "sub_freq"
   end

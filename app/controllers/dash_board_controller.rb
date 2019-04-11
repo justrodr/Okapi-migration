@@ -31,6 +31,16 @@ class DashBoardController < ApplicationController
     def payment
     end
     
+    def edit_order
+    end
+    
+    def update_order    
+          @order_up = Order.find params[:order][:id]
+          @order_up.update(sent_date: params[:order][:sent_date])
+          @order_up.update(delivered_date: params[:order][:delivered_date])
+          redirect_to admin_path
+    end
+    
     # def orders
     # end
 
