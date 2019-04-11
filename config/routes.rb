@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post   'checkout', to: "order#checkout"
   get    'paypal', to: "order#paypal"
   get    'order/new', to: "order#new"
+  match  '/update_order/:id', to: 'dash_board#update_order', :via => :put, :as => :update_order
+  match  '/dash_board/edit_order/:id', to: 'dash_board#edit_order', :via => :get, :as => :edit_order
   #match   'order/checkout', to: 'order#checkout', :via => :post, :as => :checkout
   resources:properties
 
