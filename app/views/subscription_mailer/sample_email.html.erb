@@ -3,9 +3,14 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hi <%= @user.first_name %></h1>
+    <h1>Dear <%= @user.first_name %> <%= @user.last_name %> </h1>
     <p>
-      Sample mail sent using smtp.
+      Our records indicate that your subscription will expire in one week from from today
+      Plese renew your subscription before then or your subscription will be cancelled. 
+      Thanks so much for being a member!
+
+      Sincerely,
+      The Okapi Team
     </p>
   </body>
 </html>
