@@ -1,19 +1,37 @@
 <h1> This is the Admin Page </h1>
 <% count = 0 %>
 <% @all_orders.each do |order| %>
+<%if(Property.find_by(id: order.property))%>
+<% user = User.find_by(id: Property.find_by(id: order.property).user) %>
+<%end %>
 <% count += 1 %>
 <h4>
 <%=count%>.
 <%= order.shipping_address %>
 </h4>
 <h6>
+<%if(user) %>
+<%= "User (home owner): #{user.first_name} #{user.last_name}" %>
+<br>
+<%end%>
 <%= "Order Date: #{order.start_date}"%>
 <br>
-<%= "Orders per month: #{order.frequency}"%>
+<%= "Orders per month: #{order.filter_freq}"%>
 <br>
 <%= "Tenant Name: #{order.tenant_name.to_s}"%>
 <br>
-<%= "Order Status: #{order.order_status}"%>
+<%= "Delivered Date: #{order.delivered_date}"%>
+<br>
+<%= "Sent Date: #{order.sent_date}"%>
+<br>
+<%= "Start Date: #{order.start_date}"%>
+<br>
+<%= "Tenant Name: #{order.tenant_name.to_s}"%>
+<br>
+<%= link_to '<i class="material-icons" style="font-size:25px;color:#28a745;padding-right:10px">edit fields</i>'.html_safe, edit_order_path(order), method: :get, class: "float-left" %>
+<br>
+<br>
+<%= "Canceled?: #{order.canceled}"%>
 <br>
 </h6>
 <h5>Filters:</h5>
