@@ -94,7 +94,7 @@ $(document).ready(function(){
 													// date = ord.start_date
 													var date = "<%= ord.start_date %>";
 											}
-											update_progress_bar( <%= ord.id %>, <%= ord.frequency %>, date);
+											update_progress_bar( <%= ord.id %>, <%= ord.filter_freq %>, date);
 											function update_progress_bar(id, freq, date) {
 												// console.log(freq);
 												var progbar = document.getElementById(id);
