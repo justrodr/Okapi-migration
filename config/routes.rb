@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post   'checkout', to: "order#checkout"
   post    'paypal', to: "order#paypal"
   get    'order/new', to: "order#new"
+  match   'order/cancel/:id', to: 'order#cancel', :via => :get, :as => :cancel
   #match   'order/checkout', to: 'order#checkout', :via => :post, :as => :checkout
   resources:properties
 

@@ -9,6 +9,13 @@ class OrderController < ApplicationController
         #@current_user = User.find_by(email: session[:email])
         #@order = Order.new(order_params)
     end
+
+    def cancel
+        @cancel_order = Order.find_by(id: params[:id])
+        @cancel_order.update(canceled: 1)
+        puts @cancel_order.canceled
+        redirect_to orders_page_path
+    end
     
     def view
     end
