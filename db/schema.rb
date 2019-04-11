@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190411044922) do
+ActiveRecord::Schema.define(version: 20190411135710) do
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -67,12 +67,13 @@ ActiveRecord::Schema.define(version: 20190411044922) do
     t.string   "city"
     t.string   "state"
     t.string   "zipcode"
-    t.integer  "frequency"
+    t.integer  "filter_freq"
     t.float    "price"
     t.string   "start_date"
     t.datetime "delivered_date"
     t.datetime "sent_date"
     t.boolean  "canceled",         default: false
+    t.integer  "sub_freq"
   end
 
   create_table "properties", force: :cascade do |t|

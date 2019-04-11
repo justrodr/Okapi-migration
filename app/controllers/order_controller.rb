@@ -97,7 +97,7 @@ class OrderController < ApplicationController
         puts params[:order][:start_date].class
         @order.start_date = params[:order][:start_date]
         puts @order.start_date
-        puts @order.frequency
+        puts @order.filter_freq
         @order.user = @current_user.id
         small_keys = []
         total_price = [] 
@@ -123,7 +123,7 @@ class OrderController < ApplicationController
     
     private
         def order_params
-            params.require(:order).permit(:shipping_address, :frequency, :price, :tenant_name, :tenant_email, :property, :start_date,:order_status, :size10b20, :size14b20, :size16b24,
+            params.require(:order).permit(:shipping_address, :filter_freq, :price, :tenant_name, :tenant_email, :property, :start_date,:order_status, :size10b20, :size14b20, :size16b24,
                 :size18b30, :size12b12, :size14b24, :size16b25, :size20b20, :size12b20, :size14b25, :size18b18, :size20b24, :size12b24, :size14b30, :size18b20,
                 :size20b25, :size12b30, :size15b20, :size18b24, :size20b30, :size12b36, :size16b20, :size18b25, :size24b24, :size25b25, :user)
         end
