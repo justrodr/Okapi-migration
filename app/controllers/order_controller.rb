@@ -21,9 +21,6 @@ class OrderController < ApplicationController
         @order = session[:order]
     end
 
-    
-  
-    
     def paypal
         @order = session[:order]
         @order.save

@@ -6,6 +6,11 @@
 <% original_total = 0%>
 <%@order = session[:order]%>
 
+<%if session[:order].nil? %>
+    <h1>Whoops something went wrong</h1>
+
+<%else%>
+
 <% small_keys = [] %>
 <% keys = @order.attributes.keys%>
     <% keys.each do |subs| %>
@@ -16,16 +21,20 @@
 
 
 
+
 <div class="container">
   <div class="row">
     <!-- Invoice -->
-      <div class="p-3 col-sm-8">
+      <div class="p-3 col-md-8">
           <%# <div class="row"> %>
-              <div class="col-8">
+              <div class="col-12">
                   <div class="card">
                       <div class="card-body p-0">
                           <div class="row p-5">
                               <h4>Subscription Checkout for <%= @order.shipping_address %></h4>
+                              <%= form_for(:anything, url: dash_path, method: :get) do |g| %>
+                                  <%=g.submit "Go to dash board", class: "btn btn-link px-5"%>
+                              <%end%>
                           </div>
 
                           <hr class="my-1">
@@ -44,7 +53,7 @@
                                   <p class="mb-1"><span class="text-muted">Ship on: </span> <%= @order.start_date %></p>
                                   <p class="mb-1"><span class="text-muted">Frequency: </span> Every <%= @order.filter_freq%> month(s)</p>
                                   <p class="mb-1"><span class="text-muted">Subscription:  </span> Every <%= @order.sub_freq%> month(s) </p>
-                                  <p class="mb-1"><span class="text-muted">Name: </span> <%= @order.user %></p>
+                                  <p class="mb-1"><span class="text-muted"></span> </p>
                               </div>
                           </div>
 
@@ -93,7 +102,7 @@
       </div>
 
 
-    <!--REVIEW ORDER-->
+    <!-- Review Order -->
     <div class="card h-100 col-sm-3">
         <div class="panel panel-default">
             <div class="panel-heading text-center">
@@ -126,6 +135,11 @@
                       <strong>Order Total</strong>
                       <div class="pull-right"><span>$</span><span><%="#{'%.2f' % @order.price}"%></span></div>
                       <hr>
+                  </div>
+
+                  <div class="col-md-12 text-center">
+                      <strong>Pay with Paypal</strong>
+                      <br><br>
                   </div>
 
                   <!-- Paypal Stuff-->
@@ -175,6 +189,7 @@
 
 
 </div>
+<%end%>
           
 
 
