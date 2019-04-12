@@ -18,6 +18,7 @@ class OrderController < ApplicationController
     end
     
     def view
+        @order = session[:order]
     end
 
     
@@ -106,11 +107,15 @@ class OrderController < ApplicationController
          if subs.include? "size" 
              small_keys.push subs 
          end
-        end 
+        end
+        sub_multiplier = @order.sub_freq / @order.filter_freq 
         small_keys.each do |key|
             if(@order.attributes[key]) 
-                total_price.push session[:price_hash][key]*@order.attributes[key]
-            end 
+                puts @order.sub_freq
+                total_price.push session[:price_hash][key]*@order.attributes[key]*sub_multiplier
+                puts "Sub multiplier"
+                puts sub_multiplier
+            end
         end
         @order.price = total_price.inject(0){|sum,x| sum + x }+7.00 #plus 7 is for shipping
         puts @order.price
@@ -125,6 +130,6 @@ class OrderController < ApplicationController
         def order_params
             params.require(:order).permit(:shipping_address, :filter_freq, :price, :tenant_name, :tenant_email, :property, :start_date,:order_status, :size10b20, :size14b20, :size16b24,
                 :size18b30, :size12b12, :size14b24, :size16b25, :size20b20, :size12b20, :size14b25, :size18b18, :size20b24, :size12b24, :size14b30, :size18b20,
-                :size20b25, :size12b30, :size15b20, :size18b24, :size20b30, :size12b36, :size16b20, :size18b25, :size24b24, :size25b25, :user, :sent_date, :delivered_date)
+                :size20b25, :size12b30, :size15b20, :size18b24, :size20b30, :size12b36, :size16b20, :size18b25, :size24b24, :size25b25, :user, :sent_date, :delivered_date, :sub_freq)
         end
 end
