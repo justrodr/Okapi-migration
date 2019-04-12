@@ -17,6 +17,7 @@ class DashBoardController < ApplicationController
                "size24b24"=> 6.62,"size25b25"=> 7.68}
         if(!(session[:email].nil?))
             @user = User.find_by(email: session[:email])
+            #SubscriptionMailer.remind_email(@user).deliver
             if (@user.admin)
                 redirect_to admin_path
             else
