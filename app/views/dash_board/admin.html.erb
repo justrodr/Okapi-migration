@@ -23,6 +23,7 @@
                 </thead>
                 <tbody>
                     <% @all_orders.each do |order| %>
+                    
                         <tr>
                             <%if(Property.find_by(id: order.property))%>
                                 <% user = User.find_by(id: Property.find_by(id: order.property).user) %>
@@ -87,6 +88,8 @@
                             </td>
                             <td>
                                <%= link_to '<i class="material-icons" style="font-size:25px;color:#28a745;padding-right:10px">edit fields</i>'.html_safe, edit_order_path(order), method: :get, class: "float-left" %> 
+                            
+                            
                             </td>
                         </tr>    
                     <% end %>
