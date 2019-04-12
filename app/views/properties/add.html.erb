@@ -88,12 +88,12 @@
             <h1>Set Up Subscription</h1> 
             <h2><%@property = Property.find_by(id: params[:id])%> <%=@property.address%> <br> <%=@property.city%>, <%=@property.state%> <%=@property.zipcode%></h2>
         </div>
-    <%= form_for(@order, url: checkout_path(@order)) do |f| %>
         <div class="set-date-freq">
             <div class="set-date">
                 <%session[:property] = @property.id%>
                 <!-- FIXME: Give order property field -->
                 <%@order = Order.new%>
+    <%= form_for(@order, url: checkout_path(@order)) do |f| %>
                     <!-- TODO: Need to know what field to be submitted as, formatting -->
                     <h2>Schedule Deliveries</h2>
                     <h3>Select Start Date</h3>
