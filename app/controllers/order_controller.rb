@@ -21,9 +21,6 @@ class OrderController < ApplicationController
         @order = session[:order]
     end
 
-    
-  
-    
     def paypal
         @order = session[:order]
         @order.save
@@ -93,7 +90,7 @@ class OrderController < ApplicationController
         @order.property = session[:property] #
         #puts Property.find(@order.property).address
         @property = Property.find_by(id: @order.property)
-        #@order.shipping_address = @property.address
+        @order.shipping_address = @property.address
         @order.tenant_name = @property.tenant_name
         @order.tenant_email = @property.tenant_email
         @order.city = @property.city
