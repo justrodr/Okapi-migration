@@ -10,7 +10,7 @@ class DashBoardControllerTest < ActionController::TestCase
    
    test "should skip screen if user logged in" do
      controller = @controller
-     controller.session[:email] = "hi"
+      controller.session[:email] = users(:one).email
      get :splash
      assert_redirected_to dash_path
    end
