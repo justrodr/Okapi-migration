@@ -52,9 +52,14 @@ class OrderController < ApplicationController
         end
         puts "Gross Amount: # #"
         puts @order.id
+        prop1 = Property.find(@order.property)
+        #puts prop1
         puts "***************************"
+        number = @order.sub_freq
+        #puts number
         @user1 = User.find_by(email: session[:email])
-        #SubscriptionMailer.send_confirmation(@user1).deliver_later(wait_until: 2.minutes.from_now)
+        SubscriptionMailer.remind_email(@user1, prop1).deliver_later(wait_until: 1.minutes.from_now)
+        #SubscriptionMailer.remind_email(@user1, prop1).deliver_later(wait_until: (number.month - 2.weeks).from_now)
         #redirect_to orders_page_path
     end
     
@@ -125,6 +130,6 @@ class OrderController < ApplicationController
         def order_params
             params.require(:order).permit(:shipping_address, :filter_freq, :price, :tenant_name, :tenant_email, :property, :start_date,:order_status, :size10b20, :size14b20, :size16b24,
                 :size18b30, :size12b12, :size14b24, :size16b25, :size20b20, :size12b20, :size14b25, :size18b18, :size20b24, :size12b24, :size14b30, :size18b20,
-                :size20b25, :size12b30, :size15b20, :size18b24, :size20b30, :size12b36, :size16b20, :size18b25, :size24b24, :size25b25, :user, :sent_date, :delivered_date)
+                :size20b25, :size12b30, :size15b20, :size18b24, :size20b30, :size12b36, :size16b20, :size18b25, :size24b24, :size25b25, :user, :sent_date, :delivered_date, :sub_freq)
         end
 end
