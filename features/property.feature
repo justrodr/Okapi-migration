@@ -17,12 +17,12 @@ Background: properties in database
   | Beach      | John Doe    | jj@email.com | 7beachst |
   | Lake       | Karen Smith | ks@email.com | 3lakest  |
         Scenario: Viewing add property
-            Given I am on the Dashboard page
+            Given I am on the Dashboard page for Jane Doe
             When I click on "Add New Property"
             Then I should be on the Add property page
 
         Scenario: Add a property
-            Given I am on the Dashboard page
+            Given I am on the Dashboard page for Jane Doe
             When I click on "Add New Property"
             And I enter valid property information
             And I click on "Add Property"

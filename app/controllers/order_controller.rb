@@ -110,7 +110,8 @@ class OrderController < ApplicationController
         end 
         small_keys.each do |key|
             if(@order.attributes[key]) 
-                total_price.push session[:price_hash][key]*@order.attributes[key]
+                #subscription_multiplier = @order.sub_freq / @order.filter_freq
+                total_price.push session[:price_hash][key]*@order.attributes[key]#*subscription_multiplier
             end 
         end
         @order.price = total_price.inject(0){|sum,x| sum + x }+7.00 #plus 7 is for shipping

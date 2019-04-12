@@ -21,7 +21,7 @@ Background: properties in database
 
 
         Scenario: Viewing order form
-            Given I am on the Dashboard page
+            Given I am on the Dashboard page for Jane Doe
             When I click on "Orders"
             Then I should be in the Orders page
 
