@@ -1,66 +1,101 @@
-<h1> This is the Admin Page </h1>
-<% count = 0 %>
-<% @all_orders.each do |order| %>
-<%if(Property.find_by(id: order.property))%>
-<% user = User.find_by(id: Property.find_by(id: order.property).user) %>
-<%end %>
-<% count += 1 %>
-<h4>
-<%=count%>.
-<%= order.shipping_address %>
-</h4>
-<h6>
-<%if(user) %>
-<%= "User (home owner): #{user.first_name} #{user.last_name}" %>
-<br>
-<%end%>
-<%= "Order Date: #{order.start_date}"%>
-<br>
-<%= "Orders per month: #{order.filter_freq}"%>
-<br>
-<%= "Tenant Name: #{order.tenant_name.to_s}"%>
-<br>
-<%= "Delivered Date: #{order.delivered_date}"%>
-<br>
-<%= "Sent Date: #{order.sent_date}"%>
-<br>
-<%= "Start Date: #{order.start_date}"%>
-<br>
-<%= "Tenant Name: #{order.tenant_name.to_s}"%>
-<br>
-<%= link_to '<i class="material-icons" style="font-size:25px;color:#28a745;padding-right:10px">edit fields</i>'.html_safe, edit_order_path(order), method: :get, class: "float-left" %>
-<br>
-<br>
-<%= "Canceled?: #{order.canceled}"%>
-<br>
-</h6>
-<h5>Filters:</h5>
-<% small_keys = [] %>
-<h6>
-<% keys = order.attributes.keys%>
-    <% keys.each do |subs| %>
-        <% if subs.include? "size" %>
-            <% small_keys.push subs %>
-        <%end%>
-    <% end %>
-    
-    
-    <% small_keys.each do |key|%>
-        <% if(order.attributes[key]) %>
-            <%="Size: #{session[:sizes][key]}"%>
-            <br>
-            <%= "Quantity: #{order.attributes[key]}" %>
-            <br>
-            <%= "Price: $#{session[:price_hash][key]*order.attributes[key]}" %>
-            <br>
-            <br>
-        <% end %>
-    <% end %>
-<br>
-<% end %>
-</h6>
-<%#= form_for(@order, url: admin_path) do |f| %>
-    <%#= f.select :order_status, ['order received', 'shipped', 'delivered'],{}, {class: "form-control dropdown"}%>
-    <%#= f.submit "update status", class: "btn btn-primary btn-block btn-md" %>
-    <%#end%>
-<%= link_to "Log Out",destroy_user_session_path, method: :delete %>
+<style>
+</style>
+<body>
+    <div class="content-container">
+        <div class="header">
+            <h1> This is the Admin Page </h1>
+        </div>
+        <div class="table-content">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr> 
+                        <th>Address</th>
+						<th>User</th>
+						<th>Tenant Name</th>
+                        <th>Subcription Start Date</th>
+                        <th>Delivery Frequency</th>
+						<th>Last Sent</th>
+						<th>Last Delivered</th>
+						<th>Filter Size</th>
+						<th>Filter Quantity</th>
+						<th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @all_orders.each do |order| %>
+                    
+                        <tr>
+                            <%if(Property.find_by(id: order.property))%>
+                                <% user = User.find_by(id: Property.find_by(id: order.property).user) %>
+                            <% end %>
+                            <td><p><%= order.shipping_address %></p></td>
+                            <td>
+                                <%if(user) %>
+                                    <p>
+                                       <%= user.first_name %> 
+                                       <%= user.last_name %> 
+                                    </p>
+                                <%end%>
+                            </td>
+                            <td>
+                                <%= order.tenant_name.to_s%>
+                            </td>
+                            <td>
+                                <%= order.start_date%>
+                            </td>
+                            <td>
+                                <%= order.filter_freq %>
+                            </td>
+                            <td>
+                                <%= order.sent_date%>
+                            </td>
+                            <td>
+                                <%= order.delivered_date %>
+                            </td>
+                            <% small_keys = [] %>
+                            <% keys = order.attributes.keys%>
+                            <% keys.each do |subs| %>
+                                <% if subs.include? "size" %>
+                                    <% small_keys.push subs %>
+                                <%end%>
+                            <% end %>
+                            <td>
+                                <% small_keys.each do |key|%>
+                                    <% if(order.attributes[key]) %>
+                                        <%= session[:sizes][key]%>
+                                        <br>
+                                    <% end %>
+                                <% end %>
+                            </td>
+                            <td>
+                                <% small_keys.each do |key|%>
+                                    <% if(order.attributes[key]) %>
+                                        <%= order.attributes[key] %>
+                                        <br>
+                                    <% end %>
+                                <% end %>
+                            </td>
+                            <td>
+                                <% small_keys.each do |key|%>
+                                    <% if(order.attributes[key]) %>
+                                        <%= session[:price_hash][key]*order.attributes[key] %>
+                                        <br>
+                                    <% end %>
+                                <% end %>
+                            </td>
+                            <td>
+                                <%= "Canceled?: #{order.canceled}"%>
+                            </td>
+                            <td>
+                               <%= link_to '<i class="material-icons" style="font-size:25px;color:#28a745;padding-right:10px">edit fields</i>'.html_safe, edit_order_path(order), method: :get, class: "float-left" %> 
+                            
+                            
+                            </td>
+                        </tr>    
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+        <%= link_to "Log Out",destroy_user_session_path, method: :delete %>
+    </div>
+</body>

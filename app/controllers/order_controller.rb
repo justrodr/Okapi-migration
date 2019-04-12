@@ -50,9 +50,14 @@ class OrderController < ApplicationController
         end
         puts "Gross Amount: # #"
         puts @order.id
+        prop1 = Property.find(@order.property)
+        #puts prop1
         puts "***************************"
+        number = @order.sub_freq
+        #puts number
         @user1 = User.find_by(email: session[:email])
-        #SubscriptionMailer.send_confirmation(@user1).deliver_later(wait_until: 2.minutes.from_now)
+        SubscriptionMailer.remind_email(@user1, prop1).deliver_later(wait_until: 1.minutes.from_now)
+        #SubscriptionMailer.remind_email(@user1, prop1).deliver_later(wait_until: (number.month - 2.weeks).from_now)
         #redirect_to orders_page_path
     end
     
@@ -85,7 +90,7 @@ class OrderController < ApplicationController
         @order.property = session[:property] #
         #puts Property.find(@order.property).address
         @property = Property.find_by(id: @order.property)
-        @order.shipping_address = @property.address
+        #@order.shipping_address = @property.address
         @order.tenant_name = @property.tenant_name
         @order.tenant_email = @property.tenant_email
         @order.city = @property.city
@@ -105,13 +110,19 @@ class OrderController < ApplicationController
              small_keys.push subs 
          end
         end
-        sub_multiplier = @order.sub_freq / @order.filter_freq 
-        small_keys.each do |key|
-            if(@order.attributes[key]) 
-                puts @order.sub_freq
-                total_price.push session[:price_hash][key]*@order.attributes[key]*sub_multiplier
-                puts "Sub multiplier"
-                puts sub_multiplier
+        if(@order.filter_freq > @order.sub_freq)
+            flash[:warning] = "You cannot not have a subscription shorter than your filter frequency"
+            #redirect_to 'order/new'
+            return
+        else
+            sub_multiplier = @order.sub_freq / @order.filter_freq 
+            small_keys.each do |key|
+                if(@order.attributes[key]) 
+                    puts @order.sub_freq
+                    total_price.push session[:price_hash][key]*@order.attributes[key]*sub_multiplier
+                    puts "Sub multiplier"
+                    puts sub_multiplier
+                end
             end
         end
         @order.price = total_price.inject(0){|sum,x| sum + x }+7.00 #plus 7 is for shipping

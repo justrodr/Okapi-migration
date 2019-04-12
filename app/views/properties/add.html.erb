@@ -88,7 +88,6 @@
             <h1>Set Up Subscription</h1> 
             <h2><%@property = Property.find_by(id: params[:id])%> <%=@property.address%> <br> <%=@property.city%>, <%=@property.state%> <%=@property.zipcode%></h2>
         </div>
-        
         <div class="set-date-freq">
             <div class="set-date">
                 <%session[:property] = @property.id%>
@@ -98,19 +97,19 @@
                     <!-- TODO: Need to know what field to be submitted as, formatting -->
                     <h2>Schedule Deliveries</h2>
                     <h3>Select Start Date</h3>
-                    <%= f.text_field :start_date, data:{ provide:'datepicker'}, class: "field-t" %>
+                    <%= f.text_field :start_date, data:{ provide:'datepicker'}, class: "field-t", :required => true %>
             </div>
             <div class="set-freq">
                 <!-- TODO: Formatting -->
                 
                 <h3>Set Frequency of Air Filter Delivery</h3> 
-                <h3><%= f.select :filter_freq, [0,1, 2, 3, 4, 6, 12],{}, {class: "form-control dropdown col-md-4 field-t"}%></h3>
+                <h3><%= f.select :filter_freq, [0,1, 2, 3, 4, 6, 12], {class: "form-control dropdown col-md-4 field-t"}, :required => true%></h3>
                 <h4>Month(s)</h4>
                 <h4>Select 0 for one time purchase</h4>
             </div>
             <div class="set-length">
                 <h3>Set Subscription Length</h3>
-                <h3><%= f.select :sub_freq, [0,1, 2, 3, 4, 6, 12],{}, {class: "form-control dropdown col-md-4 field-t"}%></h3>
+                <h3><%= f.select :sub_freq, [0,1, 2, 3, 4, 6, 12], {class: "form-control dropdown col-md-4 field-t"},:required => true%></h3>
                 <h4>Months</h4>
             </div>
         </div>
@@ -159,12 +158,12 @@
         <div class="checkout-buttons">
             <%= f.submit "Proceed to Checkout", class: "btn btn-primary btn-sm checkout-btn" %>
                                   
-            <%end%>
             
             <%= form_for(:anything, url: dash_path, method: :get) do |g| %>
                 <%=g.submit "Cancel", class: "btn btn-link px-5"%>
             <%end%>
         </div>
+    <%end%>
     </div>
     
 </body>
