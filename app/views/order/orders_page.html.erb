@@ -51,7 +51,7 @@
                         <td class="text-success"><%= "$#{'%.2f' % order.price}"%></td>
                         <td>
                             <%= form_for(order, url: cancel_path(order) ,method: :get) do |c| %>
-                                <%= c.submit "Cancel Subscription", class:"btn btn-danger btn-sm"%>
+                                <%= c.submit "Cancel Subscription", class:"btn btn-danger btn-sm", data: { confirm: "Are you sure you want to cancel this subscription? \nOrders for this property will not be fulfilled."}%>
                             <%end%>
                         </td>
                     <%end%>
