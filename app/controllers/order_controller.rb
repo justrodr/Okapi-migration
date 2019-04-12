@@ -58,7 +58,7 @@ class OrderController < ApplicationController
         number = @order.sub_freq
         #puts number
         @user1 = User.find_by(email: session[:email])
-        #SubscriptionMailer.remind_email(@user1, prop1).deliver_later(wait_until: (number.minutes - 2.minutes).from_now)
+        SubscriptionMailer.remind_email(@user1, prop1).deliver_later(wait_until: 1.minutes.from_now)
         #SubscriptionMailer.remind_email(@user1, prop1).deliver_later(wait_until: (number.month - 2.weeks).from_now)
         #redirect_to orders_page_path
     end
