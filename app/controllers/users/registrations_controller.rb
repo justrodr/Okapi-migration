@@ -39,7 +39,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
    def destroy
      super
      @properties = Property.where(user: @user.id)
+     @orders = Order.where(user: @user.id)
      @properties.destroy_all
+     @orders.destroy_all
    end
 
    #private 

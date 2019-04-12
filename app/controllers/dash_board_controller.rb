@@ -19,6 +19,7 @@ helper_method :sort_column, :sort_direction
                "size24b24"=> 6.62,"size25b25"=> 7.68}
         if(!(session[:email].nil?))
             @user = User.find_by(email: session[:email])
+            #SubscriptionMailer.remind_email(@user).deliver
             if (@user.admin)
                 redirect_to admin_path
             else
@@ -35,6 +36,12 @@ helper_method :sort_column, :sort_direction
     
 
 
+    
+    def update_sent    
+          @order_sent = Order.find params[:order][:id]
+          @order_sent.update(sent_date: params[:order][:sent_date])
+          redirect_to admin_path
+    end
     
     # def orders
     # end
