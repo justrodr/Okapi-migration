@@ -108,13 +108,19 @@ class OrderController < ApplicationController
              small_keys.push subs 
          end
         end
-        sub_multiplier = @order.sub_freq / @order.filter_freq 
-        small_keys.each do |key|
-            if(@order.attributes[key]) 
-                puts @order.sub_freq
-                total_price.push session[:price_hash][key]*@order.attributes[key]*sub_multiplier
-                puts "Sub multiplier"
-                puts sub_multiplier
+        if(@order.filter_freq > @order.sub_freq)
+            flash[:warning] = "You cannot not have a subscription shorter than your filter frequency"
+            #redirect_to 'order/new'
+            return
+        else
+            sub_multiplier = @order.sub_freq / @order.filter_freq 
+            small_keys.each do |key|
+                if(@order.attributes[key]) 
+                    puts @order.sub_freq
+                    total_price.push session[:price_hash][key]*@order.attributes[key]*sub_multiplier
+                    puts "Sub multiplier"
+                    puts sub_multiplier
+                end
             end
         end
         @order.price = total_price.inject(0){|sum,x| sum + x }+7.00 #plus 7 is for shipping

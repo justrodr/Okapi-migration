@@ -51,9 +51,6 @@ class PropertiesController < ApplicationController
   end
 
   def add
-    if(params[:order][:start_date])
-      
-    end
   end
 
   private 
