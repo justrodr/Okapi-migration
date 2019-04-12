@@ -1,14 +1,9 @@
-  Then("I should be on the Subscriptions page") do
-    assert_current_path(orders_page_path)
+Then("I should be in the Orders page") do
+    pending # Write code here that turns the phrase above into concrete actions
   end
   
-  Given("I am on the Subscriptions page for Jane Doe") do
-    visit 'users/sign_in'
-    fill_in 'Email Address', with: 'jd@email.com'
-    fill_in 'Password', with: '4mainst'
-    click_on("Log In")
-    assert_current_path(dash_path)
-    click_on("Subscriptions")
+  Given("I am on the Orders page") do
+    pending # Write code here that turns the phrase above into concrete actions
   end
   
   When("I fill out correct order information") do
@@ -19,23 +14,26 @@
     pending # Write code here that turns the phrase above into concrete actions
   end
   
-  And("I enter Admin login information") do
-    fill_in 'Email Address', with: 'wd@email.com'
-    fill_in 'Password', with: 'wedadmin'
+  Given("I am an Admin") do
+    pending # Write code here that turns the phrase above into concrete actions
+  end
+  
+  When("I enter Admin login information") do
+    pending # Write code here that turns the phrase above into concrete actions
   end
   
   Then("I should be on the Admin Dashboard") do
-    assert_current_path(admin_path)
+    pending # Write code here that turns the phrase above into concrete actions
   end
   
   Given("I am on the Admin Dashboard") do
     pending # Write code here that turns the phrase above into concrete actions
   end
   
-  When("I update the status of an order from shipped to delivered") do
+  When("I update the status of an order") do
     pending # Write code here that turns the phrase above into concrete actions
   end
   
-  Then("I should see that reflected in the table") do
+  Then("I should see that reflected in the progress bar") do
     pending # Write code here that turns the phrase above into concrete actions
   end

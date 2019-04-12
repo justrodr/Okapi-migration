@@ -17,11 +17,6 @@ end
   end
   
   Given("I am on the Edit property page") do
-    visit 'users/sign_in'
-    fill_in 'Email Address', with: 'jd@email.com'
-    fill_in 'Password', with: '4mainst'
-    click_on("Log In")
-    assert_current_path(dash_path)
     visit 'properties/1/edit'
   end
  
