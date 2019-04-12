@@ -14,7 +14,8 @@
 
 
 <!-- Collapsable Table -->
-<div class="container">
+<div class="p-4 col-lg-12">
+<div class="container rounded" style="border:2px solid #426EDB;">
     <table class="table table-condensed" style="border-collapse:collapse;">
         <thead>
             <tr>
@@ -88,6 +89,9 @@
         </tbody>
     </table>
 </div>
+</div>
+</div>
+
 
 <%session[:order] = @order%>
 <%= form_for(:anything, url: dash_path, method: :get) do |g| %>

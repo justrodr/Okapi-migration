@@ -111,16 +111,14 @@
 <div class="container">
   <div class="row">
     <!-- Invoice -->
-      <div class="p-3 col-md-8">
+      <div class="p-4 col-md-8">
           <%# <div class="row"> %>
               <div class="col-12">
-                  <div class="card">
+                  <div class="card" style="border:2px solid #426EDB;">
                       <div class="card-body p-0">
                           <div class="row p-5">
-                              <h4>Subscription Checkout for <%= @order.shipping_address %></h4>
-                              <%= form_for(:anything, url: dash_path, method: :get) do |g| %>
-                                  <%=g.submit "Go to dash board", class: "btn btn-link px-5"%>
-                              <%end%>
+                              <h4>Subscription Invoice for <%= @order.shipping_address %></h4>
+                              
                           </div>
 
                           <hr class="my-1">
@@ -189,11 +187,15 @@
 
 
     <!-- Review Order -->
-    <div class="card h-100 col-sm-3">
+    <div class="pt-4 col-md-4 h-100">
+    <div class="pt-2 card col-sm-12" style="border:2px solid #426EDB;">
         <div class="panel panel-default">
             <div class="panel-heading text-center">
                 <br>
                 <h4>Review Order</h4>
+                <%= form_for(@order, url: add_order_path(@order.property), method: :get) do |g| %>
+                    <%=g.submit "Edit Order", class: "btn btn-warning"%>
+                <%end%>
             </div>
             
             <div class="panel-body">
@@ -272,6 +274,7 @@
         </div>
     </div>
   </div> 
+  </div>
 
 
 </div>
