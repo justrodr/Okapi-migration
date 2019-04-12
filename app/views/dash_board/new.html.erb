@@ -73,37 +73,60 @@ $(document).ready(function(){
                     <tr>
                         <% @properties.each do |prop| %>
                                 <!---- Property Attributes ------>
+                            
                                 <td><%= prop.prop_name %><br><%= prop.address %></td>
                                 
                                 <td><%= prop.tenant_name %><br><%= prop.tenant_email %></td>
-
-                                <td>
-                                	<div id="myProgress">
-  										<div class="myBar" id="<%= prop.address %>"></div>
-									</div>
-									<!--<button onclick="move()">Click Me</button> -->
-									<br>
-									<script>
-										update_progress_bar('<%= prop.frequency %>', '<%= prop.address %>', '<%= prop.created_at.strftime("%d %m %Y") %>' );
-										// function get_table_elems(){
-										// 	return document.getElementsByClassName("myBar");
-										// }
-										function update_progress_bar(x, y, z) {
-											var elem = document.getElementById(y);
-											var width = x * 10;
-											if (x<=0){
-												width = 1;
-												elem.style.backgroundColor = '#FF4838';
+                                
+	                            <td>
+	                            	<% Order.where(property: prop.id).each do |ord| %>
+		                              
+	                                	<div id="myProgress">
+	  										<div class="myBar" id="<%= ord.id %>"></div>
+										</div>
+										<!--<p><%= ord.start_date %></p>-->
+										<p><%= DateTime.now %></p>
+										<p><%= ord.start_date %></p>
+										<p><%= ord.created_at %></p>
+										
+										<script>
+											if ("<%= ord.delivered_date %>" == "") {
+												// if ord.sent_date == ""
+													// date = ord.start_date
+													var date = "<%= ord.start_date %>";
 											}
-											console.log(z);
-											elem.style.width = width + '%';
+											update_progress_bar( <%= ord.id %>, <%= ord.filter_freq %>, date);
+											function update_progress_bar(id, freq, date) {
+												// console.log(freq);
+												var progbar = document.getElementById(id);
+												var dNow = new Date();
+												var c = formatDate(dNow.getMonth()+1) + '/' + formatDate(dNow.getDate()) + '/' + dNow.getFullYear();
+												
+												console.log(c);
+												console.log(date);
+												
+												var timeTillShip = 0;
+												
+												//Month = 28, 30, 31 days
+												
+												// progbar.style.width = width + '%';
+											}
+											
+											function formatDate(x){
+												if (x < 10){
+													return '0' + x;
+												}
+												else {
+													return x;
+												}
+											}
+										</script>
+										<div>
+											<p>Last Delivered: <%= ord.delivered_date %></p>
+										</div>
+										<% end %>
+									</td>
 
-										}
-									</script>
-									<div>
-										<p>(last sent nil / last delivered nil)</p>
-									</div>
-								</td>
                    
                                 <!---- End property attributes ------>
 
@@ -119,7 +142,7 @@ $(document).ready(function(){
 								<!---- End display action buttons ------>
                         <td></td>
                     </tr> 
-					<% end %>      
+					<% end %>     
                 </tbody>
             </table>
 			<!-- End of Property Table-->
