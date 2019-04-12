@@ -12,9 +12,13 @@
 
 <% count = 0 %>
 
+<%session[:order] = @order%>
 
+
+<div class="d-flex" id="wrapper">
+    <%= render 'shared/navbar' if session[:log] == 1%>
 <!-- Collapsable Table -->
-<div class="p-4 col-lg-12">
+<div class="p-4 col-lg-8">
 <div class="container rounded" style="border:2px solid #426EDB;">
     <table class="table table-condensed" style="border-collapse:collapse;">
         <thead>
@@ -91,9 +95,5 @@
 </div>
 </div>
 </div>
+</div>
 
-
-<%session[:order] = @order%>
-<%= form_for(:anything, url: dash_path, method: :get) do |g| %>
-    <%=g.submit "Go to dash board", class: "btn btn-link px-5"%>
-<%end%>

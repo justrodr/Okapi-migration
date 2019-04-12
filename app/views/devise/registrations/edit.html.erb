@@ -1,3 +1,6 @@
+
+<div class="d-flex" id="wrapper">
+<%= render 'shared/navbar' if session[:log] == 1%>
 <body>
  <div class="container">
   <div class="row">
@@ -85,3 +88,4 @@
 <p>Unhappy? <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure? This will permanently erase your account and all your properties. This is irreversible" }, method: :delete, class:"btn btn-primary btn-block btn-lg" %></p>
 
 <%= link_to "Back", dash_path %>
+</div>
