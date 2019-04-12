@@ -18,6 +18,7 @@ class OrderController < ApplicationController
     end
     
     def view
+        @order = session[:order]
     end
 
     
@@ -92,7 +93,7 @@ class OrderController < ApplicationController
         @order.property = session[:property] #
         #puts Property.find(@order.property).address
         @property = Property.find_by(id: @order.property)
-        @order.shipping_address = @property.address
+        #@order.shipping_address = @property.address
         @order.tenant_name = @property.tenant_name
         @order.tenant_email = @property.tenant_email
         @order.city = @property.city
@@ -111,11 +112,21 @@ class OrderController < ApplicationController
          if subs.include? "size" 
              small_keys.push subs 
          end
-        end 
-        small_keys.each do |key|
-            if(@order.attributes[key]) 
-                total_price.push session[:price_hash][key]*@order.attributes[key]
-            end 
+        end
+        if(@order.filter_freq > @order.sub_freq)
+            flash[:warning] = "You cannot not have a subscription shorter than your filter frequency"
+            #redirect_to 'order/new'
+            return
+        else
+            sub_multiplier = @order.sub_freq / @order.filter_freq 
+            small_keys.each do |key|
+                if(@order.attributes[key]) 
+                    puts @order.sub_freq
+                    total_price.push session[:price_hash][key]*@order.attributes[key]*sub_multiplier
+                    puts "Sub multiplier"
+                    puts sub_multiplier
+                end
+            end
         end
         @order.price = total_price.inject(0){|sum,x| sum + x }+7.00 #plus 7 is for shipping
         puts @order.price

@@ -97,19 +97,19 @@
                     <!-- TODO: Need to know what field to be submitted as, formatting -->
                     <h2>Schedule Deliveries</h2>
                     <h3>Select Start Date</h3>
-                    <%= f.text_field :start_date, data:{ provide:'datepicker'}, class: "field-t" %>
+                    <%= f.text_field :start_date, data:{ provide:'datepicker'}, class: "field-t", :required => true %>
             </div>
             <div class="set-freq">
                 <!-- TODO: Formatting -->
                 
                 <h3>Set Frequency of Air Filter Delivery</h3> 
-                <h3><%= f.select :filter_freq, [0,1, 2, 3, 4, 6, 12],{}, {class: "form-control dropdown col-md-4 field-t"}%></h3>
+                <h3><%= f.select :filter_freq, [0,1, 2, 3, 4, 6, 12], {class: "form-control dropdown col-md-4 field-t"}, :required => true%></h3>
                 <h4>Month(s)</h4>
                 <h4>Select 0 for one time purchase</h4>
             </div>
             <div class="set-length">
                 <h3>Set Subscription Length</h3>
-                <h3><%= f.select :sub_freq, [0,1, 2, 3, 4, 6, 12],{}, {class: "form-control dropdown col-md-4 field-t"}%></h3>
+                <h3><%= f.select :sub_freq, [0,1, 2, 3, 4, 6, 12], {class: "form-control dropdown col-md-4 field-t"},:required => true%></h3>
                 <h4>Months</h4>
             </div>
         </div>
