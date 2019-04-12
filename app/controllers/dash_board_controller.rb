@@ -32,6 +32,7 @@ class DashBoardController < ApplicationController
     end
     
     def edit_order
+       # @order_up = Order.find_by(id: params[:id])
     end
     
     def update_order    
