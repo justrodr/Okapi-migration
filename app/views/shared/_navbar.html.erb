@@ -25,23 +25,16 @@
         </div>
 
         <ul class="list-unstyled components">
-            <li class="active">
+
+            <li class="<%= 'active' if current_page?(dash_path) %>">
                 <a href="/dash" role="button"><i class="fa fa-tachometer px-2"></i>Dashboard</a>
             </li>
 
-            <%# <li>
-                <a href="/contacts_page"><i class="fa fa-address-book px-2"></i>
-                    Contacts
-                </a>
-            </li> %>
-            <li>
-                <a href="/payment_page"><i class="fa fa-credit-card px-2"></i>Payments</a>
-            </li>
-
-            <li>
+            <li class="<%= 'active' if current_page?(orders_page_path) %>">
                 <a href="/orders_page"><i class="fa fa-shopping-cart px-2"></i>Subscriptions</a>
             </li>
-            <li>
+
+            <li class="<%= 'active' if current_page?(edit_user_registration_path) %>">
                 <a href="/users/edit"><i class="fa fa-user px-2"></i>Profile</a>
             </li>
 

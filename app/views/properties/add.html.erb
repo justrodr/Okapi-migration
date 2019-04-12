@@ -155,13 +155,13 @@
         </div>
         
         <div class="checkout-buttons">
-            <%= f.submit "Proceed to Checkout", class: "btn btn-primary btn-sm checkout-btn" %>
+            <%= f.submit "Proceed to Checkout", class: "btn btn-primary btn-md checkout-btn float-right" %>
                                   
             
-            <%= form_for(:anything, url: dash_path, method: :get) do |g| %>
-                <%=g.submit "Cancel", class: "btn btn-link px-5"%>
-            <%end%>
         </div>
+    <%end%>
+    <%= form_for(:anything, url: dash_path, method: :get) do |g| %>
+        <%=g.submit "Cancel", class: "btn btn-link px-5 "%>
     <%end%>
     </div>
     

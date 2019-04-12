@@ -1,4 +1,7 @@
-<body>
+
+<div class="d-flex" id="wrapper">
+<%= render 'shared/navbar' if session[:log] == 1%>
+
  <div class="container">
   <div class="row">
     <div class="col-lg-10 col-xl-9 mx-auto">
@@ -14,7 +17,7 @@
 
   <div class="form-group">
         <div class="input-group">
-          <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
+          <span class="input-group-addon"></span>
             <%= f.text_field :first_name,
             class: "form-control", 
             placeholder: "First Name",
@@ -26,7 +29,7 @@
             
   <div class="form-group">
     <div class="input-group">
-      <span class="input-group-addon"><i class="fa fa-user-circle"></i></span> 
+      <span class="input-group-addon"></span> 
       <%= f.text_field :last_name,
       class: 'form-control', 
       placeholder: "Last Name",
@@ -36,7 +39,7 @@
 
   <div class="form-group">
       <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>  
+        <span class="input-group-addon"></span>  
           <%= f.email_field :email, autofocus: true, autocomplete: "email",
           class: 'form-control', 
           placeholder: "Email Address",
@@ -50,7 +53,7 @@
 
   <div class="form-group">
       <div class="input-group">
-        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+        <span class="input-group-addon"></span>
         <%= f.password_field :password, 
         class: 'form-control', 
         placeholder: "New Password",
@@ -60,7 +63,7 @@
 
   <div class="form-group">
     <div class="input-group">
-      <span class="input-group-addon"><i class="fa fa-lock"></i><i class="fa fa-check"></i></span>
+      <span class="input-group-addon"></i></span>
       <%= f.password_field :password_confirmation, 
       class: 'form-control', 
       placeholder: "Confirm New Password",
@@ -70,7 +73,7 @@
 
   <div class="form-group">
     <div class="input-group">
-      <span class="input-group-addon"><i class="fa fa-lock"></i><i class="fa fa-check"></i></span>
+      <span class="input-group-addon"></span>
     <%= f.password_field :current_password, class: 'form-control', 
       placeholder: "Current Password",
       required: false%>
@@ -84,4 +87,6 @@
 
 <p>Unhappy? <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure? This will permanently erase your account and all your properties. This is irreversible" }, method: :delete, class:"btn btn-primary btn-block btn-lg" %></p>
 
-<%= link_to "Back", dash_path %>
+
+
+</div>
