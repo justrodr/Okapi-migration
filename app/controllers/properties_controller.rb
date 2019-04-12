@@ -13,6 +13,10 @@ class PropertiesController < ApplicationController
   
   def destroy
      @property = Property.find params[:id]
+     @orders = Order.where(property: @property.id)
+     @orders.each do |p|
+      p.update(canceled: true)
+     end
      @property.destroy
     #  flash[:notice] = "Property #{@property.prop_name} destroyed"
      session[:properties] = Property.where(user: User.find_by(email: session[:email]))

@@ -53,9 +53,14 @@ class OrderController < ApplicationController
         end
         puts "Gross Amount: # #"
         puts @order.id
+        prop1 = Property.find(@order.property)
+        #puts prop1
         puts "***************************"
+        number = @order.sub_freq
+        #puts number
         @user1 = User.find_by(email: session[:email])
-        #SubscriptionMailer.send_confirmation(@user1).deliver_later(wait_until: 2.minutes.from_now)
+        SubscriptionMailer.remind_email(@user1, prop1).deliver_later(wait_until: 1.minutes.from_now)
+        #SubscriptionMailer.remind_email(@user1, prop1).deliver_later(wait_until: (number.month - 2.weeks).from_now)
         #redirect_to orders_page_path
     end
     

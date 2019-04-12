@@ -1,8 +1,12 @@
 class SubscriptionMailer < ApplicationMailer
     
-    def sample_email(user)
+    def remind_email(user, property)
         @user = user
-        mail(to: @user.email, subject: 'Sample Email')
+        @property = property
+        mail(to: @user.email, subject: 'Subscription About to Expire') do |format|
+            format.html { render layout: 'remind_email' }
+            #format.text 
+        end
     end
     def send_confirmation(user)
         @user = user
