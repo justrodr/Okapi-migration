@@ -41,7 +41,7 @@ Rails.application.configure do
 
   #domain: "example.com",
 
-  config.action_mailer.perform_deliveries = false
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.delivery_method = :smtp
 

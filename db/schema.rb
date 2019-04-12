@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190410002435) do
+ActiveRecord::Schema.define(version: 20190411135710) do
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer  "priority",   default: 0, null: false
+    t.integer  "attempts",   default: 0, null: false
+    t.text     "handler",                null: false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
 
   create_table "orders", force: :cascade do |t|
     t.string   "shipping_address"
@@ -51,12 +67,13 @@ ActiveRecord::Schema.define(version: 20190410002435) do
     t.string   "city"
     t.string   "state"
     t.string   "zipcode"
-    t.integer  "frequency"
+    t.integer  "filter_freq"
     t.float    "price"
     t.string   "start_date"
-    t.datetime "delivered_date"
-    t.datetime "sent_date"
+    t.string   "delivered_date"
+    t.string   "sent_date"
     t.boolean  "canceled",         default: false
+    t.integer  "sub_freq"
   end
 
   create_table "properties", force: :cascade do |t|
