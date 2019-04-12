@@ -180,7 +180,15 @@
                                 </div>
 
                                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                            
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Order Frequency </label><small> (per year)</small>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <%# <p><%= f.text_field :frequency, class: "form-control", placeholder: "Order Frequency"%>
+                                                    <%= f.select :frequency, ['1', '2', '3', '4', '6', '12'],{}, {class: "form-control dropdown"}%>
+                                                </div>
+                                            </div>
 
                                             <div class="row">
                                                 <div class="col-md-6">
