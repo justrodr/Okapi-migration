@@ -79,29 +79,49 @@ $(document).ready(function(){
 	                            <td>
 	                            	<% Order.where(property: prop.id).each do |ord| %>
 										<%if ord.canceled == false%>
-											<p>Time Until Next Shipment</p>
-		                                	<div id="myProgress">
-		  										<div class="myBar" id="<%= ord.id %>"></div>
-											</div>
-										
-											<script>
+	                                	<div id="myProgress">
+	  										<div class="myBar" id="<%= ord.id %>"></div>
+										</div>
+										<!--<p><%= ord.start_date %></p>-->
+										<!--<p><%= DateTime.now %></p>-->
+										<!--<p><%= ord.start_date %></p>-->
+										<!--<p><%= ord.created_at %></p>-->
+										<!--<p><%= ord.next_ship_date %></p>-->
+										<script>
+											if ("<%= ord.delivered_date %>" == "") {
+												// if ord.sent_date == ""
+													// date = ord.start_date
+													var date = "<%= ord.start_date %>";
+											}
+											update_progress_bar( <%= ord.id %>, <%= ord.filter_freq %>, date);
+											function update_progress_bar(id, freq, date) {
+												// console.log(freq);
+												var progbar = document.getElementById(id);
+												var dNow = new Date();
+												var c = formatDate(dNow.getMonth()+1) + '/' + formatDate(dNow.getDate()) + '/' + dNow.getFullYear();
 												
-												update_progress_bar( <%= ord.id %>, "<%= ord.next_ship_date %>", <%= ord.filter_freq %>);
-												function update_progress_bar(id, shipDate, freq) {
-						
+												console.log(c);
+												console.log(date);
+												
+												var timeTillShip = 0;
+												
+												//Month = 28, 30, 31 days
+												
+												// progbar.style.width = width + '%';
+											}
+											
+											<script>
+												if ("<%= ord.delivered_date %>" == "") {
+													// if ord.sent_date == ""
+														// date = ord.start_date
+														var date = "<%= ord.start_date %>";
+												}
+												update_progress_bar( <%= ord.id %>, <%= ord.filter_freq %>, date);
+												function update_progress_bar(id, freq, date) {
+													// console.log(freq);
 													var progbar = document.getElementById(id);
 													var dNow = new Date();
 													var c = formatDate(dNow.getMonth()+1) + '/' + formatDate(dNow.getDate()) + '/' + dNow.getFullYear();
-												
-													console.log("Dates:");
-													console.log(c);
-													console.log(shipDate);
-													
-													// var currDateInt = (dNow.getFullYear() * 365) + dNow.getDate() + (dNow.getMonth()+1 * 30);
-													
-													var cm = c.substr(0,2) * 30;
-													var cd = c.substr(3,2);
-													var cy = c.substr(6,4) * 365;
 													
 													console.log(cm);
 													console.log(cd);
@@ -138,8 +158,9 @@ $(document).ready(function(){
 													else{
 														progbar.style.width = (progbarPerc * 100) + "%";
 													}
+													//Month = 28, 30, 31 days
 													
-													
+													// progbar.style.width = width + '%';
 												}
 												
 												function formatDate(x){
@@ -151,12 +172,12 @@ $(document).ready(function(){
 													}
 												}
 											</script>
-												<p>Next Ship Date: <%= ord.next_ship_date %></p>
-												<p>Ships Every <%= ord.filter_freq %> Months</p>
-
-										<% end %>
-									<%end %>
-								</td>
+											<div>
+												<p>Last Delivered: <%= ord.delivered_date %></p>
+											</div>
+											<% end %>
+										<%end %>
+									</td>
 
                    
                                 <!---- End property attributes ------>
@@ -171,8 +192,9 @@ $(document).ready(function(){
 									</div>
 								</td>
 								<!---- End display action buttons ------>
-                    		</tr> 
-						<% end %>     
+                        <td></td>
+                    </tr> 
+					<% end %>     
                 </tbody>
             </table>
 			<!-- End of Property Table-->
