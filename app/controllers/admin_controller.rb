@@ -14,6 +14,9 @@ class AdminController < ApplicationController
         @order_up.update(sent_date: params[:order][:sent_date])
         @order_up.update(delivered_date: params[:order][:delivered_date])
          sent_month = @order_up.sent_date[0...2].to_i
+        puts "**************"
+        puts @order_up.filter_freq
+        puts "***************"
         sent_year = @order_up.sent_date[6...10].to_i
         next_month = sent_month + @order_up.filter_freq
         if(next_month > 12) then
