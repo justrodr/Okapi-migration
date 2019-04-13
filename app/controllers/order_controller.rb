@@ -1,7 +1,9 @@
 require 'paypal-checkout-sdk'
+include ActionView::Helpers::NumberHelper
 class OrderController < ApplicationController
     skip_before_action :verify_authenticity_token
     helper_method :sort_column, :sort_direction
+    
     
     def new
         @order = Order.new
@@ -14,7 +16,6 @@ class OrderController < ApplicationController
     def cancel
         @cancel_order = Order.find_by(id: params[:id])
         @cancel_order.update(canceled: 1)
-        puts @cancel_order.canceled
         redirect_to orders_page_path
     end
     
@@ -113,10 +114,17 @@ class OrderController < ApplicationController
         end
         if(@order.filter_freq > @order.sub_freq)
             flash[:warning] = "You cannot not have a subscription shorter than your filter frequency"
-            #redirect_to 'order/new'
+            redirect_to "/properties/add/#{@order.property}"
             return
+        elsif(@order.filter_freq == 0 && @order.sub_freq > 0)
+            flash[:warning] = "You cannot not have a subscription with a one time purchase"
+            redirect_to "/properties/add/#{@order.property}"
+            return
+        elsif(@order.filter_freq == 0)
+            sub_multiplier = 1
         else
             sub_multiplier = @order.sub_freq / @order.filter_freq 
+        end
             small_keys.each do |key|
                 if(@order.attributes[key]) 
                     puts @order.sub_freq
@@ -125,7 +133,7 @@ class OrderController < ApplicationController
                     puts sub_multiplier
                 end
             end
-        end
+       
         @order.price = total_price.inject(0){|sum,x| sum + x }+7.00 #plus 7 is for shipping
         puts @order.price
         puts "******************USERUSERUSERUSERUSERUSER*******************"
