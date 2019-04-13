@@ -26,11 +26,16 @@ Background: properties in database
             When I click on "Subscriptions"
             Then I should be on the Subscriptions page
 
+        Scenario: Viewing the Add Subscription page
+            Given I am on the Dashboard page for Jane Doe
+            When I click on "addBob"
+            Then I should be on the Add Subscription page
+
         Scenario: Placing an order
-            Given I am on the Subscriptions page
-            When I fill out correct order information
-            And I click on "Submit"
-            Then I should see that my order has been placed
+            Given I am on the Add Subscription page for Jane Doe
+            When I fill out correct subscription information
+            And I click on "Proceed to Checkout"
+            Then I should be able to checkout that subscription
 
         Scenario: Admin login 
             When I am on the login page
@@ -40,5 +45,7 @@ Background: properties in database
 
         Scenario: Admin updating an order status
             Given I am on the Admin Dashboard
-            When I update the status of an order from shipped to delivered
-            Then I should see that reflected in the table
+            When I click on "Edit Order"
+            And I choose an order sent date
+            And I click on "Save Changes"
+            Then I should see that reflected in the subscriptions table
