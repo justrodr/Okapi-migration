@@ -125,16 +125,30 @@ class OrderController < ApplicationController
         else
             sub_multiplier = @order.sub_freq / @order.filter_freq 
         end
+        valid_quantity = true
         no_filter = true
+        mutated_value = ""
             small_keys.each do |key|
-                if(@order.attributes[key]) 
-                    no_filter = false
-                    puts @order.sub_freq
-                    total_price.push session[:price_hash][key]*@order.attributes[key]*sub_multiplier
-                    puts "Sub multiplier"
-                    puts sub_multiplier
+                if(@order.attributes[key])
+                    mutated_value = @order.attributes[key].to_i.to_s
+                    if(mutated_value != @order.attributes[key] || @order.attributes[key] < 0)
+                        valid_quantity = false
+                        break 
+                    end 
+                        no_filter = false
+                        puts @order.sub_freq
+                        total_price.push session[:price_hash][key]*@order.attributes[key]*sub_multiplier
+                        puts "Sub multiplier"
+                        puts sub_multiplier
                 end
             end
+
+            if(valid_quantity == false)
+                flash[:warning] = "Please enter a valid quantity."
+                redirect_to "/properties/add/#{@order.property}"
+                return
+            end
+
         
         small_keys.each do |key|
             if(no_filter == true)
