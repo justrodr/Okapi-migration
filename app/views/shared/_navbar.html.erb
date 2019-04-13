@@ -20,7 +20,10 @@
                 <%= image_tag("astronaut2.gif", :class=>"nav_prof")%>
                 <!--<h3>Welcome!</h3>-->
                 <!--<strong>// User Name //</strong>-->
+                <%@user = User.find_by(email: session[:email])%>
+                <%if !@user.nil?%>
                 <h3><%=User.find_by(email: session[:email]).first_name%> <%=User.find_by(email: session[:email]).last_name%></h3>
+                <%end%>
             </div>
         </div>
 

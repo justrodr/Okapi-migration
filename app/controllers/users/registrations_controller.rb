@@ -89,7 +89,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+   protected
+
+   def update_resource(resource, params)
+    if resource.provider == "facebook"
+      resource.update_without_password(params.except("current_password"))
+    else
+      return super if params["password"]&.present?
+    end
+   end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
