@@ -43,6 +43,13 @@ class PropertiesController < ApplicationController
     if(@current_user)
      @property.user = @current_user.id
     end
+
+    if(Property.find_by(address: @property.address))
+      redirect_to dash_path
+      flash[:danger] = "Property already Exists"
+      return
+    end
+
     if(@property.save)
       session[:test] = @property.user
       session[:properties] = Property.where(user: User.find_by(email: session[:email]))
