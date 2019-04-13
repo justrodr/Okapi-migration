@@ -31,10 +31,12 @@ class PropertiesController < ApplicationController
     @property = Property.find params[:property][:id]
      if(@property.update_attributes(prop_params))
         # flash[:notice] = "#{@property.prop_name} was successfully updated."
+        redirect_to dash_path
      else
-       #flash[:notice] = "Please enter a valid property"
+       flash[:warning] = @property.errors.full_messages.to_sentence
+       redirect_to edit_property_path(@property)
      end
-     redirect_to dash_path
+
   end
 
   def create(property = nil)
