@@ -78,7 +78,7 @@ $(document).ready(function(){
                                 
 	                            <td>
 	                            	<% Order.where(property: prop.id).each do |ord| %>
-		                              
+										<%if ord.canceled == false%>
 	                                	<div id="myProgress">
 	  										<div class="myBar" id="<%= ord.id %>"></div>
 										</div>
@@ -110,19 +110,43 @@ $(document).ready(function(){
 												// progbar.style.width = width + '%';
 											}
 											
-											function formatDate(x){
-												if (x < 10){
-													return '0' + x;
+											<script>
+												if ("<%= ord.delivered_date %>" == "") {
+													// if ord.sent_date == ""
+														// date = ord.start_date
+														var date = "<%= ord.start_date %>";
 												}
-												else {
-													return x;
+												update_progress_bar( <%= ord.id %>, <%= ord.filter_freq %>, date);
+												function update_progress_bar(id, freq, date) {
+													// console.log(freq);
+													var progbar = document.getElementById(id);
+													var dNow = new Date();
+													var c = formatDate(dNow.getMonth()+1) + '/' + formatDate(dNow.getDate()) + '/' + dNow.getFullYear();
+													
+													console.log(c);
+													console.log(date);
+													
+													var timeTillShip = 0;
+													
+													//Month = 28, 30, 31 days
+													
+													// progbar.style.width = width + '%';
 												}
-											}
-										</script>
-										<div>
-											<p>Last Delivered: <%= ord.delivered_date %></p>
-										</div>
-										<% end %>
+												
+												function formatDate(x){
+													if (x < 10){
+														return '0' + x;
+													}
+													else {
+														return x;
+													}
+												}
+											</script>
+											<div>
+												<p>Last Delivered: <%= ord.delivered_date %></p>
+											</div>
+											<% end %>
+										<%end %>
 									</td>
 
                    
