@@ -132,8 +132,12 @@ $(document).ready(function(){
 													var progbarPerc = (totDays - (nsd - cd)) / totDays;
 													
 													console.log(progbarPerc);
-													
-													progbar.style.width = (progbarPerc * 100) + "%";
+													if (nsd - cd < 0){
+														progbar.style.width = "0%";
+													}
+													else{
+														progbar.style.width = (progbarPerc * 100) + "%";
+													}
 													
 													
 												}
