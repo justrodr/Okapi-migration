@@ -79,58 +79,63 @@ $(document).ready(function(){
 	                            <td>
 	                            	<% Order.where(property: prop.id).each do |ord| %>
 										<%if ord.canceled == false%>
-	                                	<div id="myProgress">
-	  										<div class="myBar" id="<%= ord.id %>"></div>
-										</div>
-										<!--<p><%= ord.start_date %></p>-->
-										<!--<p><%= DateTime.now %></p>-->
-										<!--<p><%= ord.start_date %></p>-->
-										<!--<p><%= ord.created_at %></p>-->
-										<!--<p><%= ord.next_ship_date %></p>-->
-										<script>
-											if ("<%= ord.delivered_date %>" == "") {
-												// if ord.sent_date == ""
-													// date = ord.start_date
-													var date = "<%= ord.start_date %>";
-											}
-											update_progress_bar( <%= ord.id %>, <%= ord.filter_freq %>, date);
-											function update_progress_bar(id, freq, date) {
-												// console.log(freq);
-												var progbar = document.getElementById(id);
-												var dNow = new Date();
-												var c = formatDate(dNow.getMonth()+1) + '/' + formatDate(dNow.getDate()) + '/' + dNow.getFullYear();
-												
-												console.log(c);
-												console.log(date);
-												
-												var timeTillShip = 0;
-												
-												//Month = 28, 30, 31 days
-												
-												// progbar.style.width = width + '%';
-											}
-											
+											<p>Time Until Next Shipment</p>
+		                                	<div id="myProgress">
+		  										<div class="myBar" id="<%= ord.id %>"></div>
+											</div>
+										
 											<script>
-												if ("<%= ord.delivered_date %>" == "") {
-													// if ord.sent_date == ""
-														// date = ord.start_date
-														var date = "<%= ord.start_date %>";
-												}
-												update_progress_bar( <%= ord.id %>, <%= ord.filter_freq %>, date);
-												function update_progress_bar(id, freq, date) {
-													// console.log(freq);
+												
+												update_progress_bar( <%= ord.id %>, "<%= ord.next_ship_date %>", <%= ord.filter_freq %>);
+												function update_progress_bar(id, shipDate, freq) {
+						
 													var progbar = document.getElementById(id);
 													var dNow = new Date();
 													var c = formatDate(dNow.getMonth()+1) + '/' + formatDate(dNow.getDate()) + '/' + dNow.getFullYear();
-													
+												
+													console.log("Dates:");
 													console.log(c);
-													console.log(date);
+													console.log(shipDate);
 													
-													var timeTillShip = 0;
+													// var currDateInt = (dNow.getFullYear() * 365) + dNow.getDate() + (dNow.getMonth()+1 * 30);
 													
-													//Month = 28, 30, 31 days
+													var cm = c.substr(0,2) * 30;
+													var cd = c.substr(3,2);
+													var cy = c.substr(6,4) * 365;
 													
-													// progbar.style.width = width + '%';
+													console.log(cm);
+													console.log(cd);
+													console.log(cy);
+													var cd = Number(cm) + Number(cd) + Number(cy);
+													
+													
+													var sm = shipDate.substr(0,2) * 30;
+													var sd = shipDate.substr(3,2);
+													var sy = shipDate.substr(6,4) * 365;
+													
+													console.log(sm);
+													console.log(sd);
+													console.log(sy);
+													var nsd = Number(sm) + Number(sd) + Number(sy);
+													
+													console.log("ints");
+													console.log(cd);
+													console.log(nsd);
+													
+													var totDays = freq * 30;
+													
+													console.log("Days Left");
+													console.log(nsd - cd);
+													console.log("total Days:");
+													console.log(totDays);
+													
+													var progbarPerc = (totDays - (nsd - cd)) / totDays;
+													
+													console.log(progbarPerc);
+													
+													progbar.style.width = (progbarPerc * 100) + "%";
+													
+													
 												}
 												
 												function formatDate(x){
@@ -142,12 +147,12 @@ $(document).ready(function(){
 													}
 												}
 											</script>
-											<div>
-												<p>Last Delivered: <%= ord.delivered_date %></p>
-											</div>
-											<% end %>
-										<%end %>
-									</td>
+												<p>Next Ship Date: <%= ord.next_ship_date %></p>
+												<p>Ships Every <%= ord.filter_freq %> Months</p>
+
+										<% end %>
+									<%end %>
+								</td>
 
                    
                                 <!---- End property attributes ------>
@@ -162,9 +167,8 @@ $(document).ready(function(){
 									</div>
 								</td>
 								<!---- End display action buttons ------>
-                        <td></td>
-                    </tr> 
-					<% end %>     
+                    		</tr> 
+						<% end %>     
                 </tbody>
             </table>
 			<!-- End of Property Table-->
