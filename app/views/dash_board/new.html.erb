@@ -58,8 +58,8 @@ $(document).ready(function(){
 			<table class="table table-striped table-hover">
                 <thead>
                     <tr> 
-                        <th class="px-5"><%= link_to "Address", :sort => "address"%> </th>
-						<th><%= link_to "Tenant", :sort => "tenant_name"%></th>
+                        <th><%= sort_link "address", "Address &#8597"%> </th>
+						<th><%= sort_link "tenant_name", "Tenant &#8597"%></th>
                         <th>Delivery Status</th>
                         <th class="pr-5">Actions</th>
 						<th></th>
@@ -69,8 +69,7 @@ $(document).ready(function(){
 
 				<!-- Start of property table -->
                 <tbody>
-                    <tr>
-                        <% Property.where(user: User.find_by(email: session[:email])).each do |prop| %>
+ 							<% @properties.each do |prop| %>
                                 <!---- Property Attributes ------>
                             
                                 <td><%= prop.prop_name %><br><%= prop.address %></td>
@@ -87,7 +86,7 @@ $(document).ready(function(){
 										<!--<p><%= DateTime.now %></p>-->
 										<!--<p><%= ord.start_date %></p>-->
 										<!--<p><%= ord.created_at %></p>-->
-										
+										<!--<p><%= ord.next_ship_date %></p>-->
 										<script>
 											if ("<%= ord.delivered_date %>" == "") {
 												// if ord.sent_date == ""
