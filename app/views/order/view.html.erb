@@ -137,7 +137,7 @@
                                   <p class="mb-1"><span class="text-muted">Ship on: </span> <%= @order.start_date %></p>
                                   <p class="mb-1"><span class="text-muted">Frequency: </span> Every <%= @order.filter_freq%> month(s)</p>
                                   <p class="mb-1"><span class="text-muted">Subscription:  </span> Every <%= @order.sub_freq%> month(s) </p>
-                                  <p class="mb-1"><span class="text-muted"></span> </p>
+                                  <p class="mb-1"><span class="text-muted"><%= User.find_by(email: session[:email]).first_name%> <%= User.find_by(email: session[:email]).last_name%></span> </p>
                               </div>
                           </div>
 
@@ -163,7 +163,7 @@
                                                     <td><%= "#{@order.attributes[key]} units" %></td>
                                                     <% unit_cost = session[:price_hash][key]*@order.attributes[key] / @order.attributes[key] %>
                                                     <td><%= "$#{'%.2f' % unit_cost}"%>
-                                                    <td><%= "$#{session[:price_hash][key]*@order.attributes[key]}" %></td>
+                                                    <td><%= "$#{'%.2f' % (session[:price_hash][key]*@order.attributes[key])}" %></td>
                                                 <% end %>
                                             <% end %>
                                             </tr>
@@ -174,7 +174,7 @@
 
                           <div class="d-flex flex-row-reverse bg-dark text-white p-4">
                               <div class="py-3 px-5 text-right">
-                                  <div class="mb-2">Total</div>
+                                  <div class="mb-2">Total + Shipping</div>
                                   <div class="h2 font-weight-light"><%="$#{'%.2f' % @order.price}"%></div>
                               </div>
                               <%# <%session[:order] = @order%> 
