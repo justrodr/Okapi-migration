@@ -6,6 +6,8 @@ class PropertiesController < ApplicationController
   # def index #TODO if needed
   #   @properties = Property.paginate(:page=>params[:page], :per_page: 5)
   # end
+  def error
+  end
 
   def show
     @property = Property.find params[:id]
@@ -46,9 +48,10 @@ class PropertiesController < ApplicationController
      @property.user = @current_user.id
     end
 
-    if(Property.find_by(address: @property.address))
-      redirect_to dash_path
+    same_prop = Property.find_by(address: @property.address)
+    if(same_prop && same_prop.city == @property.city && same_prop.zipcode == @property.zipcode && same_prop.state == @property.state)
       flash[:danger] = "Property already Exists"
+      redirect_to dash_path
       return
     end
 
