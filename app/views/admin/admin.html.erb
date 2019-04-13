@@ -9,16 +9,14 @@
             <table class="table table-striped table-hover">
                 <thead>
                     <tr> 
+                        <th>User</th>
+                        <th>Tenant Name</th>
                         <th>Address</th>
-						<th>User</th>
-						<th>Tenant Name</th>
-                        <th>Subcription Start Date</th>
-                        <th>Delivery Frequency</th>
-						<th>Last Sent</th>
-						<th>Last Delivered</th>
+                        <th>Last Sent</th>
+                        <th>Last Delivered</th>
+                        <th><%= sort_link "next_ship_date", "Next Ship Date &#8597"%></th>
 						<th>Filter Size</th>
 						<th>Filter Quantity</th>
-						<th>Price</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,7 +26,6 @@
                             <%if(Property.find_by(id: order.property))%>
                                 <% user = User.find_by(id: Property.find_by(id: order.property).user) %>
                             <% end %>
-                            <td><p><%= order.shipping_address %></p></td>
                             <td>
                                 <%if(user) %>
                                     <p>
@@ -40,17 +37,15 @@
                             <td>
                                 <%= order.tenant_name.to_s%>
                             </td>
-                            <td>
-                                <%= order.start_date%>
-                            </td>
-                            <td>
-                                <%= order.filter_freq %>
-                            </td>
+                            <td><p><%= order.shipping_address %> <br><%= order.city %>, <%= order.state %> <%= order.zipcode %></p></td>
                             <td>
                                 <%= order.sent_date%>
                             </td>
                             <td>
                                 <%= order.delivered_date %>
+                            </td>
+                            <td>
+                                <%= order.next_ship_date%>
                             </td>
                             <% small_keys = [] %>
                             <% keys = order.attributes.keys%>
@@ -74,17 +69,6 @@
                                         <br>
                                     <% end %>
                                 <% end %>
-                            </td>
-                            <td>
-                                <% small_keys.each do |key|%>
-                                    <% if(order.attributes[key]) %>
-                                        <%= session[:price_hash][key]*order.attributes[key] %>
-                                        <br>
-                                    <% end %>
-                                <% end %>
-                            </td>
-                            <td>
-                                <%= "Canceled?: #{order.canceled}"%>
                             </td>
                             <td>
                                <%= link_to '<i class="material-icons" style="font-size:25px;color:#28a745;padding-right:10px">edit fields</i>'.html_safe, edit_order_path(order), method: :get, class: "float-left" %> 
