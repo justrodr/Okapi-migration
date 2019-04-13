@@ -36,10 +36,3 @@ Background: properties in database
             And I enter Admin login information
             And I click on "Log In"
             Then I should be on the Admin Dashboard
-
-        Scenario: Admin updating an order status
-            Given I am on the Admin Dashboard
-            When I click on "Edit Order"
-            And I choose an order sent date
-            And I click on "Save Changes"
-            Then I should see that reflected in the subscriptions table

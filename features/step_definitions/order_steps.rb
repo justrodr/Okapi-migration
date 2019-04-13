@@ -53,19 +53,3 @@
     assert_current_path(admin_path)
   end
   
-  Given("I am on the Admin Dashboard") do
-    visit 'users/sign_in'
-    fill_in 'Email Address', with: 'wd@email.com'
-    fill_in 'Password', with: 'wedadmin'
-    click_on("Log In")
-    assert_current_path(admin_path)
-  end
-  
-  And("I choose an order sent date") do
-    fill_in 'SentDate', with: '07/07/2019'
-  end
-  
-  Then("I should see that reflected in the subscriptions table") do
-    assert_current_path(admin_path)
-    assert_has_css?("07/07/2019")
-  end
