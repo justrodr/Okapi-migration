@@ -168,8 +168,8 @@
                                                     <td><%="#{session[:sizes][key]}" %></td>
                                                     <td><%= "#{@order.attributes[key]} units" %></td>
                                                     <% unit_cost = session[:price_hash][key]*@order.attributes[key] / @order.attributes[key] %>
-                                                    <td><%= "$#{'%.2f' % unit_cost}"%>
-                                                    <td><%= "$#{'%.2f' % (session[:price_hash][key]*@order.attributes[key])}" %></td>
+                                                    <td><%= "$#{ unit_cost}"%>
+                                                    <td><%= "$#{ (session[:price_hash][key]*@order.attributes[key])}" %></td>
                                                 <% end %>
                                             <% end %>
                                             </tr>
@@ -181,7 +181,7 @@
                           <div class="d-flex flex-row-reverse bg-dark text-white p-4">
                               <div class="py-3 px-5 text-right">
                                   <div class="mb-2">Total + Shipping</div>
-                                  <div class="h2 font-weight-light"><%="$#{'%.2f' % @order.price}"%></div>
+                                  <div class="h2 font-weight-light"><%="$#{ @order.price}"%></div>
                               </div>
                               <%# <%session[:order] = @order%> 
                           </div>
@@ -212,7 +212,7 @@
                       <% else %>
                         <% sub_total = (@order.price - 7) %>
                       <% end %>
-                      <div class="pull-right">$<span><%="#{'%.2f' % sub_total}"%></span></div>
+                      <div class="pull-right">$<span><%="#{ sub_total}"%></span></div>
                       <hr>
                   </div>
 
@@ -225,7 +225,7 @@
                       
                     <% if @order.sub_freq > 0 %>
                       <small>Subscription</small>
-                      <div class="pull-right"><span><%="$#{'%.2f' % sub_total}"%>  x <%=sub_multiplier%></span></div>
+                      <div class="pull-right"><span><%="$#{ sub_total}"%>  x <%=sub_multiplier%></span></div>
                       <hr>
                     <% end %>
                   </div>
@@ -238,7 +238,7 @@
 
                   <div class="col-md-12">
                       <strong>Order Total</strong>
-                      <div class="pull-right"><span>$</span><span><%="#{'%.2f' % @order.price}"%></span></div>
+                      <div class="pull-right"><span>$</span><span><%="#{ @order.price}"%></span></div>
                       <hr>
                   </div>
 
@@ -250,7 +250,7 @@
                   <!-- Paypal Stuff-->
                   <script
                     src="https://www.paypal.com/sdk/js?client-id=AYEvKhOwg3t1wPfRKErTkTWRRCpbhMU1-cOMcoBl2P4LydSk55VrkNnNUkm32LRuxtYF1sXNZlv-s6w7">
-                  </script>
+                  </script>   
 
                   <div id="paypal-button-container"></div>
                   <script>
