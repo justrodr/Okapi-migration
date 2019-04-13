@@ -87,47 +87,58 @@ $(document).ready(function(){
 										<!--<p><%= ord.start_date %></p>-->
 										<!--<p><%= ord.created_at %></p>-->
 										<!--<p><%= ord.next_ship_date %></p>-->
-										<script>
-											if ("<%= ord.delivered_date %>" == "") {
-												// if ord.sent_date == ""
-													// date = ord.start_date
-													var date = "<%= ord.start_date %>";
-											}
-											update_progress_bar( <%= ord.id %>, <%= ord.filter_freq %>, date);
-											function update_progress_bar(id, freq, date) {
-												// console.log(freq);
-												var progbar = document.getElementById(id);
-												var dNow = new Date();
-												var c = formatDate(dNow.getMonth()+1) + '/' + formatDate(dNow.getDate()) + '/' + dNow.getFullYear();
-												
-												console.log(c);
-												console.log(date);
-												
-												var timeTillShip = 0;
-												
-												//Month = 28, 30, 31 days
-												
-												// progbar.style.width = width + '%';
-											}
 											
 											<script>
-												if ("<%= ord.delivered_date %>" == "") {
-													// if ord.sent_date == ""
-														// date = ord.start_date
-														var date = "<%= ord.start_date %>";
-												}
-												update_progress_bar( <%= ord.id %>, <%= ord.filter_freq %>, date);
-												function update_progress_bar(id, freq, date) {
-													// console.log(freq);
+												update_progress_bar( <%= ord.id %>, "<%= ord.next_ship_date %>", <%= ord.filter_freq %>);
+												function update_progress_bar(id, shipDate, freq) {
+						
 													var progbar = document.getElementById(id);
 													var dNow = new Date();
 													var c = formatDate(dNow.getMonth()+1) + '/' + formatDate(dNow.getDate()) + '/' + dNow.getFullYear();
 													
+												
+													console.log("Dates:");
 													console.log(c);
-													console.log(date);
 													
-													var timeTillShip = 0;
+													var cm = c.substr(0,2) * 30;
+													var cd = c.substr(3,2);
+													var cy = c.substr(6,4) * 365;
+
+													console.log(cm);
+													console.log(cd);
+													console.log(cy);
+													var cd = Number(cm) + Number(cd) + Number(cy);
 													
+													
+													var sm = shipDate.substr(0,2) * 30;
+													var sd = shipDate.substr(3,2);
+													var sy = shipDate.substr(6,4) * 365;
+													
+													console.log(sm);
+													console.log(sd);
+													console.log(sy);
+													var nsd = Number(sm) + Number(sd) + Number(sy);
+													
+													console.log("ints");
+													console.log(cd);
+													console.log(nsd);
+													
+													var totDays = freq * 30;
+													
+													console.log("Days Left");
+													console.log(nsd - cd);
+													console.log("total Days:");
+													console.log(totDays);
+													
+													var progbarPerc = (totDays - (nsd - cd)) / totDays;
+													
+													console.log(progbarPerc);
+													if (nsd - cd < 0){
+														progbar.style.width = "0%";
+													}
+													else{
+														progbar.style.width = (progbarPerc * 100) + "%";
+													}
 													//Month = 28, 30, 31 days
 													
 													// progbar.style.width = width + '%';
