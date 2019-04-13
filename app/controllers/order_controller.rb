@@ -125,14 +125,24 @@ class OrderController < ApplicationController
         else
             sub_multiplier = @order.sub_freq / @order.filter_freq 
         end
+        no_filter = true
             small_keys.each do |key|
                 if(@order.attributes[key]) 
+                    no_filter = false
                     puts @order.sub_freq
                     total_price.push session[:price_hash][key]*@order.attributes[key]*sub_multiplier
                     puts "Sub multiplier"
                     puts sub_multiplier
                 end
             end
+        
+        small_keys.each do |key|
+            if(no_filter == true)
+                flash[:warning] = "Please select a filter to purchase."
+                redirect_to "/properties/add/#{@order.property}"
+                return
+            end
+        end
        
         @order.price = total_price.inject(0){|sum,x| sum + x }+7.00 #plus 7 is for shipping
         puts @order.price
