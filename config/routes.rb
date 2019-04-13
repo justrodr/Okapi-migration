@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   match  '/admin/edit_order/:id', to: 'admin#edit_order', :via => :get, :as => :edit_order
   #match   'order/checkout', to: 'order#checkout', :via => :post, :as => :checkout
   resources:properties
+  resources :authentications, only: [:destroy]
 
 end

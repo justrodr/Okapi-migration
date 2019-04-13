@@ -48,6 +48,10 @@ class DashBoardController < ApplicationController
             @user = User.find_by(email: session[:email]) #why does first id make this nil in cucumber test
             puts session[:email]
             puts "())()()()()()()()()()()()()()()("
+            if @user.first_name.nil?
+                flash[:notice] = "Enter your first and last name. Do not enter any passwords"
+                redirect_to edit_user_registration_path
+            end
             puts Property.where(user: User.find_by(email: session[:email])).size
         end
         @property = Property.new

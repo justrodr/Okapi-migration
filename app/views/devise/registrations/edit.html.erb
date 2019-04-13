@@ -87,6 +87,12 @@
                           <% end %>
                           <hr>
                           <br>
+                          <h3>Facebook Settings</h3>
+                          <% if resource.has_facebook_linked? %>
+                            <%= link_to "Unlink Facebook", authentication_path(resource), method: :delete %>
+                          <% else %>
+                            <%= link_to "Link Facebook", omniauth_authorize_path(:user, :facebook) %>
+                          <% end %>
                           <h4>Delete Account</h4>
 
                           <p>Unhappy? <%= button_to "Delete My Account", registration_path(resource_name), data: { confirm: "Are you sure? \nThis will permanently delete your account and all properties. \nThis action cannot be undone." }, method: :delete, class:"btn btn-danger btn-block btn-md col-md-6" %></p>
