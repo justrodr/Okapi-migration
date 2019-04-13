@@ -87,42 +87,23 @@ $(document).ready(function(){
 										<!--<p><%= ord.start_date %></p>-->
 										<!--<p><%= ord.created_at %></p>-->
 										<!--<p><%= ord.next_ship_date %></p>-->
-										<script>
-											if ("<%= ord.delivered_date %>" == "") {
-												// if ord.sent_date == ""
-													// date = ord.start_date
-													var date = "<%= ord.start_date %>";
-											}
-											update_progress_bar( <%= ord.id %>, <%= ord.filter_freq %>, date);
-											function update_progress_bar(id, freq, date) {
-												// console.log(freq);
-												var progbar = document.getElementById(id);
-												var dNow = new Date();
-												var c = formatDate(dNow.getMonth()+1) + '/' + formatDate(dNow.getDate()) + '/' + dNow.getFullYear();
-												
-												console.log(c);
-												console.log(date);
-												
-												var timeTillShip = 0;
-												
-												//Month = 28, 30, 31 days
-												
-												// progbar.style.width = width + '%';
-											}
 											
 											<script>
-												if ("<%= ord.delivered_date %>" == "") {
-													// if ord.sent_date == ""
-														// date = ord.start_date
-														var date = "<%= ord.start_date %>";
-												}
-												update_progress_bar( <%= ord.id %>, <%= ord.filter_freq %>, date);
-												function update_progress_bar(id, freq, date) {
-													// console.log(freq);
+												update_progress_bar( <%= ord.id %>, "<%= ord.next_ship_date %>", <%= ord.filter_freq %>);
+												function update_progress_bar(id, shipDate, freq) {
+						
 													var progbar = document.getElementById(id);
 													var dNow = new Date();
 													var c = formatDate(dNow.getMonth()+1) + '/' + formatDate(dNow.getDate()) + '/' + dNow.getFullYear();
 													
+												
+													console.log("Dates:");
+													console.log(c);
+													
+													var cm = c.substr(0,2) * 30;
+													var cd = c.substr(3,2);
+													var cy = c.substr(6,4) * 365;
+
 													console.log(cm);
 													console.log(cd);
 													console.log(cy);
