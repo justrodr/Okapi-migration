@@ -58,8 +58,8 @@ $(document).ready(function(){
 			<table class="table table-striped table-hover">
                 <thead>
                     <tr> 
-                        <th class="px-5"><%= link_to "Address", :sort => "address"%> </th>
-						<th><%= link_to "Tenant", :sort => "tenant_name"%></th>
+                        <th><%= sort_link "address", "Address &#8597"%> </th>
+						<th><%= sort_link "tenant_name", "Tenant &#8597"%></th>
                         <th>Delivery Status</th>
                         <th class="pr-5">Actions</th>
 						<th></th>
@@ -69,8 +69,7 @@ $(document).ready(function(){
 
 				<!-- Start of property table -->
                 <tbody>
-                    <tr>
-                        <% Property.where(user: User.find_by(email: session[:email])).each do |prop| %>
+ 							<% @properties.each do |prop| %>
                                 <!---- Property Attributes ------>
                             
                                 <td><%= prop.prop_name %><br><%= prop.address %></td>
@@ -79,7 +78,7 @@ $(document).ready(function(){
                                 
 	                            <td>
 	                            	<% Order.where(property: prop.id).each do |ord| %>
-		                              
+										<%if ord.canceled == false%>
 	                                	<div id="myProgress">
 	  										<div class="myBar" id="<%= ord.id %>"></div>
 										</div>
@@ -87,7 +86,7 @@ $(document).ready(function(){
 										<!--<p><%= DateTime.now %></p>-->
 										<!--<p><%= ord.start_date %></p>-->
 										<!--<p><%= ord.created_at %></p>-->
-										
+										<!--<p><%= ord.next_ship_date %></p>-->
 										<script>
 											if ("<%= ord.delivered_date %>" == "") {
 												// if ord.sent_date == ""
@@ -111,19 +110,43 @@ $(document).ready(function(){
 												// progbar.style.width = width + '%';
 											}
 											
-											function formatDate(x){
-												if (x < 10){
-													return '0' + x;
+											<script>
+												if ("<%= ord.delivered_date %>" == "") {
+													// if ord.sent_date == ""
+														// date = ord.start_date
+														var date = "<%= ord.start_date %>";
 												}
-												else {
-													return x;
+												update_progress_bar( <%= ord.id %>, <%= ord.filter_freq %>, date);
+												function update_progress_bar(id, freq, date) {
+													// console.log(freq);
+													var progbar = document.getElementById(id);
+													var dNow = new Date();
+													var c = formatDate(dNow.getMonth()+1) + '/' + formatDate(dNow.getDate()) + '/' + dNow.getFullYear();
+													
+													console.log(c);
+													console.log(date);
+													
+													var timeTillShip = 0;
+													
+													//Month = 28, 30, 31 days
+													
+													// progbar.style.width = width + '%';
 												}
-											}
-										</script>
-										<div>
-											<p>Last Delivered: <%= ord.delivered_date %></p>
-										</div>
-										<% end %>
+												
+												function formatDate(x){
+													if (x < 10){
+														return '0' + x;
+													}
+													else {
+														return x;
+													}
+												}
+											</script>
+											<div>
+												<p>Last Delivered: <%= ord.delivered_date %></p>
+											</div>
+											<% end %>
+										<%end %>
 									</td>
 
                    

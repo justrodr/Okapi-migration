@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190411135710) do
+ActiveRecord::Schema.define(version: 20190412014609) do
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20190411135710) do
     t.string   "sent_date"
     t.boolean  "canceled",         default: false
     t.integer  "sub_freq"
+    t.string   "next_ship_date"
   end
 
   create_table "properties", force: :cascade do |t|

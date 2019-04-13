@@ -12,15 +12,20 @@
 
 <% count = 0 %>
 
+<%session[:order] = @order%>
 
+
+<div class="d-flex" id="wrapper">
+    <%= render 'shared/navbar' if session[:log] == 1%>
 <!-- Collapsable Table -->
-<div class="container">
+<div class="p-4 col-lg-8">
+<div class="container rounded" style="border:2px solid #426EDB;">
     <table class="table table-condensed" style="border-collapse:collapse;">
         <thead>
             <tr>
                 <th>No.</th>
-                <th>Tenant</th>
-                <th>Address</th>
+                <th><%= sort_link "tenant_name", "Tenant &#8597"%></th>
+                <th><%= sort_link "shipping_address", "Address &#8597"%></th>
                 <th>Deliver Date</th>
                 <th>Cost</th>
                 <th>Actions</th>
@@ -46,7 +51,7 @@
                         <td class="text-success"><%= "$#{'%.2f' % order.price}"%></td>
                         <td>
                             <%= form_for(order, url: cancel_path(order) ,method: :get) do |c| %>
-                                <%= c.submit "Cancel Subscription", class:"btn btn-danger btn-sm"%>
+                                <%= c.submit "Cancel Subscription", class:"btn btn-danger btn-sm", data: { confirm: "Are you sure you want to cancel this subscription? \nOrders for this property will not be fulfilled."}%>
                             <%end%>
                         </td>
                     <%end%>
@@ -88,8 +93,7 @@
         </tbody>
     </table>
 </div>
+</div>
+</div>
+</div>
 
-<%session[:order] = @order%>
-<%= form_for(:anything, url: dash_path, method: :get) do |g| %>
-    <%=g.submit "Go to dash board", class: "btn btn-link px-5"%>
-<%end%>

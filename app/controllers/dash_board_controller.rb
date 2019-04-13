@@ -1,4 +1,5 @@
 class DashBoardController < ApplicationController
+    helper_method :sort_column, :sort_direction
     def splash 
        session[:order] = nil
        session[:sizes] = {"size10b20"=>"10\" x 20\" x 1\"","size14b20"=>"14\" x 20\" x 1\"","size16b24"=>"16\" x 24\" x 1\"",
@@ -32,17 +33,6 @@ class DashBoardController < ApplicationController
     def payment
     end
     
-    def edit_order
-       # @order_up = Order.find_by(id: params[:id])
-    end
-    
-    def update_order    
-          @order_up = Order.find params[:order][:id]
-          @order_up.update(sent_date: params[:order][:sent_date])
-          @order_up.update(delivered_date: params[:order][:delivered_date])
-          redirect_to admin_path
-    end
-    
     def update_sent    
           @order_sent = Order.find params[:order][:id]
           @order_sent.update(sent_date: params[:order][:sent_date])
@@ -51,20 +41,32 @@ class DashBoardController < ApplicationController
     
     # def orders
     # end
-
-    def admin
-        @all_orders = Order.all
-        #@order = Order.find_by_id(1)
-    end
     
     def new
         session[:log] = 1
         if(!session.nil?)
             @user = User.find_by(email: session[:email]) #why does first id make this nil in cucumber test
             puts session[:email]
+            puts "())()()()()()()()()()()()()()()("
+            puts Property.where(user: User.find_by(email: session[:email])).size
         end
         @property = Property.new
-        session[:properties] = Property.where(id: User.find_by(email: session[:email]))
+        #session[:properties] = Property.where(user: User.find_by(email: session[:email]))
+        @properties =  Property.where(user: User.find_by(email: session[:email])).order("#{sort_column} #{sort_direction}")
+        
         #SubscriptionMailer.sample_email(@user).deliver
     end
+    
+        private
+        def sortable_columns
+             ["address", "tenant_name"]
+        end
+        def sort_column
+            sortable_columns.include?(params[:column]) ? params[:column] : "address"
+        end
+        def sort_direction
+            %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+        end        
 end
+    
+    
