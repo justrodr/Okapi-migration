@@ -69,8 +69,7 @@
             
                 <!--<p> <%= f.text_field :delivered_date, class: "form-control", placeholder: "Delivered Date"%></p>-->
                     <%= f.hidden_field :id, value: Order.find_by(id: params[:id]).id%>
-            
-                <%= f.submit "Save Changes", class: "btn btn-primary btn-sm col-sm-2" %>
+                    <%= f.submit "Save Changes", class: "btn btn-primary btn-sm col-sm-2" %>
             
                 <% puts @order_up.errors.messages %>
             <%end%>
@@ -79,4 +78,4 @@
             <%end%>
         </div>
     </div>
-</body>
+</body> 
