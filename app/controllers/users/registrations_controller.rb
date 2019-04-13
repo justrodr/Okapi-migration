@@ -21,6 +21,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         #set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
         respond_with resource, location: after_sign_up_path_for(resource)
+        session[:email] = params[:user][:email]
       else
         #set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
         expire_data_after_sign_in!
@@ -33,7 +34,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       redirect_to new_user_registration_path
       flash[:danger] = @user.errors.full_messages.to_sentence
     end
-    session[:email] = params[:user][:email]
    end
 
    def destroy
