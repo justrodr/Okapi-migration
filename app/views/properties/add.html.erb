@@ -118,12 +118,12 @@
                 <!-- TODO: Formatting -->
                 
                 <%# <h3>Send Filter Every </h3>  %>
-                <h3>Send Filter Every <%= f.select :filter_freq, [0,1, 2, 3, 4, 6, 12], {class: "form-control dropdown col-md-4 field-t", id: "FilterFreq"}, :required => true%>  Month(s)</h3>
+                <h3>Send Filter Every <%= f.select :filter_freq, [0,1, 2, 3, 4, 6, 12], {class: "form-control dropdown col-md-4 field-t"}, :required => true, id: "FilterFreq"%>  Month(s)</h3>
                 <h4>* Select 0 for one time purchase of filter</h4>
             </div>
             <div class="set-length">
                
-                <h3>Subscription Length: <%= f.select :sub_freq, [0,1, 2, 3, 4, 6, 12], {class: "form-control dropdown col-md-4 field-t", id: "SubFreq"},:required => true%> Month(s) </h3>
+                <h3>Subscription Length: <%= f.select :sub_freq, [0,1, 2, 3, 4, 6, 12], {class: "form-control dropdown col-md-4 field-t"},:required => true, id: "SubFreq"%> Month(s) </h3>
                
             </div>
         </div>

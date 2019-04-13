@@ -33,15 +33,15 @@
     assert_current_path '/properties/add/298486378'
   end
 
-
-
-
   When("I fill out correct subscription information") do
-    fill_in ''
+    fill_in "StartDate", with: '04/17/2019'
+    select "2", :from => "FilterFreq"
+    select "4", :from => "SubFreq"
+    fill_in "size10b20", with: "1"
   end
   
   Then("I should be able to checkout that subscription") do
-    assert_current_path(checkout_path)
+    assert_current_path(view_checkout_path)
   end
   
   And("I enter Admin login information") do

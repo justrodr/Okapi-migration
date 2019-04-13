@@ -31,12 +31,6 @@ Background: properties in database
             When I click on "addBob"
             Then I should be on the Add Subscription page
 
-        Scenario: Placing an order
-            Given I am on the Add Subscription page for Jane Doe
-            When I fill out correct subscription information
-            And I click on "Proceed to Checkout"
-            Then I should be able to checkout that subscription
-
         Scenario: Admin login 
             When I am on the login page
             And I enter Admin login information
