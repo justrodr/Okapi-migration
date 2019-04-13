@@ -21,8 +21,10 @@ class DashBoardController < ApplicationController
             #SubscriptionMailer.remind_email(@user).deliver
             if (@user.admin)
                 redirect_to admin_path
+            elsif (@user.first_name )
             else
                 redirect_to dash_path
+            
             end
         end
     end 
@@ -44,15 +46,10 @@ class DashBoardController < ApplicationController
     
     def new
         session[:log] = 1
-        flash.clear
         if(!session.nil?)
             @user = User.find_by(email: session[:email]) #why does first id make this nil in cucumber test
             puts session[:email]
             puts "())()()()()()()()()()()()()()()("
-            if @user.first_name.nil?
-                flash[:notice] = "Enter your first and last name. Do not enter any passwords"
-                redirect_to edit_user_registration_path
-            end
             puts Property.where(user: User.find_by(email: session[:email])).size
         end
         @property = Property.new
