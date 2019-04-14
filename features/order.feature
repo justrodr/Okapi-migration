@@ -28,7 +28,7 @@ Background: properties in database
 
         Scenario: Viewing the Add Subscription page
             Given I am on the Dashboard page for Jane Doe
-            When I click on "addBob"
+            When I click on "add123 Bob st"
             Then I should be on the Add Subscription page
 
         Scenario: Admin login 
