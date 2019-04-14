@@ -131,7 +131,7 @@ class OrderController < ApplicationController
             small_keys.each do |key|
                 if(@order.attributes[key])
                     mutated_value = @order.attributes[key].to_i.to_s
-                    if(mutated_value != @order.attributes[key] || @order.attributes[key] < 0)
+                    if(mutated_value.to_i != @order.attributes[key] || @order.attributes[key] < 0)
                         valid_quantity = false
                         break 
                     end 
