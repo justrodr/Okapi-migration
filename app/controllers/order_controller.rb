@@ -9,10 +9,6 @@ class OrderController < ApplicationController
     def new
         @order = Order.new
     end
-    def create
-        #@current_user = User.find_by(email: session[:email])
-        #@order = Order.new(order_params)
-    end
 
     def cancel
         @cancel_order = Order.find_by(id: params[:id])

@@ -140,7 +140,7 @@ class PropertiesController < ApplicationController
         return    
     end
     
-    if !(@property.city =~ /[a-zA-Z]/) || @property.city.length > 40
+    if !(@property.city =~ /\w*[a-zA-Z]\w*/) || @property.city.length > 40
         flash[:warning] = "Please enter a valid city"
         redirect_to dash_path
         return    
