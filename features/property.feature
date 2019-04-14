@@ -32,7 +32,7 @@ Background: properties in database
 
         Scenario: Viewing edit property
             Given I am on the Dashboard page for Jane Doe
-            When I click on "editBob"
+            When I click on "edit123 Bob st"
             Then I should be on the Edit property page
 
         Scenario: Editing a property
@@ -43,6 +43,6 @@ Background: properties in database
 
         Scenario: Deleting a property
             Given I am on the Dashboard page for Jane Doe
-            When I click on "deleteBob"
+            When I click on "delete123 Bob st"
             When I click on okay
             Then the property should not be in my table 
