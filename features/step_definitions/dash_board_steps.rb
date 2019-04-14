@@ -59,3 +59,8 @@ Given("I am on the Dashboard page for Jane Doe") do
   Then("I should be on the dashboard page") do
     assert_current_path(dash_path)
   end
+
+  Then("my properties should be sorted by Address") do
+    assert page.current_path, 'dash?column=address&direction=desc'
+  end
+  

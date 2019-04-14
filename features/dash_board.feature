@@ -14,6 +14,11 @@ Feature: View Dashboard
         Given I am on the Dashboard page for Jane Doe
         Then I should see a table of my properties
 
+    Scenario: Sorting Properties Table by Address
+        Given I am on the Dashboard page for Jane Doe
+        When I click on "Address"
+        Then my properties should be sorted by Address
+
     Scenario: Accessing Subscriptions 
         Given I am on the Dashboard page for Jane Doe
         When I click on "Subscriptions"
