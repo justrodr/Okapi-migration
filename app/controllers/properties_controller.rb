@@ -28,8 +28,12 @@ class PropertiesController < ApplicationController
      redirect_to dash_path
   end 
   
-  def edit 
-    @property = Property.find params[:id]
+  def edit
+    if !Property.exists?(id: params[:id])
+      render "properties/error",  layout: false, status: :not_found
+    else
+      @property = Property.find params[:id]
+    end 
   end
   
   def update
@@ -160,6 +164,9 @@ class PropertiesController < ApplicationController
   end
 
   def add
+    if !Property.exists?(id: params[:id])
+      render "properties/error",  layout: false, status: :not_found
+    end
   end
 
   private 
