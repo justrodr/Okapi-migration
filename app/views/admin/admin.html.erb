@@ -73,7 +73,7 @@
                                 <% end %>
                             </td>
                             <td>
-                               <%= link_to '<i class="material-icons" style="font-size:25px;color:#28a745;padding-right:10px">Log Sent</i>'.html_safe, edit_order_path(order), method: :get, class: "float-left" %> 
+                               <%= link_to '<i class="material-icons" style="font-size:25px;color:#28a745;padding-right:10px">Log Sent</i>'.html_safe, edit_order_path(order), method: :get, class: "float-left", id:"logsent#{order.shipping_address}"  %> 
                             
                             
                             </td>
