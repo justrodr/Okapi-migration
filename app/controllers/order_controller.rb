@@ -68,7 +68,7 @@ class OrderController < ApplicationController
                @all_orders = Order.where(user: User.find_by(email: session[:email]).id).order("#{sort_column} #{sort_direction}")
         #puts "&&&&&&&&&&&ALLSIZEALLSIZEALLSIZ&&&&&&&&&&&&"
         @all_orders.size
-        #puts "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
+        #puts "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&s"
         
     end
 
