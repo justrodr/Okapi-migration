@@ -103,7 +103,7 @@
                 <%= form_for(@order, url: checkout_path(@order)) do |f| %>
                     <!-- TODO: Need to know what field to be submitted as, formatting -->
                     <h2>Schedule Deliveries</h2>
-                    <h3>Select Subscription Start Date</h3>
+                    <h3>Select Start Date</h3>
                     <%= f.text_field :start_date, id: "StartDate", 'data-behaviour' => 'datepicker', class: "field-t", :required => true, autocomplete: "off" %>
                     <script type="text/javascript">
                         $('[data-behaviour~=datepicker]').datepicker({
