@@ -1,5 +1,4 @@
-  
-  Given("the following properties exist:") do |table|
+ Given("the following properties exist:") do |table|
     listof_properties = table.hashes
     listof_properties.each do |property|
         Property.create!(property)
@@ -17,6 +16,11 @@ end
   end
   
   Given("I am on the Edit property page") do
+    visit 'users/sign_in'
+    fill_in 'Email Address', with: 'jd@email.com'
+    fill_in 'Password', with: '4mainst'
+    click_on("Log In")
+    assert_current_path(dash_path)
     visit 'properties/1/edit'
   end
  
@@ -27,9 +31,12 @@ end
  
   When("I enter valid property information") do
     fill_in 'property[address]', with: "123 Bob st"
-    fill_in "Property Name (Optional)", with: "Bob"
-    fill_in "Tenant Name", with: "Home"
-    fill_in "Tenant Email", with: "Bob@email.com"
+    fill_in 'property[city]', with: "Bryan"
+    fill_in 'property[state]', with: "TX"
+    fill_in 'property[zipcode]', with: "77801"
+    fill_in "Property Name (Optional)", with: "Home"
+    fill_in 'property[tenant_email]', with: 'bob@gmail.com'
+    fill_in "Tenant Name", with: "Bob Hope"
   end
  
   Then("I should see the new property in my Dashboard") do
@@ -61,4 +68,3 @@ end
     rescue
     end
 end
-   

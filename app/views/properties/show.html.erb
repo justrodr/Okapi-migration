@@ -112,18 +112,17 @@
                                     <h5>
                                         <%=@property.prop_name%>
                                     </h5>
-                                    <h6>
-                                        <%=@property.address%>
-                                    </h6>
+                                    <h6><%=@property.address%></h6>
+                                    <h6><%=@property.city%>, <%=@property.state%> <%=@property.zipcode%></h6>
                                     <%# <p class="proile-rating">RANKINGS : <span>8/10</span></p> %>
                                     <br>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
                                 </li>
-                                <li class="nav-item">
+                                <%# <li class="nav-item">
                                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Order Info</a>
-                                </li>
+                                </li> %>
                             </ul>
                         </div>
                     </div>
@@ -178,28 +177,13 @@
                                             </div>
                                         </div> %>
                             </div>
-                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Order Frequency</label><small> (per year)</small>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><%=@property.frequency%> orders</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Last Delivery</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p><%=@property.last_delivered%></p>
-                                            </div>
-                                        </div>       
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
                 <%= form_for(:anything, url: dash_path, method: :get) do |f| %>
-                    <%=f.submit "Back", class: "btn btn-info btn-md"%>
+                    <div class= px-5>
+                        <%=f.submit "Back", class: "btn btn-primary btn-sm col-sm-2"%>
+                    </div>
                 <%end%> 
         </div>

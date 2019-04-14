@@ -17,9 +17,12 @@ Given("I am on the Dashboard page for Jane Doe") do
     assert_current_path(dash_path)
     click_on("Add New Property")
     fill_in 'property[address]', with: "123 Bob st"
-    fill_in "Property Name (Optional)", with: "Bob"
-    fill_in "Tenant Name", with: "Home"
-    fill_in "Tenant Email", with: "Bob@email.com"
+    fill_in 'property[city]', with: "Bryan"
+    fill_in 'property[state]', with: "TX"
+    fill_in 'property[zipcode]', with: "77801"
+    fill_in "Property Name (Optional)", with: "Home"
+    fill_in 'property[tenant_email]', with: 'bob@gmail.com'
+    fill_in "Tenant Name", with: "Bob Hope"
     click_on("Add Property")
   end
   
@@ -27,15 +30,8 @@ Given("I am on the Dashboard page for Jane Doe") do
     assert page.has_css?('table')
   end
 
-  Then("I should be on my Contacts page") do
-    assert page.current_path, 'contacts_page'
-  end
-   
-  Then("I should be on my Payment page") do
-    assert page.current_path, 'payment_page'
-  end
   
-  Then("I should be on my Orders page") do
+  Then("I should be on my Subscriptions page") do
     assert page.current_path, 'orders_page'
   end
   
@@ -55,8 +51,8 @@ Given("I am on the Dashboard page for Jane Doe") do
   
   And("I enter valid update information") do
     fill_in 'Email Address', with: 'jd@email.com'
-    fill_in 'Password', with: '4mainst'
-    fill_in 'Confirm Password', with: '4mainst'
+    fill_in 'New Password', with: '4mainst'
+    fill_in 'Confirm New Password', with: '4mainst'
     fill_in 'Current Password', with: '4mainst'
   end
 

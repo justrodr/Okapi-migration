@@ -231,16 +231,23 @@ table.table .avatar {
 
 #myProgress {
   width: 100%;
-  background-color: #ddd;
+  height:10px;
+  background-color: #D8D8D8;
 }
 
-#myBar {
+.myBar {
 	
   width: 1%;
   height: 10px;
   background-color: #4F83FF;
 }
 
-#setup {
+.setup {
 	display: none;
+}
+
+p{
+	font-size: 1rem;
+	padding-top: -20px;
+	margin-bottom: -5px;
 }

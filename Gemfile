@@ -3,6 +3,12 @@ source 'https://rubygems.org'
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
 gem 'autoprefixer-rails'
+# Allows table pagination
+# gem 'will_paginate-bootstrap4'
+# gem 'will_paginate', '~> 3.1.0'
+
+# Add Datepicker from Bootstrap
+gem 'bootstrap-datepicker-rails'
 # Provides cross-browser animations
 gem 'animate.css-rails', '~> 3.2.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -27,12 +33,21 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # for login authentication
 gem 'devise'
 
+gem 'activerecord-session_store'
+
 gem 'dotenv-rails'
 #for 3rd party authentication
 gem 'omniauth'
 
 # User Authentication with Facebook
 gem 'omniauth-facebook'
+
+#Paypal SDK
+gem 'paypal-checkout-sdk'
+
+#To schedule things
+gem 'delayed_job_active_record'
+gem 'daemons'
 
 #use cucumber
 group :test, :development do

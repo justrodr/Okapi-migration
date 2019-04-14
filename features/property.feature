@@ -12,17 +12,19 @@ Background: properties in database
   | Lake      | Karen Smith | ks@email.com | 3 lake st  | 2         | bri@email.com |
 
   Given the following users exist who own properties:
-  | first_name | last_name   | email        | password | 
-  | Home       | Jane Doe    | jd@email.com | 4mainst  |
-  | Beach      | John Doe    | jj@email.com | 7beachst |
-  | Lake       | Karen Smith | ks@email.com | 3lakest  |
+  | first_name | last_name | email        | password | admin |
+  | Jane       | Doe       | jd@email.com | 4mainst  | 0     |
+  | John       | Doe       | jj@email.com | 7beachst | 0     |
+  | Karen      | Smith     | ks@email.com | 3lakest  | 0     |
+  | Walt       | Disney    | wd@email.com | wedadmin | 1     |
+  
         Scenario: Viewing add property
-            Given I am on the Dashboard page
+            Given I am on the Dashboard page for Jane Doe
             When I click on "Add New Property"
             Then I should be on the Add property page
 
         Scenario: Add a property
-            Given I am on the Dashboard page
+            Given I am on the Dashboard page for Jane Doe
             When I click on "Add New Property"
             And I enter valid property information
             And I click on "Add Property"
@@ -30,7 +32,7 @@ Background: properties in database
 
         Scenario: Viewing edit property
             Given I am on the Dashboard page for Jane Doe
-            When I click on "editBob"
+            When I click on "edit123 Bob st"
             Then I should be on the Edit property page
 
         Scenario: Editing a property
@@ -41,6 +43,6 @@ Background: properties in database
 
         Scenario: Deleting a property
             Given I am on the Dashboard page for Jane Doe
-            When I click on "deleteBob"
+            When I click on "delete123 Bob st"
             When I click on okay
             Then the property should not be in my table 

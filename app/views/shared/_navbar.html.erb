@@ -12,33 +12,32 @@
             <br> %>
         <div class="sidebar-header">
             <div class="logo">
-                <%= image_tag("logo_blue.jpg", :class=>"nav_logo")%>
+                <a href="./dash">
+                  <%= image_tag("logo_blue.jpg", :class=>"nav_logo")%>  
+                </a>
             </div>
             <div class="user-info">
                 <%= image_tag("astronaut2.gif", :class=>"nav_prof")%>
                 <!--<h3>Welcome!</h3>-->
                 <!--<strong>// User Name //</strong>-->
+                <%@user = User.find_by(email: session[:email])%>
+                <%if !@user.nil?%>
+                <h3><%=User.find_by(email: session[:email]).first_name%> <%=User.find_by(email: session[:email]).last_name%></h3>
+                <%end%>
             </div>
         </div>
 
-        <ul class="list-unstyled components">
-            <li class="active">
+        <ul class="list-unstyled components sticky-top">
+
+            <li class="<%= 'active' if current_page?(dash_path) %>">
                 <a href="/dash" role="button"><i class="fa fa-tachometer px-2"></i>Dashboard</a>
             </li>
 
-            <li>
-                <a href="/contacts_page"><i class="fa fa-address-book px-2"></i>
-                    Contacts
-                </a>
-            </li>
-            <li>
-                <a href="/payment_page"><i class="fa fa-credit-card px-2"></i>Payments</a>
+            <li class="<%= 'active' if current_page?(orders_page_path) %>">
+                <a href="/orders_page"><i class="fa fa-shopping-cart px-2"></i>Subscriptions</a>
             </li>
 
-            <li>
-                <a href="/orders_page"><i class="fa fa-shopping-cart px-2"></i>Orders</a>
-            </li>
-            <li>
+            <li class="<%= 'active' if current_page?(edit_user_registration_path) %>">
                 <a href="/users/edit"><i class="fa fa-user px-2"></i>Profile</a>
             </li>
 

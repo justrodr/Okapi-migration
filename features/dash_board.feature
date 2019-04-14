@@ -11,26 +11,16 @@ Feature: View Dashboard
   | Lake       | Karen Smith | ks@email.com | 3lakest  |
 
     Scenario: Seeing my Properties
-        Given I am on the Dashboard page
+        Given I am on the Dashboard page for Jane Doe
         Then I should see a table of my properties
 
-    Scenario: Accessing Contacts 
-        Given I am on the Dashboard page
-        When I click on "Contact"
-        Then I should be on my Contacts page
+    Scenario: Accessing Subscriptions 
+        Given I am on the Dashboard page for Jane Doe
+        When I click on "Subscriptions"
+        Then I should be on my Subscriptions page
 
-    Scenario: Accessing Payment 
-        Given I am on the Dashboard page
-        When I click on "Payment"
-        Then I should be on my Payment page
-
-    Scenario: Accessing Orders 
-        Given I am on the Dashboard page
-        When I click on "Order"
-        Then I should be on my Orders page
-
-    Scenario: Accessing Contacts 
-        Given I am on the Dashboard page
+    Scenario: Accessing Profile 
+        Given I am on the Dashboard page for Jane Doe
         When I click on "Profile"
         Then I should be on my Profile page
         
@@ -39,4 +29,3 @@ Feature: View Dashboard
         And I enter valid update information
         And I click on "Update Account"
         Then I should be on the dashboard page
-
