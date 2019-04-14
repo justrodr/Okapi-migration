@@ -166,7 +166,7 @@
                                                     <label>Tenant Phone No.</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                   <p> <%= f.text_field :tenant_phone, class: "form-control", placeholder: "xxx-xxx-xxxx"%></p>
+                                                   <p> <%= f.telephone_field :tenant_phone, class: "form-control", placeholder: "xxx-xxx-xxxx"%></p>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -174,7 +174,7 @@
                                                     <label>Tenant Email</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <%= f.text_field :tenant_email, class: "form-control", placeholder: "Tenant Email", required: true%>
+                                                    <%= f.email_field :tenant_email, class: "form-control", placeholder: "Tenant Email", required: true%>
                                                 </div>
                                             </div>      
                                 </div>
