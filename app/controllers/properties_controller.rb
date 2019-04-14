@@ -106,12 +106,6 @@ class PropertiesController < ApplicationController
      @property.user = @current_user.id
     end
     same_prop = Property.find_by(address: @property.address)
-    puts same_prop.city
-    puts same_prop.state
-    puts same_prop.zipcode
-    puts @property.city
-    puts @property.state
-    puts @property.zipcode
     if(same_prop && same_prop.city == @property.city && same_prop.zipcode == @property.zipcode)
       flash[:danger] = "Property already Exists"
       redirect_to dash_path
