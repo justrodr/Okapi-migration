@@ -30,6 +30,8 @@ class DashBoardController < ApplicationController
     
     # def orders
     # end
+    def privacy
+    end
     
     def new
         session[:log] = 1
