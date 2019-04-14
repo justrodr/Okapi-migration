@@ -79,6 +79,7 @@ $(document).ready(function(){
 	                            <td>
 	                            	<% Order.where(property: prop.id).each do |ord| %>
 										<%if ord.canceled == false%>
+										<p>Time Until Next Shipment</p>
 	                                	<div id="myProgress">
 	  										<div class="myBar" id="<%= ord.id %>"></div>
 										</div>
@@ -154,7 +155,8 @@ $(document).ready(function(){
 												}
 											</script>
 											<div>
-												<p>Last Delivered: <%= ord.delivered_date %></p>
+												<p>Next Ship Date: <%= ord.next_ship_date %></p>
+												<p>Ships Every <%= ord.filter_freq %> Months</p>
 											</div>
 											<% end %>
 										<%end %>
