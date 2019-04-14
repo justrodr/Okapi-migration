@@ -28,6 +28,13 @@ class PropertiesControllerTest < ActionController::TestCase
       assert_redirected_to dash_path
    end
    
+   test "if property not created (name invalid), should stay on dash" do 
+      #get :new
+      @controller.session[:email] = users(:one).email
+      post :create, :property =>{"tenant_name"=>"Hunter Hewitt", "tenant_phone"=>"", "tenant_email"=>"hunterhewitt@tamu.edu", "prop_name"=>"1", "address"=>"22 Coastal Meadow", "city"=>"Katy", "state"=>"TeX", "zipcode"=>"77494", "id"=>"1"}
+      assert_redirected_to dash_path
+   end
+   
    test "should make property have user field of logged in user" do
       controller = @controller
       controller.session[:email] = users(:one).email
