@@ -14,27 +14,27 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-04-14T21:52:36+00:00">2019-04-14T21:52:36+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-04-14T22:06:54+00:00">2019-04-14T22:06:54+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="yellow">84.2%</span></span>
+    (<span class="covered_percent"><span class="yellow">87.29%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         7.87
+         8.14
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>22</b> files in total.
-    <b>424</b> relevant lines. 
+    <b>409</b> relevant lines. 
     <span class="green"><b>357</b> lines covered</span> and
-    <span class="red"><b>67</b> lines missed </span>
+    <span class="red"><b>52</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -73,10 +73,10 @@
       <tr>
         <td class="strong"><a href="#ae5e9830aa92942e6288d984ca92dc2ae56780e4" class="src_link" title="app/controllers/authentications_controller.rb">app/controllers/authentications_controller.rb</a></td>
         <td class="red strong">0.0 %</td>
-        <td>6</td>
-        <td>6</td>
+        <td>3</td>
+        <td>3</td>
         <td>0</td>
-        <td>6</td>
+        <td>3</td>
         <td>0.0</td>
       </tr>
       
@@ -92,12 +92,12 @@
       
       <tr>
         <td class="strong"><a href="#26b7b3f67241a3d93f51371b140754737d97676d" class="src_link" title="app/controllers/order_controller.rb">app/controllers/order_controller.rb</a></td>
-        <td class="yellow strong">86.0 %</td>
-        <td>189</td>
-        <td>100</td>
+        <td class="green strong">97.73 %</td>
+        <td>185</td>
+        <td>88</td>
         <td>86</td>
-        <td>14</td>
-        <td>9.9</td>
+        <td>2</td>
+        <td>11.2</td>
       </tr>
       
       <tr>
@@ -279,20 +279,20 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="yellow">88.01%</span></span>
+    (<span class="covered_percent"><span class="green">91.76%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         7.9
+         8.22
        </span>
     </span> hits/line)
   </h2>
   <a name="Controllers"></a>
   <div>
     <b>12</b> files in total.
-    <b>367</b> relevant lines. 
+    <b>352</b> relevant lines. 
     <span class="green"><b>323</b> lines covered</span> and
-    <span class="red"><b>44</b> lines missed </span>
+    <span class="red"><b>29</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -331,10 +331,10 @@
       <tr>
         <td class="strong"><a href="#ae5e9830aa92942e6288d984ca92dc2ae56780e4" class="src_link" title="app/controllers/authentications_controller.rb">app/controllers/authentications_controller.rb</a></td>
         <td class="red strong">0.0 %</td>
-        <td>6</td>
-        <td>6</td>
+        <td>3</td>
+        <td>3</td>
         <td>0</td>
-        <td>6</td>
+        <td>3</td>
         <td>0.0</td>
       </tr>
       
@@ -350,12 +350,12 @@
       
       <tr>
         <td class="strong"><a href="#26b7b3f67241a3d93f51371b140754737d97676d" class="src_link" title="app/controllers/order_controller.rb">app/controllers/order_controller.rb</a></td>
-        <td class="yellow strong">86.0 %</td>
-        <td>189</td>
-        <td>100</td>
+        <td class="green strong">97.73 %</td>
+        <td>185</td>
+        <td>88</td>
         <td>86</td>
-        <td>14</td>
-        <td>9.9</td>
+        <td>2</td>
+        <td>11.2</td>
       </tr>
       
       <tr>
@@ -1173,9 +1173,9 @@
     <h3>app/controllers/authentications_controller.rb</h3>
     <h4><span class="red">0.0 %</span> covered</h4>
     <div>
-      <b>6</b> relevant lines. 
+      <b>3</b> relevant lines. 
       <span class="green"><b>0</b> lines covered</span> and
-      <span class="red"><b>6</b> lines missed.</span>
+      <span class="red"><b>3</b> lines missed.</span>
     </div>
   </div>
   
@@ -1197,25 +1197,7 @@
         <li class="missed" data-hits="0" data-linenumber="3">
           
           
-          <code class="ruby">        current_user.update_attributes(provider: nil, uid: nil)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="4">
-          
-          
-          <code class="ruby">        redirect_to edit_user_registration_path, notice: &quot;Facebook Account Unlinked&quot;</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="5">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="6">
-          
-          
-          <code class="ruby">end</code>
+          <code class="ruby">        current_user.update_attributes(provider: nil, uid: nil); ;redirect_to edit_user_registration_path, notice: &quot;Facebook Account Unlinked&quot; end end</code>
         </li>
       
     </ol>
@@ -1629,11 +1611,11 @@
         <div class="source_table" id="26b7b3f67241a3d93f51371b140754737d97676d">
   <div class="header">
     <h3>app/controllers/order_controller.rb</h3>
-    <h4><span class="yellow">86.0 %</span> covered</h4>
+    <h4><span class="green">97.73 %</span> covered</h4>
     <div>
-      <b>100</b> relevant lines. 
+      <b>88</b> relevant lines. 
       <span class="green"><b>86</b> lines covered</span> and
-      <span class="red"><b>14</b> lines missed.</span>
+      <span class="red"><b>2</b> lines missed.</span>
     </div>
   </div>
   
@@ -1781,541 +1763,541 @@
         <li class="missed" data-hits="0" data-linenumber="24">
           
           
-          <code class="ruby">        @order = session[:order]</code>
+          <code class="ruby">        @order = session[:order];@order.save;order_id = params[:orderID]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="25">
-          
-          
-          <code class="ruby">        @order.save</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="26">
-          
-          
-          <code class="ruby">        order_id = params[:orderID]</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="27">
+        <li class="never" data-hits="" data-linenumber="25">
           
           
           <code class="ruby">        # Creating Access Token for Sandbox</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="28">
+        <li class="missed" data-hits="0" data-linenumber="26">
           
           
-          <code class="ruby">        client_id = ENV[&#39;PAYPAL_CLIENT_ID&#39;]</code>
+          <code class="ruby">        client_id = ENV[&#39;PAYPAL_CLIENT_ID&#39;];client_secret = ENV[&#39;PAYPAL_CLIENT_SECRET&#39;];         environment = PayPal::SandboxEnvironment.new(client_id, client_secret);client = PayPal::PayPalHttpClient.new(environment);request = PayPalCheckoutSdk::Orders::OrdersCaptureRequest::new(order_id);response = client.execute(request);prop1 = Property.find(@order.property);number = @order.sub_freq;@user1 = User.find_by(email: session[:email]); SubscriptionMailer.remind_email(@user1, prop1).deliver_later(wait_until: (number.month - 2.weeks).from_now);  </code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="29">
-          
-          
-          <code class="ruby">        client_secret = ENV[&#39;PAYPAL_CLIENT_SECRET&#39;]</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="30">
+        <li class="never" data-hits="" data-linenumber="27">
           
           
           <code class="ruby">        # Creating an environment</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="31">
-          
-          
-          <code class="ruby">        environment = PayPal::SandboxEnvironment.new(client_id, client_secret)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="32">
-          
-          
-          <code class="ruby">        client = PayPal::PayPalHttpClient.new(environment)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="33">
-          
-          
-          <code class="ruby">        #request = OrdersGetRequest::new(order_id)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="34">
-          
-          
-          <code class="ruby">        request = PayPalCheckoutSdk::Orders::OrdersCaptureRequest::new(order_id)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="35">
-          
-          
-          <code class="ruby">        # #3. Call PayPal to get the transaction</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="36">
-          
-          
-          <code class="ruby">        response = client.execute(request) </code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="37">
-          
-          
-          <code class="ruby">        # #4. Save the transaction in your database. Implement logic to save transaction to your database for future reference.</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="38">
-          
-          
-          <code class="ruby">        # puts &quot;***************************&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="39">
-          
-          
-          <code class="ruby">        # puts &quot;Status Code: #&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="40">
-          
-          
-          <code class="ruby">        # puts &quot;Status: #&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="41">
-          
-          
-          <code class="ruby">        # #puts response.result.id</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="42">
-          
-          
-          <code class="ruby">        # puts &quot;Order ID: &quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="43">
-          
-          
-          <code class="ruby">        # puts order_id</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="44">
-          
-          
-          <code class="ruby">        # puts &quot;Intent: #&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="45">
-          
-          
-          <code class="ruby">        # puts &quot;Links:&quot;</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="46">
-          
-          
-          <code class="ruby">        for link in response.result.links</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="47">
-          
-          
-          <code class="ruby">        # You could also call this link.rel or link.href, but method is a reserved keyword for RUBY. Avoid calling link.method.</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="48">
-          
-          
-          <code class="ruby">        #puts &quot;\t#{link[&quot;rel&quot;]}: #{link[&quot;href&quot;]}\tCall Type: #{link[&quot;method&quot;]}&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="49">
-          
-          
-          <code class="ruby">        end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="50">
-          
-          
-          <code class="ruby">        # puts &quot;Gross Amount: # #&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="51">
-          
-          
-          <code class="ruby">        # puts @order.id</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="52">
-          
-          
-          <code class="ruby">        prop1 = Property.find(@order.property)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="53">
-          
-          
-          <code class="ruby">        #puts prop1</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="54">
-          
-          
-          <code class="ruby">        #puts &quot;***************************&quot;</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="55">
-          
-          
-          <code class="ruby">        number = @order.sub_freq</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="56">
-          
-          
-          <code class="ruby">        #puts number</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="57">
-          
-          
-          <code class="ruby">        @user1 = User.find_by(email: session[:email])</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="58">
-          
-          
-          <code class="ruby">        #SubscriptionMailer.remind_email(@user1, prop1).deliver_later(wait_until: 1.minutes.from_now)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="59">
-          
-          
-          <code class="ruby">        SubscriptionMailer.remind_email(@user1, prop1).deliver_later(wait_until: (number.month - 2.weeks).from_now)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="60">
-          
-          
-          <code class="ruby">        #redirect_to orders_page_path</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="61">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="62">
-          
-          
-          <code class="ruby">    </code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="63">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    def orders_page</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="64">
-          <span class="hits">3</span>
-          
-          <code class="ruby">               @all_orders = Order.where(user: User.find_by(email: session[:email]).id).order(&quot;#{sort_column} #{sort_direction}&quot;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="65">
-          
-          
-          <code class="ruby">        #puts &quot;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;ALLSIZEALLSIZEALLSIZ&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&quot;</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="66">
-          <span class="hits">3</span>
-          
-          <code class="ruby">        @all_orders.size</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="67">
-          
-          
-          <code class="ruby">        #puts &quot;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="68">
-          
-          
-          <code class="ruby">        </code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="69">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="70">
+        <li class="never" data-hits="" data-linenumber="28">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="71">
+        <li class="never" data-hits="" data-linenumber="29">
+          
+          
+          <code class="ruby">        #request = OrdersGetRequest::new(order_id)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby">        </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
+          
+          
+          <code class="ruby">        # #3. Call PayPal to get the transaction</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby">        # #4. Save the transaction in your database. Implement logic to save transaction to your database for future reference.</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="34">
+          
+          
+          <code class="ruby">        # puts &quot;***************************&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="35">
+          
+          
+          <code class="ruby">        # puts &quot;Status Code: #&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="36">
+          
+          
+          <code class="ruby">        # puts &quot;Status: #&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="37">
+          
+          
+          <code class="ruby">        # #puts response.result.id</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="38">
+          
+          
+          <code class="ruby">        # puts &quot;Order ID: &quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="39">
+          
+          
+          <code class="ruby">        # puts order_id</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="40">
+          
+          
+          <code class="ruby">        # puts &quot;Intent: #&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby">        # puts &quot;Links:&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="42">
+          
+          
+          <code class="ruby">        #for link in response.result.links</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="43">
+          
+          
+          <code class="ruby">        # You could also call this link.rel or link.href, but method is a reserved keyword for RUBY. Avoid calling link.method.</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="44">
+          
+          
+          <code class="ruby">        #puts &quot;\t#{link[&quot;rel&quot;]}: #{link[&quot;href&quot;]}\tCall Type: #{link[&quot;method&quot;]}&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby">        #end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="46">
+          
+          
+          <code class="ruby">        # puts &quot;Gross Amount: # #&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="47">
+          
+          
+          <code class="ruby">        # puts @order.id</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="49">
+          
+          
+          <code class="ruby">        #puts prop1</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="50">
+          
+          
+          <code class="ruby">        #puts &quot;***************************&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="51">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby">        #puts number</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="53">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="54">
+          
+          
+          <code class="ruby">        #SubscriptionMailer.remind_email(@user1, prop1).deliver_later(wait_until: 1.minutes.from_now)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="55">
+          
+          
+          <code class="ruby">       </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="56">
+          
+          
+          <code class="ruby">        #redirect_to orders_page_path</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="57">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="58">
+          
+          
+          <code class="ruby">    </code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="59">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    def orders_page</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="60">
+          <span class="hits">3</span>
+          
+          <code class="ruby">               @all_orders = Order.where(user: User.find_by(email: session[:email]).id).order(&quot;#{sort_column} #{sort_direction}&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="61">
+          
+          
+          <code class="ruby">        #puts &quot;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;ALLSIZEALLSIZEALLSIZ&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="62">
+          <span class="hits">3</span>
+          
+          <code class="ruby">        @all_orders.size</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="63">
+          
+          
+          <code class="ruby">        #puts &quot;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="64">
+          
+          
+          <code class="ruby">        </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="65">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="66">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="67">
           <span class="hits">2</span>
           
           <code class="ruby">    def checkout</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="72">
+        <li class="covered" data-hits="7" data-linenumber="68">
           <span class="hits">7</span>
           
           <code class="ruby">       session[:order] = nil</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="73">
+        <li class="covered" data-hits="7" data-linenumber="69">
           <span class="hits">7</span>
           
           <code class="ruby">       session[:sizes] = {&quot;size10b20&quot;=&gt;&quot;10\&quot; x 20\&quot; x 1\&quot;&quot;,&quot;size14b20&quot;=&gt;&quot;14\&quot; x 20\&quot; x 1\&quot;&quot;,&quot;size16b24&quot;=&gt;&quot;16\&quot; x 24\&quot; x 1\&quot;&quot;,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="74">
+        <li class="never" data-hits="" data-linenumber="70">
           
           
           <code class="ruby">               &quot;size18b30&quot;=&gt;&quot;18\&quot; x 30\&quot; x 1\&quot;&quot;,&quot;size12b12&quot;=&gt;&quot;12\&quot; x 12\&quot; x 1\&quot;&quot;,&quot;size14b24&quot;=&gt;&quot;14\&quot; x 24\&quot; x 1\&quot;&quot;,&quot;size16b25&quot;=&gt;&quot;16\&quot; x 25\&quot; x 1\&quot;&quot;, </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="75">
+        <li class="never" data-hits="" data-linenumber="71">
           
           
           <code class="ruby">               &quot;size20b20&quot;=&gt;&quot;20\&quot; x 20\&quot; x 1\&quot;&quot;,&quot;size12b20&quot;=&gt;&quot;12\&quot; x 20\&quot; x 1\&quot;&quot;,&quot;size14b25&quot;=&gt;&quot;14\&quot; x 25\&quot; x 1\&quot;&quot;,&quot;size18b18&quot;=&gt;&quot;18\&quot; x 18\&quot; x 1\&quot;&quot;, </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="76">
+        <li class="never" data-hits="" data-linenumber="72">
           
           
           <code class="ruby">               &quot;size20b24&quot;=&gt;&quot;20\&quot; x 24\&quot; x 1\&quot;&quot;,&quot;size12b24&quot;=&gt;&quot;12\&quot; x 24\&quot; x 1\&quot;&quot;,&quot;size14b30&quot;=&gt;&quot;14\&quot; x 30\&quot; x 1\&quot;&quot;,&quot;size18b20&quot;=&gt;&quot;18\&quot; x 20\&quot; x 1\&quot;&quot;,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="77">
+        <li class="never" data-hits="" data-linenumber="73">
           
           
           <code class="ruby">               &quot;size20b25&quot;=&gt;&quot;20\&quot; x 25\&quot; x 1\&quot;&quot;,&quot;size12b30&quot;=&gt;&quot;12\&quot; x 30\&quot; x 1\&quot;&quot;,&quot;size15b20&quot;=&gt;&quot;15\&quot; x 20\&quot; x 1\&quot;&quot;,&quot;size18b24&quot;=&gt;&quot;18\&quot; x 24\&quot; x 1\&quot;&quot;, </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="78">
+        <li class="never" data-hits="" data-linenumber="74">
           
           
           <code class="ruby">               &quot;size20b30&quot;=&gt;&quot;20\&quot; x 30\&quot; x 1\&quot;&quot;,&quot;size12b36&quot;=&gt;&quot;12\&quot; x 36\&quot; x 1\&quot;&quot;,&quot;size16b20&quot;=&gt;&quot;16\&quot; x 20\&quot; x 1\&quot;&quot;,&quot;size18b25&quot; =&gt;&quot;18\&quot; x 25\&quot; x 1\&quot;&quot;, </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="79">
+        <li class="never" data-hits="" data-linenumber="75">
           
           
           <code class="ruby">               &quot;size24b24&quot;=&gt;&quot;24\&quot; x 24\&quot; x 1\&quot;&quot;,&quot;size25b25&quot;=&gt;&quot;25\&quot; x 25\&quot; x 1\&quot;&quot;}</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="80">
+        <li class="covered" data-hits="7" data-linenumber="76">
           <span class="hits">7</span>
           
           <code class="ruby">               session[:price_hash] = {&quot;size10b20&quot;=&gt; 5.20,&quot;size14b20&quot;=&gt; 5.20,&quot;size16b24&quot;=&gt; 6.62,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="81">
+        <li class="never" data-hits="" data-linenumber="77">
           
           
           <code class="ruby">               &quot;size18b30&quot;=&gt; 7.93,&quot;size12b12&quot;=&gt; 6.62,&quot;size14b24&quot;=&gt; 5.67,&quot;size16b25&quot;=&gt; 4.92, </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="82">
+        <li class="never" data-hits="" data-linenumber="78">
           
           
           <code class="ruby">               &quot;size20b20&quot;=&gt; 5.20,&quot;size12b20&quot;=&gt; 5.11,&quot;size14b25&quot;=&gt; 5.20,&quot;size18b18&quot;=&gt; 6.62, </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="83">
+        <li class="never" data-hits="" data-linenumber="79">
           
           
           <code class="ruby">               &quot;size20b24&quot;=&gt; 6.24,&quot;size12b24&quot;=&gt; 6.15,&quot;size14b30&quot;=&gt; 6.62,&quot;size18b20&quot;=&gt; 7.56,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="84">
+        <li class="never" data-hits="" data-linenumber="80">
           
           
           <code class="ruby">               &quot;size20b25&quot;=&gt; 5.67,&quot;size12b30&quot;=&gt; 6.62,&quot;size15b20&quot;=&gt; 7.09,&quot;size18b24&quot;=&gt; 6.62, </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="85">
+        <li class="never" data-hits="" data-linenumber="81">
           
           
           <code class="ruby">               &quot;size20b30&quot;=&gt; 6.62,&quot;size12b36&quot;=&gt; 8.89,&quot;size16b20&quot;=&gt; 5.20,&quot;size18b25&quot;=&gt; 7.09, </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="86">
+        <li class="never" data-hits="" data-linenumber="82">
           
           
           <code class="ruby">               &quot;size24b24&quot;=&gt; 6.62,&quot;size25b25&quot;=&gt; 7.68}</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="87">
+        <li class="covered" data-hits="7" data-linenumber="83">
           <span class="hits">7</span>
           
           <code class="ruby">        @current_user = User.find_by(email: session[:email])</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="88">
+        <li class="covered" data-hits="7" data-linenumber="84">
           <span class="hits">7</span>
           
           <code class="ruby">        @order = Order.new(order_params)</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="89">
+        <li class="covered" data-hits="7" data-linenumber="85">
           <span class="hits">7</span>
           
           <code class="ruby">        @order.property = session[:property] #</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="90">
+        <li class="never" data-hits="" data-linenumber="86">
           
           
           <code class="ruby">        #puts Property.find(@order.property).address</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="91">
+        <li class="covered" data-hits="7" data-linenumber="87">
           <span class="hits">7</span>
           
           <code class="ruby">        @property = Property.find_by(id: @order.property)</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="92">
+        <li class="covered" data-hits="7" data-linenumber="88">
           <span class="hits">7</span>
           
           <code class="ruby">        @order.shipping_address = @property.address</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="93">
+        <li class="covered" data-hits="7" data-linenumber="89">
           <span class="hits">7</span>
           
           <code class="ruby">        @order.tenant_name = @property.tenant_name</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="94">
+        <li class="covered" data-hits="7" data-linenumber="90">
           <span class="hits">7</span>
           
           <code class="ruby">        @order.tenant_email = @property.tenant_email</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="95">
+        <li class="covered" data-hits="7" data-linenumber="91">
           <span class="hits">7</span>
           
           <code class="ruby">        @order.city = @property.city</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="96">
+        <li class="covered" data-hits="7" data-linenumber="92">
           <span class="hits">7</span>
           
           <code class="ruby">        @order.state = @property.state</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="97">
+        <li class="covered" data-hits="7" data-linenumber="93">
           <span class="hits">7</span>
           
           <code class="ruby">        @order.zipcode = @property.zipcode</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="98">
+        <li class="never" data-hits="" data-linenumber="94">
           
           
           <code class="ruby">        #puts &quot;^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="99">
+        <li class="never" data-hits="" data-linenumber="95">
           
           
           <code class="ruby">        #puts params[:order][:start_date].class</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="100">
+        <li class="covered" data-hits="7" data-linenumber="96">
           <span class="hits">7</span>
           
           <code class="ruby">        @order.start_date = params[:order][:start_date]</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="101">
+        <li class="never" data-hits="" data-linenumber="97">
           
           
           <code class="ruby">        #puts @order.start_date</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="102">
+        <li class="never" data-hits="" data-linenumber="98">
           
           
           <code class="ruby">        #puts @order.filter_freq</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="103">
+        <li class="covered" data-hits="7" data-linenumber="99">
           <span class="hits">7</span>
           
           <code class="ruby">        @order.user = @current_user.id</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="104">
+        <li class="covered" data-hits="7" data-linenumber="100">
           <span class="hits">7</span>
           
           <code class="ruby">        small_keys = []</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="105">
+        <li class="covered" data-hits="7" data-linenumber="101">
           <span class="hits">7</span>
           
           <code class="ruby">        total_price = [] </code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="106">
+        <li class="covered" data-hits="7" data-linenumber="102">
           <span class="hits">7</span>
           
           <code class="ruby">        keys = @order.attributes.keys</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="107">
+        <li class="covered" data-hits="7" data-linenumber="103">
           <span class="hits">7</span>
           
           <code class="ruby">        keys.each do |subs| </code>
         </li>
       
-        <li class="covered" data-hits="322" data-linenumber="108">
+        <li class="covered" data-hits="322" data-linenumber="104">
           <span class="hits">322</span>
           
           <code class="ruby">         if subs.include? &quot;size&quot; </code>
         </li>
       
-        <li class="covered" data-hits="175" data-linenumber="109">
+        <li class="covered" data-hits="175" data-linenumber="105">
           <span class="hits">175</span>
           
           <code class="ruby">             small_keys.push subs </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="110">
+        <li class="never" data-hits="" data-linenumber="106">
           
           
           <code class="ruby">         end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="111">
+        <li class="never" data-hits="" data-linenumber="107">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="112">
+        <li class="covered" data-hits="7" data-linenumber="108">
           <span class="hits">7</span>
           
           <code class="ruby">        if(@order.filter_freq &gt; @order.sub_freq)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="113">
+        <li class="covered" data-hits="1" data-linenumber="109">
           <span class="hits">1</span>
           
           <code class="ruby">            flash[:warning] = &quot;You cannot not have a subscription shorter than your filter frequency&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="110">
+          <span class="hits">1</span>
+          
+          <code class="ruby">            redirect_to &quot;/properties/add/#{@order.property}&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="111">
+          <span class="hits">1</span>
+          
+          <code class="ruby">            return</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="112">
+          <span class="hits">6</span>
+          
+          <code class="ruby">        elsif(@order.filter_freq == 0 &amp;&amp; @order.sub_freq &gt; 0)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="113">
+          <span class="hits">1</span>
+          
+          <code class="ruby">            flash[:warning] = &quot;You cannot not have a subscription with a one time purchase&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="114">
@@ -2330,100 +2312,100 @@
           <code class="ruby">            return</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="116">
-          <span class="hits">6</span>
-          
-          <code class="ruby">        elsif(@order.filter_freq == 0 &amp;&amp; @order.sub_freq &gt; 0)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="117">
-          <span class="hits">1</span>
-          
-          <code class="ruby">            flash[:warning] = &quot;You cannot not have a subscription with a one time purchase&quot;</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="118">
-          <span class="hits">1</span>
-          
-          <code class="ruby">            redirect_to &quot;/properties/add/#{@order.property}&quot;</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="119">
-          <span class="hits">1</span>
-          
-          <code class="ruby">            return</code>
-        </li>
-      
-        <li class="covered" data-hits="5" data-linenumber="120">
+        <li class="covered" data-hits="5" data-linenumber="116">
           <span class="hits">5</span>
           
           <code class="ruby">        elsif(@order.filter_freq == 0)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="121">
+        <li class="covered" data-hits="1" data-linenumber="117">
           <span class="hits">1</span>
           
           <code class="ruby">            sub_multiplier = 1</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="122">
+        <li class="never" data-hits="" data-linenumber="118">
           
           
           <code class="ruby">        else</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="123">
+        <li class="covered" data-hits="4" data-linenumber="119">
           <span class="hits">4</span>
           
           <code class="ruby">            sub_multiplier = @order.sub_freq / @order.filter_freq </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="124">
+        <li class="never" data-hits="" data-linenumber="120">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="125">
+        <li class="covered" data-hits="5" data-linenumber="121">
           <span class="hits">5</span>
           
           <code class="ruby">        valid_quantity = true</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="126">
+        <li class="covered" data-hits="5" data-linenumber="122">
           <span class="hits">5</span>
           
           <code class="ruby">        no_filter = true</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="127">
+        <li class="covered" data-hits="5" data-linenumber="123">
           <span class="hits">5</span>
           
           <code class="ruby">        mutated_value = &quot;&quot;</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="128">
+        <li class="covered" data-hits="5" data-linenumber="124">
           <span class="hits">5</span>
           
           <code class="ruby">            small_keys.each do |key|</code>
         </li>
       
-        <li class="covered" data-hits="109" data-linenumber="129">
+        <li class="covered" data-hits="109" data-linenumber="125">
           <span class="hits">109</span>
           
           <code class="ruby">                if(@order.attributes[key])</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="130">
+        <li class="covered" data-hits="5" data-linenumber="126">
           <span class="hits">5</span>
           
           <code class="ruby">                    mutated_value = @order.attributes[key].to_i.to_s</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="131">
+        <li class="covered" data-hits="5" data-linenumber="127">
           <span class="hits">5</span>
           
           <code class="ruby">                    if(mutated_value.to_i != @order.attributes[key] || @order.attributes[key] &lt; 0)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="128">
+          <span class="hits">1</span>
+          
+          <code class="ruby">                        valid_quantity = false</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="129">
+          <span class="hits">1</span>
+          
+          <code class="ruby">                        break </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="130">
+          
+          
+          <code class="ruby">                    end</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="131">
+          <span class="hits">4</span>
+          
+          <code class="ruby">                    if (@order.attributes[key] &gt; 1000)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="132">
@@ -2432,262 +2414,262 @@
           <code class="ruby">                        valid_quantity = false</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="133">
-          <span class="hits">1</span>
-          
-          <code class="ruby">                        break </code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="134">
-          
-          
-          <code class="ruby">                    end</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="135">
-          <span class="hits">4</span>
-          
-          <code class="ruby">                    if (@order.attributes[key] &gt; 1000)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="136">
-          <span class="hits">1</span>
-          
-          <code class="ruby">                        valid_quantity = false</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="137">
+        <li class="never" data-hits="" data-linenumber="133">
           
           
           <code class="ruby">                    end </code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="138">
+        <li class="covered" data-hits="4" data-linenumber="134">
           <span class="hits">4</span>
           
           <code class="ruby">                        no_filter = false</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="139">
+        <li class="never" data-hits="" data-linenumber="135">
           
           
           <code class="ruby">                        #puts @order.sub_freq</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="140">
+        <li class="covered" data-hits="4" data-linenumber="136">
           <span class="hits">4</span>
           
           <code class="ruby">                        total_price.push session[:price_hash][key]*@order.attributes[key]*sub_multiplier</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="141">
+        <li class="never" data-hits="" data-linenumber="137">
           
           
           <code class="ruby">                        #puts &quot;Sub multiplier&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="142">
+        <li class="never" data-hits="" data-linenumber="138">
           
           
           <code class="ruby">                        #puts sub_multiplier</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="143">
+        <li class="never" data-hits="" data-linenumber="139">
           
           
           <code class="ruby">                end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="144">
+        <li class="never" data-hits="" data-linenumber="140">
           
           
           <code class="ruby">            end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="145">
+        <li class="never" data-hits="" data-linenumber="141">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="146">
+        <li class="covered" data-hits="5" data-linenumber="142">
           <span class="hits">5</span>
           
           <code class="ruby">            if(valid_quantity == false)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="147">
+        <li class="covered" data-hits="2" data-linenumber="143">
           <span class="hits">2</span>
           
           <code class="ruby">                flash[:warning] = &quot;Please enter a valid quantity.&quot;</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="148">
+        <li class="covered" data-hits="2" data-linenumber="144">
           <span class="hits">2</span>
           
           <code class="ruby">                redirect_to &quot;/properties/add/#{@order.property}&quot;</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="149">
+        <li class="covered" data-hits="2" data-linenumber="145">
           <span class="hits">2</span>
           
           <code class="ruby">                return</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="150">
+        <li class="never" data-hits="" data-linenumber="146">
           
           
           <code class="ruby">            end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="151">
+        <li class="never" data-hits="" data-linenumber="147">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="152">
+        <li class="never" data-hits="" data-linenumber="148">
           
           
           <code class="ruby">        </code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="153">
+        <li class="covered" data-hits="3" data-linenumber="149">
           <span class="hits">3</span>
           
           <code class="ruby">        small_keys.each do |key|</code>
         </li>
       
-        <li class="covered" data-hits="51" data-linenumber="154">
+        <li class="covered" data-hits="51" data-linenumber="150">
           <span class="hits">51</span>
           
           <code class="ruby">            if(no_filter == true)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="155">
+        <li class="covered" data-hits="1" data-linenumber="151">
           <span class="hits">1</span>
           
           <code class="ruby">                flash[:warning] = &quot;Please select a filter to purchase.&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="156">
+        <li class="covered" data-hits="1" data-linenumber="152">
           <span class="hits">1</span>
           
           <code class="ruby">                redirect_to &quot;/properties/add/#{@order.property}&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="157">
+        <li class="covered" data-hits="1" data-linenumber="153">
           <span class="hits">1</span>
           
           <code class="ruby">                return</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="158">
+        <li class="never" data-hits="" data-linenumber="154">
           
           
           <code class="ruby">            end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="159">
+        <li class="never" data-hits="" data-linenumber="155">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="160">
+        <li class="never" data-hits="" data-linenumber="156">
           
           
           <code class="ruby">       </code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="161">
+        <li class="covered" data-hits="4" data-linenumber="157">
           <span class="hits">4</span>
           
           <code class="ruby">        @order.price = total_price.inject(0){|sum,x| sum + x }+7.00 #plus 7 is for shipping</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="162">
+        <li class="never" data-hits="" data-linenumber="158">
           
           
           <code class="ruby">        # puts @order.price</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="163">
+        <li class="never" data-hits="" data-linenumber="159">
           
           
           <code class="ruby">        # puts &quot;******************USERUSERUSERUSERUSERUSER*******************&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="164">
+        <li class="never" data-hits="" data-linenumber="160">
           
           
           <code class="ruby">        # puts @order.user</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="165">
+        <li class="never" data-hits="" data-linenumber="161">
           
           
           <code class="ruby">        # puts &quot;*************************************************************&quot;</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="166">
+        <li class="covered" data-hits="2" data-linenumber="162">
           <span class="hits">2</span>
           
           <code class="ruby">        session[:order] = @order</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="167">
+        <li class="covered" data-hits="2" data-linenumber="163">
           <span class="hits">2</span>
           
           <code class="ruby">        @order.next_ship_date = @order.start_date</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="168">
+        <li class="covered" data-hits="2" data-linenumber="164">
           <span class="hits">2</span>
           
           <code class="ruby">        redirect_to view_checkout_path(@order)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="169">
+        <li class="never" data-hits="" data-linenumber="165">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="170">
+        <li class="never" data-hits="" data-linenumber="166">
           
           
           <code class="ruby">    </code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="171">
+        <li class="covered" data-hits="2" data-linenumber="167">
           <span class="hits">2</span>
           
           <code class="ruby">    private</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="172">
+        <li class="covered" data-hits="2" data-linenumber="168">
           <span class="hits">2</span>
           
           <code class="ruby">        def order_params</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="173">
+        <li class="covered" data-hits="7" data-linenumber="169">
           <span class="hits">7</span>
           
           <code class="ruby">            params.require(:order).permit(:shipping_address, :filter_freq, :price, :tenant_name, :tenant_email, :property, :start_date,:order_status, :size10b20, :size14b20, :size16b24,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="174">
+        <li class="never" data-hits="" data-linenumber="170">
           
           
           <code class="ruby">                :size18b30, :size12b12, :size14b24, :size16b25, :size20b20, :size12b20, :size14b25, :size18b18, :size20b24, :size12b24, :size14b30, :size18b20,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="175">
+        <li class="never" data-hits="" data-linenumber="171">
           
           
           <code class="ruby">                :size20b25, :size12b30, :size15b20, :size18b24, :size20b30, :size12b36, :size16b20, :size18b25, :size24b24, :size25b25, :user, :sent_date, :delivered_date, :sub_freq, :next_ship_date)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="172">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="173">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="174">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        def sortable_columns</code>
+        </li>
+      
+        <li class="covered" data-hits="15" data-linenumber="175">
+          <span class="hits">15</span>
+          
+          <code class="ruby">          [&quot;tenant_name&quot;, &quot;shipping_address&quot;]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="176">
@@ -2699,19 +2681,19 @@
         <li class="never" data-hits="" data-linenumber="177">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">      </code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="178">
           <span class="hits">2</span>
           
-          <code class="ruby">        def sortable_columns</code>
+          <code class="ruby">        def sort_column</code>
         </li>
       
         <li class="covered" data-hits="15" data-linenumber="179">
           <span class="hits">15</span>
           
-          <code class="ruby">          [&quot;tenant_name&quot;, &quot;shipping_address&quot;]</code>
+          <code class="ruby">          sortable_columns.include?(params[:column]) ? params[:column] : &quot;tenant_name&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="180">
@@ -2729,13 +2711,13 @@
         <li class="covered" data-hits="2" data-linenumber="182">
           <span class="hits">2</span>
           
-          <code class="ruby">        def sort_column</code>
+          <code class="ruby">        def sort_direction</code>
         </li>
       
-        <li class="covered" data-hits="15" data-linenumber="183">
-          <span class="hits">15</span>
+        <li class="covered" data-hits="12" data-linenumber="183">
+          <span class="hits">12</span>
           
-          <code class="ruby">          sortable_columns.include?(params[:column]) ? params[:column] : &quot;tenant_name&quot;</code>
+          <code class="ruby">          %w[asc desc].include?(params[:direction]) ? params[:direction] : &quot;asc&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="184">
@@ -2745,30 +2727,6 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="185">
-          
-          
-          <code class="ruby">      </code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="186">
-          <span class="hits">2</span>
-          
-          <code class="ruby">        def sort_direction</code>
-        </li>
-      
-        <li class="covered" data-hits="12" data-linenumber="187">
-          <span class="hits">12</span>
-          
-          <code class="ruby">          %w[asc desc].include?(params[:direction]) ? params[:direction] : &quot;asc&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="188">
-          
-          
-          <code class="ruby">        end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="189">
           
           
           <code class="ruby">end</code>
