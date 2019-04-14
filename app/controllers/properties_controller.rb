@@ -23,8 +23,12 @@ class PropertiesController < ApplicationController
      redirect_to dash_path
   end 
   
-  def edit 
-    @property = Property.find params[:id]
+  def edit
+    if !Property.exists?(id: params[:id])
+      render :file => "#{Rails.root}/public/404.html",  layout: false, status: :not_found
+    else
+      @property = Property.find params[:id]
+    end 
   end
   
   def update
