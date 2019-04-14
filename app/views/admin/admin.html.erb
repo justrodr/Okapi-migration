@@ -22,6 +22,7 @@
                 </thead>
                 <tbody>
                     <% @all_orders.each do |order| %>
+                        <% if order.canceled == false %>
                     
                         <tr>
                             <%if(Property.find_by(id: order.property))%>
@@ -76,7 +77,8 @@
                             
                             
                             </td>
-                        </tr>    
+                        </tr>   
+                        <% end %>
                     <% end %>
                 </tbody>
             </table>
