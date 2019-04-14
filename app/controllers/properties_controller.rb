@@ -6,6 +6,8 @@ class PropertiesController < ApplicationController
   # def index #TODO if needed
   #   @properties = Property.paginate(:page=>params[:page], :per_page: 5)
   # end
+  def error
+  end
 
   def show
     @property = Property.find params[:id]
@@ -35,10 +37,12 @@ class PropertiesController < ApplicationController
     @property = Property.find params[:property][:id]
      if(@property.update_attributes(prop_params))
         # flash[:notice] = "#{@property.prop_name} was successfully updated."
+        redirect_to dash_path
      else
-       #flash[:notice] = "Please enter a valid property"
+       flash[:warning] = @property.errors.full_messages.to_sentence
+       redirect_to edit_property_path(@property)
      end
-     redirect_to dash_path
+
   end
 
   def create(property = nil)
@@ -48,9 +52,10 @@ class PropertiesController < ApplicationController
      @property.user = @current_user.id
     end
 
-    if(Property.find_by(address: @property.address))
-      redirect_to dash_path
+    same_prop = Property.find_by(address: @property.address)
+    if(same_prop && same_prop.city == @property.city && same_prop.zipcode == @property.zipcode && same_prop.state == @property.state)
       flash[:danger] = "Property already Exists"
+      redirect_to dash_path
       return
     end
 
