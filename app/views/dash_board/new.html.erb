@@ -35,7 +35,7 @@ $(document).ready(function(){
 <body>
 <!-- Page Content -->
 <div class="d-flex" id="wrapper">
-<%= render 'shared/navbar' if session[:log] == 1%>
+<%= render 'shared/navbar'%>
     <div id="page-content-wrapper">
       <div class="container-fluid">
         <div class="container">
@@ -214,13 +214,13 @@ $(document).ready(function(){
 
 					<div class="modal-body">					
 						<%= form_for(@property, url: properties_path) do |f| %>
-							<%= f.text_field :address, class: "form-control", placeholder: "Property Address", required: true%> 
+							<%= f.text_field :address, class: "form-control", placeholder: "Property Address", required: true, autocomplete: "off"%> 
 							<%= f.text_field :city, class: "form-control", placeholder: "City", required: true%> 
 							<%= f.text_field :state, class: "form-control", placeholder: "State", required: true%> 
 							<%= f.text_field :zipcode, class: "form-control", placeholder: "Zip Code", required: true%> 
 							<hr>
 							<%= f.text_field :tenant_name, class: "form-control", placeholder: "Tenant Name", required: true%> 
-							<%= f.text_field :tenant_email, class: "form-control", placeholder: "Tenant Email", required: true%> 
+							<%= f.email_field :tenant_email, class: "form-control", placeholder: "Tenant Email", required: true%> 
 							<%= f.text_field :prop_name, class: "form-control", placeholder: "Property Name (Optional)", required: false%> 
 							<!--<%= f.text_field :frequency, class: "form-control", placeholder: "Air Filter Delivery Frequency (Months)(Optional)", required: false%> -->
 

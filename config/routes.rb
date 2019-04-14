@@ -19,4 +19,7 @@ Rails.application.routes.draw do
   resources:properties
   resources :authentications, only: [:destroy]
 
+  # match ':not_found' => 'properties#error',
+  # :constraints => { :not_found => /.*/ }, :via => :get
+
 end
