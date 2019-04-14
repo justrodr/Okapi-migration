@@ -71,6 +71,9 @@ class PropertiesController < ApplicationController
   end
 
   def add
+    if !Property.exists?(id: params[:id])
+      render "properties/error",  layout: false, status: :not_found
+    end
   end
 
   private 
