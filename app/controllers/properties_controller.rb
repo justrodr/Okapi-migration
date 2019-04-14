@@ -73,17 +73,17 @@ class PropertiesController < ApplicationController
         return    
     end
     
-    if !(@property.city =~ /[a-zA-Z]/) || @property.city.length > 40
+    if !(@property.city =~ /\w*[a-zA-Z]\w*/) || @property.city.length > 40
         flash[:warning] = "Please enter a valid city"
         redirect_to edit_property_path(@property)
         return    
     end
-    if @property.prop_name != "" && !(@property.prop_name =~ /[a-zA-Z]/) || @property.prop_name.length > 40
+    if @property.prop_name != "" && @property.prop_name.length > 40
         flash[:warning] = "Please enter a valid property name"
         redirect_to edit_property_path(@property)
         return    
     end
-    if !(@property.tenant_name =~ /[0-9a-zA-Z]/) || @property.tenant_name.length > 40
+    if !(@property.tenant_name =~ /\w*[a-zA-Z]\w*/) || @property.tenant_name.length > 40
         flash[:warning] = "Please enter a valid tenant name"
         redirect_to edit_property_path(@property)
         return    
@@ -145,12 +145,12 @@ class PropertiesController < ApplicationController
         redirect_to dash_path
         return    
     end
-    if @property && (!(@property.tenant_name =~ /[0-9a-zA-Z]/) || @property.tenant_name.length > 40)
+    if @property && (!(@property.tenant_name =~ /\w*[a-zA-Z]\w*/) || @property.tenant_name.length > 40)
         flash[:warning] = "Please enter a valid tenant name"
         redirect_to dash_path
         return    
     end
-    if @property.prop_name != "" && !(@property.prop_name =~ /[a-zA-Z]/) || @property.prop_name.length > 40
+    if @property.prop_name != "" && @property.prop_name.length > 40
         flash[:warning] = "Please enter a valid property name"
         redirect_to dash_path
         return    
