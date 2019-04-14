@@ -27,7 +27,7 @@ class PropertiesController < ApplicationController
   
   def edit
     if !Property.exists?(id: params[:id])
-      render :file => "#{Rails.root}/public/404.html",  layout: false, status: :not_found
+      render "properties/error",  layout: false, status: :not_found
     else
       @property = Property.find params[:id]
     end 
