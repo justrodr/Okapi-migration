@@ -50,7 +50,7 @@ class PropertiesController < ApplicationController
     @property.state = params[:property][:state]
     @property.prop_name = params[:property][:prop_name]
     @property.tenant_name = params[:property][:tenant_name]
-    if(!((@property.tenant_phone =~ /\d{3}-\d{3}-\d{4}/) || (@property.tenant_phone =~ /\b\d{10}\b/)))
+    if @property.tenant_phone != "" && (!((@property.tenant_phone =~ /\d{3}-\d{3}-\d{4}/) || (@property.tenant_phone =~ /\b\d{10}\b/)))
         flash[:warning] = "Please enter a valid phone number"
         redirect_to edit_property_path(@property)
         return
@@ -78,7 +78,7 @@ class PropertiesController < ApplicationController
         redirect_to edit_property_path(@property)
         return    
     end
-    if !(@property.prop_name =~ /[a-zA-Z]/) || @property.prop_name.length > 40
+    if @property.prop_name != "" && !(@property.prop_name =~ /[a-zA-Z]/) || @property.prop_name.length > 40
         flash[:warning] = "Please enter a valid property name"
         redirect_to edit_property_path(@property)
         return    
@@ -150,7 +150,11 @@ class PropertiesController < ApplicationController
         redirect_to dash_path
         return    
     end
-
+    if @property.prop_name != "" && !(@property.prop_name =~ /[a-zA-Z]/) || @property.prop_name.length > 40
+        flash[:warning] = "Please enter a valid property name"
+        redirect_to dash_path
+        return    
+    end
 
     if(@property.save)
       session[:test] = @property.user
