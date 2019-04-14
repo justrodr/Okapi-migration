@@ -1,6 +1,7 @@
 require 'paypal-checkout-sdk'
 include ActionView::Helpers::NumberHelper
 class OrderController < ApplicationController
+    before_action :authenticate_user!
     skip_before_action :verify_authenticity_token
     helper_method :sort_column, :sort_direction
     
