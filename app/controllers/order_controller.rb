@@ -135,6 +135,9 @@ class OrderController < ApplicationController
                     if(mutated_value != @order.attributes[key] || @order.attributes[key] < 0)
                         valid_quantity = false
                         break 
+                    end
+                    if (@order.attributes[key] > 1000)
+                        valid_quantity = false
                     end 
                         no_filter = false
                         puts @order.sub_freq
