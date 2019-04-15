@@ -91,9 +91,6 @@ class PropertiesController < ApplicationController
      if(@property.update_attributes(prop_params))
         # flash[:notice] = "#{@property.prop_name} was successfully updated."
         redirect_to dash_path
-     else
-       flash[:warning] = @property.errors.full_messages.to_sentence
-       redirect_to edit_property_path(@property)
      end
 
   end
@@ -140,7 +137,7 @@ class PropertiesController < ApplicationController
         return    
     end
     
-    if !(@property.city =~ /[a-zA-Z]/) || @property.city.length > 40
+    if !(@property.city =~ /\w*[a-zA-Z]\w*/) || @property.city.length > 40
         flash[:warning] = "Please enter a valid city"
         redirect_to dash_path
         return    
@@ -166,6 +163,8 @@ class PropertiesController < ApplicationController
       redirect_to dash_path ###FIXME
     end
   end
+  
+
 
   def add
     if !Property.exists?(id: params[:id])
