@@ -52,7 +52,7 @@ class OrderController < ApplicationController
         #puts number
 
         #SubscriptionMailer.remind_email(@user1, prop1).deliver_later(wait_until: 1.minutes.from_now)
-       
+        SubscriptionMailer.remind_email(@user1, prop1).deliver_later(wait_until: (number.month - 1.weeks).from_now)
         #redirect_to orders_page_path
     end
     
