@@ -163,6 +163,8 @@ class PropertiesController < ApplicationController
       redirect_to dash_path ###FIXME
     end
   end
+  
+
 
   def add
     if !Property.exists?(id: params[:id])
