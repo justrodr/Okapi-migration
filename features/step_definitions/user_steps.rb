@@ -69,6 +69,9 @@ Given("I am on the home page") do
   end
 
 
+  Then("I should be on the Privacy Policy page") do
+    assert page.current_path, privacy_path
+  end
 
   
 

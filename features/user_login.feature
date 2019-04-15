@@ -14,6 +14,12 @@ Background: users in database
         Given I am on the home page
         When I click on "Create Account" 
         Then I want to be taken to the create account page
+
+
+    Scenario: Viewing Privacy Policy
+        Given I am on the home page
+        When I click on "Privacy policy"
+        Then I should be on the Privacy Policy page
     
     Scenario: Login to account
         Given I am on the home page
