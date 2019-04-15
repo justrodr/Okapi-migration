@@ -145,4 +145,14 @@ class PropertiesControllerTest < ActionController::TestCase
       put :update, :id => 1,:property =>{"tenant_name"=>"Hunter Hewitt", "tenant_phone"=>"111", "tenant_email"=>"hunterhewit@ttamu.edu", "prop_name"=>"11111111111111111111111111", "address"=>"22 Holleman St", "city"=>"katy", "state"=>"TX", "zipcode"=>"77494", "id"=>"1"}
       assert_redirected_to edit_property_path(1)
    end
+   
+   test "post edit should not property" do
+      post :edit, :id => 8000
+     assert_template "properties/error"
+   end
+   
+   test "post add should not  add property" do
+      post :add, :id => 8000
+     assert_template "properties/error"
+   end
 end

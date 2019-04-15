@@ -29,7 +29,11 @@ class DashBoardControllerTest < ActionController::TestCase
      assert_response :success
    end
    
-
+   test "should get admin" do
+     controller = @controller
+     controller.session[:email] = users(:three).email
+     get :splash
+   end
    
    test "user should not be nil" do
     controller = @controller
