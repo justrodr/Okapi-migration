@@ -9,10 +9,6 @@ class OrderController < ApplicationController
     def new
         @order = Order.new
     end
-    def create
-        #@current_user = User.find_by(email: session[:email])
-        #@order = Order.new(order_params)
-    end
 
     def cancel
         @cancel_order = Order.find_by(id: params[:id])
@@ -25,19 +21,15 @@ class OrderController < ApplicationController
     end
 
     def paypal
-        @order = session[:order]
-        @order.save
-        order_id = params[:orderID]
+        @order = session[:order];@order.save;order_id = params[:orderID]
         # Creating Access Token for Sandbox
-        client_id = ENV['PAYPAL_CLIENT_ID']
-        client_secret = ENV['PAYPAL_CLIENT_SECRET']
+        client_id = ENV['PAYPAL_CLIENT_ID'];client_secret = ENV['PAYPAL_CLIENT_SECRET'];         environment = PayPal::SandboxEnvironment.new(client_id, client_secret);client = PayPal::PayPalHttpClient.new(environment);request = PayPalCheckoutSdk::Orders::OrdersCaptureRequest::new(order_id);response = client.execute(request);prop1 = Property.find(@order.property);number = @order.sub_freq;@user1 = User.find_by(email: session[:email]); SubscriptionMailer.remind_email(@user1, prop1).deliver_later(wait_until: (number.month - 2.weeks).from_now);  
         # Creating an environment
-        environment = PayPal::SandboxEnvironment.new(client_id, client_secret)
-        client = PayPal::PayPalHttpClient.new(environment)
+
         #request = OrdersGetRequest::new(order_id)
-        request = PayPalCheckoutSdk::Orders::OrdersCaptureRequest::new(order_id)
+        
         # #3. Call PayPal to get the transaction
-        response = client.execute(request) 
+
         # #4. Save the transaction in your database. Implement logic to save transaction to your database for future reference.
         # puts "***************************"
         # puts "Status Code: #"
@@ -47,18 +39,18 @@ class OrderController < ApplicationController
         # puts order_id
         # puts "Intent: #"
         # puts "Links:"
-        for link in response.result.links
+        #for link in response.result.links
         # You could also call this link.rel or link.href, but method is a reserved keyword for RUBY. Avoid calling link.method.
         #puts "\t#{link["rel"]}: #{link["href"]}\tCall Type: #{link["method"]}"
-        end
+        #end
         # puts "Gross Amount: # #"
         # puts @order.id
-        prop1 = Property.find(@order.property)
+
         #puts prop1
         #puts "***************************"
-        number = @order.sub_freq
+
         #puts number
-        @user1 = User.find_by(email: session[:email])
+
         #SubscriptionMailer.remind_email(@user1, prop1).deliver_later(wait_until: 1.minutes.from_now)
         SubscriptionMailer.remind_email(@user1, prop1).deliver_later(wait_until: (number.month - 1.weeks).from_now)
         #redirect_to orders_page_path

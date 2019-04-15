@@ -22,11 +22,7 @@ class DashBoardController < ApplicationController
     def payment
     end
     
-    def update_sent    
-          @order_sent = Order.find params[:order][:id]
-          @order_sent.update(sent_date: params[:order][:sent_date])
-          redirect_to admin_path
-    end
+
     
     # def orders
     # end
@@ -40,8 +36,7 @@ class DashBoardController < ApplicationController
             @user = User.find_by(email: session[:email]) #why does first id make this nil in cucumber test
             puts session[:email]
             if @user.first_name.nil?	
-                flash[:notice] = "Enter your first and last name. Do not enter any passwords"	
-                redirect_to edit_user_registration_path	
+                flash[:notice] = "Enter your first and last name. Do not enter any passwords"; redirect_to edit_user_registration_path	
             end
             puts "())()()()()()()()()()()()()()()("
             puts Property.where(user: User.find_by(email: session[:email])).size
