@@ -45,6 +45,7 @@ gem 'omniauth-facebook'
 #Paypal SDK
 gem 'paypal-checkout-sdk'
 
+
 #To schedule things
 gem 'delayed_job_active_record'
 gem 'daemons'
@@ -78,6 +79,9 @@ group :development do
   gem 'web-console', '~> 2.0'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.3.13'
+  #Bug hunting
+  gem 'rubocop', '~> 0.67.2', require: false
+  gem "brakeman"
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

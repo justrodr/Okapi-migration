@@ -1,7 +1,13 @@
 class AdminController < ApplicationController
+  before_filter :authenticate_user!
     def admin
-         @all_orders = Order.where(canceled: false)
-         @order = Order.find_by_id(1)
+         @user = User.find_by(email: session[:email])
+         if (!@user.admin)
+          redirect_to dash_path
+         else
+          @all_orders = Order.where(canceled: false)
+          @order = Order.find_by_id(1)
+         end
     end
      
     def edit_order
