@@ -285,6 +285,7 @@ DEPENDENCIES
   bcrypt (= 3.1.12)
   bootstrap (~> 4.3, >= 4.3.1)
   bootstrap-datepicker-rails
+  bundler (= 1.17.1)
   byebug
   capybara
   coffee-rails (~> 4.1.0)
@@ -313,4 +314,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.16.6
+   1.17.1
