@@ -26,10 +26,10 @@ Background: properties in database
             When I click on "Subscriptions"
             Then I should be on the Subscriptions page
 
-        Scenario: Viewing the Add Subscription page
-            Given I am on the Dashboard page for Jane Doe
-            When I click on "add123 Bob st"
-            Then I should be on the Add Subscription page
+        # Scenario: Viewing the Add Subscription page
+        #     Given I am on the Dashboard page for Jane Doe
+        #     When I click on "add123 Bob st"
+        #     Then I should be on the Add Subscription page
 
         Scenario: Admin login 
             When I am on the login page
